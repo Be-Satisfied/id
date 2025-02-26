@@ -14,11 +14,11 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "footer_logo": "shopify://shop_images/Logo_380beb50-e669-42c8-9cc8-9430e3e99914.png",
         "logo_max_width": 160,
-        "footer_description": "<p>Deeper Network Philippines</p>",
-        "footer_linklist": "products",
-        "footer_second_linklist": "policy",
+        "footer_description": "",
+        "footer_linklist": "footer",
+        "policy_menu": "",
+        "footer_second_linklist": "",
         "width": "wrapper",
         "padding_top": 64,
         "padding_bottom": 64
