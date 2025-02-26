@@ -17,14 +17,13 @@
         "enable_header_sticky": true,
         "header_style": "logo_beside",
         "full_width": false,
-        "logo": "shopify://shop_images/Logo.png",
+        "logo": "shopify://shop_images/Logo_38694fb2-2aa4-415a-921b-9b9e5f10420c.png",
         "logo_max_limit": 120,
         "main_menu_linklist": "main-menu",
         "enable_search": true,
         "enable_account": true,
         "transparent_home": true,
-        "transparent_collection": true,
-        "transparent_logo": "shopify://shop_images/Logo.png"
+        "transparent_collection": true
       }
     }
   },
