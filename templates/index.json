@@ -171,6 +171,22 @@
         "padding_bottom": 36
       }
     },
+    "section_collection_bBg3x6": {
+      "type": "section-collection",
+      "settings": {
+        "title": "Featured Products",
+        "description": "",
+        "collection": "bundle-deals",
+        "grid": 4,
+        "limit": 8,
+        "enable_slider": true,
+        "color_bg": "palette--light bg--neutral",
+        "show_view_all": false,
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "default-split-collection": {
       "type": "section-collection-split",
       "blocks": {
@@ -529,6 +545,7 @@
     "default-banner",
     "default-collection-grid",
     "default-collection",
+    "section_collection_bBg3x6",
     "default-split-collection",
     "default-second-split-collection",
     "default-press",
