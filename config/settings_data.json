@@ -42,7 +42,7 @@
     "radius_images": "square",
     "radius_buttons": "pill",
     "decoration_style": "decoration-none",
-    "parallax_enable": false,
+    "parallax_enable": true,
     "cart_shipping_enable": true,
     "cart_notes_enable": true,
     "cart_continue_browsing": "shopify://collections/all",
