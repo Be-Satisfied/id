@@ -1,5 +1,4 @@
 /*
-<<<<<<< HEAD
 * ------------------------------------------------------------
 * IMPORTANT: The contents of this file are auto-generated.
 *
@@ -30,59 +29,10 @@
             "button_size": "btn--large",
             "button_style": "hero__btn btn",
             "button_color": "btn--neutral"
-=======
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
-{
-  "sections": {
-    "default-banner": {
-      "type": "section-hero",
-      "blocks": {
-        "banner-heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>Story Theme</p>",
-            "text_size": 10
-          }
-        },
-        "banner-text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A powerful theme built for modern commerce.</p>",
-            "text_size": 5,
-            "text_columns": 1
-          }
-        },
-        "banner-button": {
-          "type": "button",
-          "settings": {
-            "button_text": "View Products",
-            "button_url": "shopify://collections/all",
-            "button_size": "btn--large",
-            "button_style": "hero__btn btn",
-            "button_color": "btn--white"
-          }
-        },
-        "banner-more": {
-          "type": "button",
-          "settings": {
-            "button_text": "Learn More",
-            "button_url": "shopify://pages/contact-us",
-            "button_size": "btn--large",
-            "button_style": "text-link",
-            "button_color": "btn--white"
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
           }
         }
       },
       "block_order": [
-<<<<<<< HEAD
         "image_i6qcfc"
       ],
       "settings": {
@@ -90,27 +40,11 @@
         "autoplay_speed": 8,
         "dots_position": "dots--center",
         "height": "use_screen_full",
-=======
-        "banner-heading",
-        "banner-text",
-        "banner-button",
-        "banner-more"
-      ],
-      "settings": {
-        "height": "use_screen_three_quarters",
-        "overlay_opacity": 0,
-        "overlay_color": "#181929",
-        "flex_align": "align--middle-center",
-        "align_text": "text-center",
-        "color": "text--white",
-        "color_bg": "hero__content--transparent",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
         "width": "wrapper--none",
         "padding_top": 0,
         "padding_bottom": 0
       }
     },
-<<<<<<< HEAD
     "section_new_featured_products_rgJF8b": {
       "type": "section-new-featured-products",
       "settings": {
@@ -146,70 +80,10 @@
             "product": "deeper-connect-wi-fi-adapter-usb-a",
             "custom_image": "shopify://shop_images/usb-a.png",
             "custom_description": "Applicable to Deeper Connect Pico Lite"
-=======
-    "default-collection": {
-      "type": "section-collection",
-      "settings": {
-        "title": "Featured Products",
-        "description": "",
-        "collection": "products",
-        "grid": 2,
-        "limit": 4,
-        "enable_slider": true,
-        "color_bg": "palette--light bg--neutral",
-        "show_view_all": false,
-        "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "section_collection_bBg3x6": {
-      "type": "section-collection",
-      "settings": {
-        "title": "Bundle deals",
-        "description": "",
-        "collection": "bundle-deals",
-        "grid": 3,
-        "limit": 8,
-        "enable_slider": true,
-        "color_bg": "palette--light bg--neutral",
-        "show_view_all": false,
-        "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "default-split-collection": {
-      "type": "section-collection-split",
-      "blocks": {
-        "default-first-split-block-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>Split collection</p>",
-            "text_size": 10
-          }
-        },
-        "default-first-split-block-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Shop the look with some of our favorite products</p>",
-            "text_size": 6
-          }
-        },
-        "default-first-split-block-2": {
-          "type": "button",
-          "settings": {
-            "button_text": "Learn More",
-            "button_url": "",
-            "button_size": "btn--large",
-            "button_style": "hero__btn btn",
-            "button_color": "btn--white"
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
           }
         }
       },
       "block_order": [
-<<<<<<< HEAD
         "product_wqFetN",
         "product_wf8Aet"
       ],
@@ -266,316 +140,10 @@
           "settings": {
             "title": "How does DPN's ad-filtering experience differ from browser ad-filtering plugins?",
             "content": "<p>DPN's ad-filtering experience differs from browser plugins in the following ways:</p><p>Resistance to countermeasures: Browser plugins are more susceptible to website countermeasures. For instance, sites like YouTube frequently update their recognition codes against browser filtering plugins to prevent ad filtering. DPN's ad filtering, based on underlying traffic filtering, can evade such countermeasures, providing a more stable ad-filtering effect.</p><p>Cross-platform capability: Browser plugins usually only run on PC browsers and cannot be used across platforms. In contrast, DPN's ad-filtering functionality can run on multiple platforms including iOS, Windows, Mac OS, Android, TV OS, Linux, etc. This allows DPN to effectively filter ads in popular applications like YouTube and Spotify.</p><p>Friendly Reminder: To use DPN's ad-filtering feature, it's necessary to install Deeper Network's SSL root certificate on the terminal device, enabling Deeper Connect to modify underlying traffic.</p>"
-=======
-        "default-first-split-block-0",
-        "default-first-split-block-1",
-        "default-first-split-block-2"
-      ],
-      "settings": {
-        "collection": "",
-        "product_list": [],
-        "sticky_image_enable": false,
-        "swap": false,
-        "overlay_opacity": 30,
-        "overlay_color": "#181929",
-        "grid_large": 2,
-        "grid_small": 1.5,
-        "limit": 4,
-        "bg": "palette--light bg--neutral",
-        "video_link_bg": "",
-        "object_position": "center-center",
-        "flex_align": "align--middle-center",
-        "align_text": "text-center",
-        "color": "text--white",
-        "width": "wrapper",
-        "padding_top": 12,
-        "padding_bottom": 12
-      }
-    },
-    "default-second-split-collection": {
-      "type": "section-collection-split",
-      "blocks": {
-        "default-second-split-block-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>Split collection</p>",
-            "text_size": 10
-          }
-        },
-        "default-second-split-block-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Shop the look with some of our favorite products</p>",
-            "text_size": 6
-          }
-        },
-        "default-second-split-block-2": {
-          "type": "button",
-          "settings": {
-            "button_text": "Learn More",
-            "button_url": "",
-            "button_size": "btn--large",
-            "button_style": "hero__btn btn",
-            "button_color": "btn--white"
           }
         }
       },
       "block_order": [
-        "default-second-split-block-0",
-        "default-second-split-block-1",
-        "default-second-split-block-2"
-      ],
-      "settings": {
-        "collection": "",
-        "product_list": [],
-        "sticky_image_enable": false,
-        "swap": true,
-        "overlay_opacity": 30,
-        "overlay_color": "#181929",
-        "grid_large": 2,
-        "grid_small": 1.5,
-        "limit": 4,
-        "bg": "palette--light bg--neutral",
-        "video_link_bg": "",
-        "object_position": "center-center",
-        "flex_align": "align--middle-center",
-        "align_text": "text-center",
-        "color": "text--white",
-        "width": "wrapper",
-        "padding_top": 12,
-        "padding_bottom": 48
-      }
-    },
-    "default-press": {
-      "type": "section-press",
-      "blocks": {
-        "press-block-0": {
-          "type": "quote",
-          "settings": {
-            "title": "<p>This is the first time I have reviewed a product in a long time and I have to say, it's well deserved.  I'm not sure how I got by before I use this constantly.  Solid five stars from me, I am a huge fan!</p>",
-            "image_max_limit": 140,
-            "image_padding": 40
-          }
-        },
-        "press-block-1": {
-          "type": "quote",
-          "settings": {
-            "title": "<p>I've been hesitant to review products before, but this one is an exception. It has made a significant impact on my life, and I can't imagine going without it. Easily a five-star product!</p>",
-            "image_max_limit": 140,
-            "image_padding": 40
-          }
-        },
-        "press-block-2": {
-          "type": "quote",
-          "settings": {
-            "title": "<p>I rarely write reviews, but this product truly blew me away. It's become an essential part of my daily routine and I have absolutely no regrets, five stars for the team all the way!</p>",
-            "image_max_limit": 140,
-            "image_padding": 40
-          }
-        }
-      },
-      "block_order": [
-        "press-block-0",
-        "press-block-1",
-        "press-block-2"
-      ],
-      "settings": {
-        "bg": "palette--light bg--neutral",
-        "inner_bg": "palette--light bg--accent",
-        "text_size": 8,
-        "font_type": "font-heading",
-        "width": "wrapper",
-        "padding_top": 10,
-        "padding_bottom": 24
-      }
-    },
-    "default-mosaic": {
-      "type": "section-mosaic",
-      "blocks": {
-        "mosaic_index_block-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "text": "",
-            "link_override": "",
-            "content_color": "#333333",
-            "content_bg": "#f7f7f7"
-          }
-        },
-        "mosaic_index_block-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "text": "",
-            "link_override": "",
-            "content_color": "#333333",
-            "content_bg": "#f7f7f7"
-          }
-        },
-        "mosaic_index_block-2": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "text": "",
-            "link_override": "",
-            "content_color": "#333333",
-            "content_bg": "#f7f7f7"
-          }
-        }
-      },
-      "block_order": [
-        "mosaic_index_block-0",
-        "mosaic_index_block-1",
-        "mosaic_index_block-2"
-      ],
-      "settings": {
-        "title": "",
-        "description": "",
-        "color_bg": "palette--light bg--neutral",
-        "aspect_ratio": 0.6,
-        "place_text": "flex-column",
-        "align_text": "text-center",
-        "use_font": "font-heading",
-        "width": "wrapper",
-        "padding_top": 0,
-        "padding_bottom": 36
-      }
-    },
-    "default-blog": {
-      "type": "section-blog",
-      "settings": {
-        "title": "News",
-        "index_blog": "",
-        "limit": 6,
-        "grid": 3,
-        "aspect_ratio": 1,
-        "show_meta": true,
-        "show_excerpt": false,
-        "show_tags": false,
-        "show_view_all": false,
-        "color_bg": "palette--light bg--neutral",
-        "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "default-rte-social": {
-      "type": "section-text",
-      "blocks": {
-        "main-index_default-rte-social-kicker-1": {
-          "type": "kicker",
-          "settings": {
-            "kicker": "<p><a href=\"https://www.instagram.com/groupthought/\" target=\"_blank\" title=\"Instagram link\">@social_handle</a></p>",
-            "enable_caps": true,
-            "text_size": 1
-          }
-        },
-        "main-index_default-rte-social-heading-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>Stay in touch</p>",
-            "text_size": 6
-          }
-        }
-      },
-      "block_order": [
-        "main-index_default-rte-social-kicker-1",
-        "main-index_default-rte-social-heading-1"
-      ],
-      "settings": {
-        "align_text": "text-left",
-        "color_bg": "palette--light bg--neutral",
-        "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 0
-      }
-    },
-    "default-gallery-social": {
-      "type": "section-gallery",
-      "blocks": {
-        "main-index_default-gallery-social-image-1": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "main-index_default-gallery-social-image-2": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "main-index_default-gallery-social-image-3": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "main-index_default-gallery-social-image-4": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "main-index_default-gallery-social-image-5": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "main-index_default-gallery-social-image-1",
-        "main-index_default-gallery-social-image-2",
-        "main-index_default-gallery-social-image-3",
-        "main-index_default-gallery-social-image-4",
-        "main-index_default-gallery-social-image-5"
-      ],
-      "settings": {
-        "scale_image": true,
-        "aspect_ratio": 1,
-        "padding": true,
-        "bg": "palette--light bg--neutral",
-        "width": "wrapper",
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
-    "default-accordion-group": {
-      "type": "section-accordion",
-      "blocks": {
-        "accordion-block-1": {
-          "type": "text",
-          "settings": {
-            "title": "Our policy for returns and refunds",
-            "content": "<p>Our customers' satisfaction is our number one priority.</p><p>We offer a full refund when the product has not been opened and is unused and a partial refund when the packaging can not be accounted for.</p><p>Please note that customers will be responsible for shipping costs.</p><p>Any returns must be in the original packaging with proof of purchase.</p>"
-          }
-        },
-        "accordion-block-2": {
-          "type": "text",
-          "settings": {
-            "title": "Our commitment to payment security",
-            "content": "<p>All direct payment gateways adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, MasterCard, American Express, and Discover.</p>"
-          }
-        },
-        "accordion-block-3": {
-          "type": "text",
-          "settings": {
-            "title": "Product delivery times",
-            "content": "<p>Standard delivery usually takes around 7 business days. Please note that with the state of the global pandemic, orders may arrive later than usual.</p><p>If your order hasn't arrived after two weeks, please contact us and we will look into the details.</p>"
-          }
-        },
-        "accordion-block-4": {
-          "type": "text",
-          "settings": {
-            "title": "Our warranty policy",
-            "content": "<p>Products under warranty should be handled with care.</p><p>If the products arrive with visible defects, please take photos of them and send them our way. We will reach back out to clear up all the details.</p>"
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
-          }
-        }
-      },
-      "block_order": [
-<<<<<<< HEAD
         "text_jRWDib",
         "text_47qAmd",
         "text_Y8DHnd",
@@ -584,53 +152,23 @@
       ],
       "settings": {
         "title": "Frequently Asked Questions",
-=======
-        "accordion-block-1",
-        "accordion-block-2",
-        "accordion-block-3",
-        "accordion-block-4"
-      ],
-      "settings": {
-        "title": "A few things you might be wondering",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
         "align_text": "text-center",
         "text_size": 2,
         "text_color": "text--neutral",
         "bg": "palette--light bg--neutral",
-<<<<<<< HEAD
         "height": "use_screen_full",
         "width": "wrapper",
         "padding_top": 100,
         "padding_bottom": 100
-=======
-        "height": "use_pixels_500",
-        "width": "wrapper--narrow",
-        "padding_top": 36,
-        "padding_bottom": 36
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       }
     }
   },
   "order": [
-<<<<<<< HEAD
     "section_slideshow_G6kW3p",
     "section_new_featured_products_rgJF8b",
     "section_versatile_usage_scenarios_RXP9AG",
     "section_you_might_like_iPpPMU",
     "2024_plug_and_play_h4cccR",
     "section_accordion_8rmeAU"
-=======
-    "default-banner",
-    "default-collection",
-    "section_collection_bBg3x6",
-    "default-split-collection",
-    "default-second-split-collection",
-    "default-press",
-    "default-mosaic",
-    "default-blog",
-    "default-rte-social",
-    "default-gallery-social",
-    "default-accordion-group"
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
   ]
 }

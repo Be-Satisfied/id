@@ -1,5 +1,4 @@
 /*
-<<<<<<< HEAD
 * ------------------------------------------------------------
 * IMPORTANT: The contents of this file are auto-generated.
 *
@@ -24,31 +23,6 @@
     "color_nav_transparent_text": "#ffffff",
     "color_body_text": "#323945",
     "accent_warm": "#495af5",
-=======
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
-{
-  "current": {
-    "type_heading_font": "poppins_n7",
-    "type_heading_size": 100,
-    "type_base_font": "poppins_n4",
-    "type_body_size": 90,
-    "type_number_font": "poppins_n4",
-    "type_number_size": 100,
-    "color_nav_bg": "#ffffff",
-    "color_nav_text": "#000000",
-    "color_nav_border": "#ffffff",
-    "color_nav_toolbar_bg": "#000000",
-    "color_nav_toolbar_text": "#ffffff",
-    "color_body_text": "#323945",
-    "accent_warm": "#323945",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
     "accent_cool": "#060f9e",
     "color_border": "#b3b3b3",
     "color_bg_accent": "#f1f1f1",
@@ -63,11 +37,7 @@
     "color_success": "#51c88e",
     "color_warn": "#ffc896",
     "color_error": "#ff8484",
-<<<<<<< HEAD
     "layout_site_width": 1200,
-=======
-    "layout_site_width": 1500,
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
     "layout_container_enable": false,
     "radius_images": "square",
     "radius_buttons": "pill",
@@ -83,17 +53,12 @@
     "product_grid_aspect_ratio": 1.2,
     "color_badge_text": "#060f9e",
     "product_grid_show_rating": true,
-<<<<<<< HEAD
     "currency_code_enable": false,
     "favicon": "shopify://shop_images/logo-32.png",
-=======
-    "currency_code_enable": true,
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
     "tag_sellout": true,
     "tag_sale": true,
     "tag_new": true,
     "tag_new_limit": 14,
-<<<<<<< HEAD
     "content_for_index": [
 
     ]
@@ -105,26 +70,11 @@
       "type_base_font": "din_neuzeit_grotesk_n3",
       "type_body_size": 100,
       "type_number_font": "itc_avant_garde_gothic_n4",
-=======
-    "content_for_index": []
-  },
-  "presets": {
-    "Bright": {
-      "type_heading_font": "poppins_n7",
-      "type_heading_size": 100,
-      "type_base_font": "poppins_n4",
-      "type_body_size": 90,
-      "type_number_font": "poppins_n4",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "type_number_size": 100,
       "color_nav_bg": "#ffffff",
       "color_nav_text": "#000000",
       "color_nav_border": "#ffffff",
-<<<<<<< HEAD
       "color_nav_toolbar_bg": "#060f9e",
-=======
-      "color_nav_toolbar_bg": "#000000",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "color_nav_toolbar_text": "#ffffff",
       "color_body_text": "#323945",
       "accent_warm": "#323945",
@@ -165,68 +115,40 @@
       "tag_new_limit": 14
     },
     "Bold": {
-<<<<<<< HEAD
       "type_heading_font": "futura_n7",
       "type_heading_size": 120,
       "type_base_font": "futura_n4",
       "type_body_size": 100,
       "type_number_font": "itc_conduit_n4",
-=======
-      "type_heading_font": "zilla_slab_n6",
-      "type_heading_size": 120,
-      "type_base_font": "barlow_n4",
-      "type_body_size": 100,
-      "type_number_font": "barlow_n4",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "type_number_size": 100,
       "color_nav_bg": "#ffffff",
       "color_nav_text": "#000000",
       "color_nav_border": "#f2f2f2",
       "color_highlight_link": "#ff7410",
-<<<<<<< HEAD
       "color_nav_toolbar_bg": "#4fed19",
       "color_nav_toolbar_text": "#000000",
       "color_nav_transparent_text": "#4fed19",
-=======
-      "color_nav_toolbar_bg": "#efefef",
-      "color_nav_toolbar_text": "#000000",
-      "color_nav_transparent_text": "#ffffff",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "color_body_text": "#000000",
       "accent_warm": "#ff7614",
       "accent_cool": "#7bd15e",
       "color_border": "#eeeff1",
-<<<<<<< HEAD
       "color_bg_accent": "#fbf9eb",
-=======
-      "color_bg_accent": "#fafaf1",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "color_bg_inverse": "#adf794",
       "color_text_inverse": "#000000",
       "color_primary_inverse": "#4fed19",
       "color_secondary_inverse": "#4fed19",
       "color_border_inverse": "#fbf9ec",
       "color_bg_accent_inverse": "#559951",
-<<<<<<< HEAD
       "color_footer_bg": "#adf794",
       "color_footer_text": "#000000",
-=======
-      "color_footer_bg": "#000000",
-      "color_footer_text": "#ffffff",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "color_success": "#7bd15e",
       "color_warn": "#eda563",
       "color_error": "#ea4c4c",
       "layout_container_enable": false,
       "decoration_style": "decoration-none",
       "cart_shipping_enable": true,
-<<<<<<< HEAD
       "cart_continue_browsing": "shopify://collections/all",
       "cart_notes_enable": true,
-=======
-      "cart_notes_enable": true,
-      "cart_continue_browsing": "shopify://collections/all",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "show_free_shipping_message": true,
       "cart_custom_message_enable": false,
       "cart_show_additional_buttons": false,
@@ -238,20 +160,11 @@
       "currency_code_enable": false,
       "tag_sellout": true,
       "tag_sale": true,
-<<<<<<< HEAD
       "tag_new": true
     },
     "Modern": {
       "type_heading_font": "itc_clearface_n4",
       "type_heading_size": 150,
-=======
-      "tag_new": true,
-      "tag_new_limit": 14
-    },
-    "Modern": {
-      "type_heading_font": "fahkwang_n4",
-      "type_heading_size": 120,
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "type_base_font": "inter_n4",
       "type_body_size": 100,
       "type_number_font": "inter_n3",
@@ -281,10 +194,6 @@
       "color_success": "#3c8246",
       "color_warn": "#da8a2c",
       "color_error": "#870600",
-<<<<<<< HEAD
-=======
-      "layout_site_width": 1600,
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "layout_container_enable": false,
       "radius_buttons": "pill",
       "decoration_style": "decoration-none",
@@ -303,7 +212,6 @@
       "badge_sale_type": "percentage",
       "color_badge": "#e9e034",
       "color_badge_text": "#351b20",
-<<<<<<< HEAD
       "product_grid_show_rating": true
     },
     "Clean": {
@@ -318,27 +226,6 @@
       "color_nav_border": "#f2f2f2",
       "color_nav_toolbar_text": "#323945",
       "color_body_text": "#323945",
-=======
-      "tag_sellout": true,
-      "tag_sale": true,
-      "tag_new": true,
-      "tag_new_limit": 14
-    },
-    "Clean": {
-      "type_heading_font": "figtree_n7",
-      "type_heading_size": 100,
-      "type_base_font": "figtree_n4",
-      "type_body_size": 100,
-      "type_number_font": "figtree_n4",
-      "type_number_size": 90,
-      "type_nav_size": 85,
-      "type_nav_caps": true,
-      "color_nav_bg": "#ffffff",
-      "color_nav_text": "#171c25",
-      "color_nav_border": "#f2f2f2",
-      "color_nav_toolbar_text": "#171c25",
-      "color_body_text": "#171c25",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "accent_warm": "#4f8bf2",
       "accent_cool": "#5D9386",
       "color_border": "#eeeff1",
@@ -351,17 +238,8 @@
       "color_success": "#51c88e",
       "color_warn": "#ffc896",
       "color_error": "#ff8484",
-<<<<<<< HEAD
       "layout_container_enable": false,
       "decoration_style": "decoration-none",
-=======
-      "layout_site_width": 1400,
-      "layout_gutter": 24,
-      "layout_outer": 24,
-      "layout_container_enable": false,
-      "decoration_style": "decoration-none",
-      "cart_style": "drawer",
->>>>>>> 6c84e29d4ce18b395cb40f9bb0d3c02a34280586
       "cart_shipping_enable": true,
       "cart_notes_enable": true,
       "cart_continue_browsing": "shopify://collections/all",
