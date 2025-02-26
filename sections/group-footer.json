@@ -18,7 +18,7 @@
         "footer_description": "",
         "footer_linklist": "footer",
         "policy_menu": "policy",
-        "footer_second_linklist": "",
+        "footer_second_linklist": "policy",
         "width": "wrapper",
         "padding_top": 64,
         "padding_bottom": 64
