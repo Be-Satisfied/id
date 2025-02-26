@@ -67,36 +67,6 @@
         "padding_bottom": 100
       }
     },
-    "section_you_might_like_iPpPMU": {
-      "type": "section-you-might-like",
-      "blocks": {
-        "product_wqFetN": {
-          "type": "product",
-          "settings": {
-            "product": "deeper-connect-dual-antennas-wi-fi-adapter",
-            "custom_description": "Applicable to Deeper Connect Pico Lite / Deeper Connect Mini."
-          }
-        },
-        "product_wf8Aet": {
-          "type": "product",
-          "settings": {
-            "product": "deeper-connect-wi-fi-adapter-usb-a",
-            "custom_description": "Applicable to Deeper Connect Pico Lite"
-          }
-        }
-      },
-      "block_order": [
-        "product_wqFetN",
-        "product_wf8Aet"
-      ],
-      "settings": {
-        "title": "YOU MIGHT LIKE",
-        "description": "",
-        "width": "wrapper",
-        "padding_top": 100,
-        "padding_bottom": 84
-      }
-    },
     "2024_plug_and_play_h4cccR": {
       "type": "2024-plug-and-play",
       "settings": {
@@ -168,7 +138,6 @@
     "section_slideshow_G6kW3p",
     "section_collection_yBCYDt",
     "section_versatile_usage_scenarios_RXP9AG",
-    "section_you_might_like_iPpPMU",
     "2024_plug_and_play_h4cccR",
     "section_accordion_8rmeAU"
   ]
