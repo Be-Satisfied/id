@@ -43,17 +43,6 @@
         "padding_bottom": 0
       }
     },
-    "section_new_featured_products_rgJF8b": {
-      "type": "section-new-featured-products",
-      "disabled": true,
-      "settings": {
-        "title": "FEATURED PRODUCTS",
-        "description": "",
-        "width": "wrapper",
-        "padding_top": 100,
-        "padding_bottom": 80
-      }
-    },
     "section_collection_yBCYDt": {
       "type": "section-collection",
       "settings": {
@@ -177,7 +166,6 @@
   },
   "order": [
     "section_slideshow_G6kW3p",
-    "section_new_featured_products_rgJF8b",
     "section_collection_yBCYDt",
     "section_versatile_usage_scenarios_RXP9AG",
     "section_you_might_like_iPpPMU",
