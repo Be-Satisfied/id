@@ -59,6 +59,22 @@
         "padding_bottom": 36
       }
     },
+    "section_collection_e8NUqq": {
+      "type": "section-collection",
+      "settings": {
+        "title": "Bundle Deals",
+        "description": "",
+        "collection": "bundle-deals",
+        "grid": 3,
+        "limit": 8,
+        "enable_slider": true,
+        "color_bg": "palette--light bg--neutral",
+        "show_view_all": false,
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "section_versatile_usage_scenarios_RXP9AG": {
       "type": "section-versatile-usage-scenarios",
       "settings": {
@@ -137,6 +153,7 @@
   "order": [
     "section_slideshow_G6kW3p",
     "section_collection_yBCYDt",
+    "section_collection_e8NUqq",
     "section_versatile_usage_scenarios_RXP9AG",
     "2024_plug_and_play_h4cccR",
     "section_accordion_8rmeAU"
