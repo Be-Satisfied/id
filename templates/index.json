@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "section_slideshow_G6kW3p": {
@@ -15,8 +15,6 @@
         "image_i6qcfc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/banner-pc_d9ab0058-ccfb-40e1-8889-916ebe598807.jpg",
-            "mobile_image": "shopify://shop_images/banner_phone.jpg",
             "overlay_opacity": 0,
             "overlay_color": "#000000",
             "title": "INTRODUCING THE BEST DPN",
@@ -47,12 +45,29 @@
     },
     "section_new_featured_products_rgJF8b": {
       "type": "section-new-featured-products",
+      "disabled": true,
       "settings": {
         "title": "FEATURED PRODUCTS",
         "description": "",
         "width": "wrapper",
         "padding_top": 100,
         "padding_bottom": 80
+      }
+    },
+    "section_collection_yBCYDt": {
+      "type": "section-collection",
+      "settings": {
+        "title": "Featured Products",
+        "description": "",
+        "collection": "products",
+        "grid": 2,
+        "limit": 2,
+        "enable_slider": true,
+        "color_bg": "palette--light bg--neutral",
+        "show_view_all": true,
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "section_versatile_usage_scenarios_RXP9AG": {
@@ -70,7 +85,6 @@
           "type": "product",
           "settings": {
             "product": "deeper-connect-dual-antennas-wi-fi-adapter",
-            "custom_image": "shopify://shop_images/Wi-Fi-Adapter.png",
             "custom_description": "Applicable to Deeper Connect Pico Lite / Deeper Connect Mini."
           }
         },
@@ -78,7 +92,6 @@
           "type": "product",
           "settings": {
             "product": "deeper-connect-wi-fi-adapter-usb-a",
-            "custom_image": "shopify://shop_images/usb-a.png",
             "custom_description": "Applicable to Deeper Connect Pico Lite"
           }
         }
@@ -90,7 +103,6 @@
       "settings": {
         "title": "YOU MIGHT LIKE",
         "description": "",
-        "image": "shopify://shop_images/You-might-like.png",
         "width": "wrapper",
         "padding_top": 100,
         "padding_bottom": 84
@@ -166,6 +178,7 @@
   "order": [
     "section_slideshow_G6kW3p",
     "section_new_featured_products_rgJF8b",
+    "section_collection_yBCYDt",
     "section_versatile_usage_scenarios_RXP9AG",
     "section_you_might_like_iPpPMU",
     "2024_plug_and_play_h4cccR",
