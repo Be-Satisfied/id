@@ -1,0 +1,167 @@
+<div class="recommendation">
+  {% if product.title == 'Deeper Connect Wi-Fi Adapter (USB-A）' %}
+    {% render 'you-may-also-like-usb-a' %}
+  {% elsif product.title == 'Deeper Connect Wi-Fi Adapter (USB-C）' %}
+    {% render 'you-may-also-like-usb-c' %}
+  {% elsif product.title == 'Deeper Connect Dual Antennas Wi-Fi Adapter' %}
+    {% render 'you-may-also-like-wifi-ad' %}
+  {% endif %}
+</div>
+
+<style>
+  .recommendation {
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: 80px 0px 160px;
+    box-sizing: content-box;
+  }
+  .section {
+    color: #1d1d1f;
+    text-align: center;
+    font-family: Inter;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px; /* 116.667% */
+    text-transform: capitalize;
+    margin-bottom: 64px;
+  }
+  .section-list {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+  .section-list__item {
+    display: flex;
+    gap: 126px;
+  }
+  .section-list__item_img {
+    width: 70%;
+  }
+  .item-info-title {
+    color: #1d1d1f;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 38px; /* 118.75% */
+  }
+  .section-list__item-info {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .item-info-desc {
+    color: #2f3132;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+  }
+  .item-info-link {
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 18.2px */
+    font-style: normal;
+    font-weight: 700;
+  }
+  .section-list__item_img img {
+    width: 100%;
+  }
+  /* 媒体查询 */
+  @media (max-width: 1200px) {
+    .recommendation {
+      padding: 30px 24px;
+    }
+    .section {
+      color: #1d1d1f;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 30px; /* 125% */
+      text-transform: capitalize;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .section-list__item {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .section-list__item:nth-child(2) .section-list__item_img {
+      order: 3;
+    }
+    .section-list__item:nth-child(2) .section-list__item-info {
+      order: 4;
+    }
+    .section-list__item_img {
+      width: 100%;
+    }
+    .section-list__item-info {
+      width: 100%;
+      gap: 10px;
+    }
+    .item-info-title {
+      color: #1d1d1f;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px; /* 133.333% */
+    }
+    .item-info-desc {
+      color: #2f3132;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 142.857% */
+    }
+    .item-info-link {
+      align-self: flex-end;
+    }
+    .section-list {
+      gap: 30px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "You may also like",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "You may also like",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

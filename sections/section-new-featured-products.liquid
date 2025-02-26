@@ -1,0 +1,208 @@
+<div
+  class="section-new-featured-products {{ section.settings.color_bg }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="section-new-featured-products"
+  style="--PT: {{ section.settings.padding_top }}px; --PB: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="{{ section.settings.width }} section-padding">
+    <div class="section-new-featured-products__foreground">
+      <div class="section-new-featured-products__inner">
+        <div class="section-new-featured-products__head">
+          {% if section.settings.title != blank %}
+            <h2 class="index__new-featured-products__title h3 text-center new-featured-products__title">
+              {{ section.settings.title | escape }}
+            </h2>
+          {% endif %}
+          {% if section.settings.description != blank %}
+            <div class="index__new-featured-products__subtitle subtitle--decorated">
+              {{ section.settings.description }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% comment %} 单个产品静态列表 {% endcomment %}
+      <div class="new-featured-products__list">
+        <a href="/products/deeper-connect-pico-lite" class="new-featured-products__item">
+          <div class="new-featured-products__item-image">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0686/5754/5273/files/Pico-Lite.png?v=1727586336"
+              alt="Deeper Connect Pico lite"
+            >
+          </div>
+          <div class="new-featured-products__item-title">Deeper Connect Pico lite</div>
+          <div class="new-featured-products__item-subtitle">Versatile DPN Router</div>
+          <div class="new-featured-products__item-price">₱ 5,500</div>
+        </a>
+        <a href="/products/deeper-connect-mini" class="new-featured-products__item">
+          <div class="new-featured-products__item-image">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0686/5754/5273/files/Mini.png?v=1727586336"
+              alt="Deeper Connect Mini"
+            >
+          </div>
+          <div class="new-featured-products__item-title">Deeper Connect Mini</div>
+          <div class="new-featured-products__item-subtitle">Best Performance Web3 Router</div>
+          <div class="new-featured-products__item-price">₱ 12,600</div>
+        </a>
+        <a href="/products/deeper-connect-air" class="new-featured-products__item">
+          <div class="new-featured-products__item-image">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0686/5754/5273/files/Air.png?v=1727586336"
+              alt="Deeper Connect Air"
+            >
+          </div>
+          <div class="new-featured-products__item-title">Deeper Connect Air</div>
+          <div class="new-featured-products__item-subtitle">Portable DPN Travel Router</div>
+          <div class="new-featured-products__item-price">₱ 9,300</div>
+        </a>
+      </div>
+
+      {% comment %} 去往产品页面 {% endcomment %}
+      <div class="new-featured-products__link">
+        <a href="/collections/all" class="phLinks">VIEW ALL ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .new-featured-products__title {
+    margin-bottom: 60px;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px; /* 116.667% */
+  }
+  .new-featured-products__list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: nowrap;
+  }
+  .new-featured-products__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .new-featured-products__item-image {
+    /* width: 387px;
+    height: 387px; */
+    max-width: 384px;
+    max-height: 384px;
+    max-width: fit-content;
+    overflow: hidden;
+  }
+  .new-featured-products__item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .new-featured-products__item-title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 125% */
+    color: #000;
+    text-transform: uppercase;
+  }
+  .new-featured-products__item-subtitle {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px; /* 125% */
+    margin-bottom: 0;
+    color: #2f3132;
+  }
+  .new-featured-products__item-price {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 137.5% */
+    color: #000;
+  }
+  .new-featured-products__link {
+    margin-top: 20px;
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 133.333% */
+    display: block;
+    margin-top: 60px;
+  }
+  /* 移动端 */
+  @media (max-width: 768px) {
+    .new-featured-products__list {
+      flex-direction: column;
+      padding: 0 10px;
+    }
+    .new-featured-products__title {
+      margin-bottom: 40px;
+    }
+    .new-featured-products__link {
+      margin-top: 10px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "New Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured Products"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Text",
+      "default": "<p>Use this area to describe the featured products.</p>"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wrapper",
+      "options": [
+        { "value": "wrapper--full", "label": "Full width padded" },
+        { "value": "wrapper", "label": "Page width" },
+        { "value": "wrapper--narrow", "label": "Page width narrow" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "New Featured Products",
+      "category": "Products"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "aside"]
+  }
+}
+{% endschema %}

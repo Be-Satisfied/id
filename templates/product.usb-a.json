@@ -1,0 +1,143 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "product",
+      "disabled": true,
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "product_sticky_enable": true,
+        "image_layout": "thumbnails",
+        "enable_video_looping": true,
+        "zoom_enable": true,
+        "width": "wrapper",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "related": {
+      "type": "related",
+      "disabled": true,
+      "settings": {
+        "related_products_enable": true,
+        "limit": 3,
+        "product_recommendations_heading": "Related products",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "2024_product_FcCCrr": {
+      "type": "2024-product",
+      "blocks": {
+        "title_NwHtpn": {
+          "type": "title",
+          "settings": {
+            "product_show_vendor": false,
+            "show_rating": true,
+            "show_rating_count": false
+          }
+        },
+        "form_8eHG73": {
+          "type": "form",
+          "settings": {
+            "variant_form": "auto",
+            "show_quantity": true,
+            "show_remaining": true,
+            "enable_payment_button": true,
+            "subscriptions_enable_selectors": true,
+            "info_page": ""
+          }
+        },
+        "upsell_ye39Ew": {
+          "type": "upsell",
+          "settings": {
+            "product": "deeper-connect-pico-lite"
+          }
+        },
+        "description_kWXkRJ": {
+          "type": "description",
+          "settings": {
+            "read_more": true,
+            "style": "accordions",
+            "description_icon": "",
+            "title_1": "Specification",
+            "icon_name_1": "",
+            "raw_content_1": "<p>Weight: 15.5 g<br/>Dimensions: 17.9 × 1.9 × 1.3 cm<br/>Interface: USB Type-C<br/>Package: Weight 31.2 g<br/>Dimensions: 15.6 × 8.1 × 1.7 cm</p>",
+            "title_2": "Warranty & Return Policy",
+            "icon_name_2": "",
+            "raw_content_2": "<p>1-Year limited warranty.14-day return or exchange guarantee.Customs duties are to be paid by the recipient. Duties levied differ across regions.This product is available for shipping to most countries, with the exception of with exception of mainland China, lran and Ukraine.<a href=\"https://deepernetwork.ph/pages/return-cancellation-and-warranty-policy\" target=\"_blank\">Return, Cancellation and Warranty Policy</a>Please keep an accurate personal record of the official order information as our customer service team needs to authenticate the order information in order to provide better after-sales service, including tech support, warranty and/ or replacement.</p>",
+            "title_3": "",
+            "icon_name_3": "",
+            "raw_content_3": "",
+            "title_4": "",
+            "icon_name_4": "",
+            "raw_content_4": "",
+            "title_5": "",
+            "icon_name_5": "",
+            "raw_content_5": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_NwHtpn",
+        "form_8eHG73",
+        "upsell_ye39Ew",
+        "description_kWXkRJ"
+      ],
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "enable_video_looping": true,
+        "zoom_enable": true,
+        "width": "wrapper",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "product_closer_look_usb_TDjw9M": {
+      "type": "product-closer-look-usb",
+      "settings": {
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "product_inside_the_box_usb_qWz3Rt": {
+      "type": "product-inside-the-box-usb",
+      "settings": {
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "you_may_also_like_D7FRUb": {
+      "type": "you-may-also-like",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "product_faq_kzVU43": {
+      "type": "product-faq",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 64
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related",
+    "2024_product_FcCCrr",
+    "product_closer_look_usb_TDjw9M",
+    "product_inside_the_box_usb_qWz3Rt",
+    "you_may_also_like_D7FRUb",
+    "product_faq_kzVU43"
+  ]
+}

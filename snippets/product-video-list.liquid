@@ -1,0 +1,510 @@
+<div class="product-video-list" onclick="videoPlay()">
+  {% if product.title == 'Deeper Connect Air' %}
+    <div
+      class="outstanding-feature__content-item active deeper-air-img"
+      style="min-height: 600px;position: relative;inset:0;background-position: center;"
+    >
+      <div class="outstanding-feature__content-containter">
+        <video
+          id="quick-setup-content-air-video"
+          width="100%"
+          height="100%"
+          controls
+          style="display: none; background-color:#000"
+        >
+          <source src="https://cdn.shopify.com/videos/c/o/v/d735452d91fa4a5aa881fbe679fbe4a0.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  {% else %}
+    <style>
+      .video-list {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+        padding-bottom: 10px;
+      }
+
+      .video-list::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      .video-list::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 10px;
+      }
+
+      .video-list::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .video-list .video-item {
+        width: 305px;
+        height: 380px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        flex-shrink: 0;
+        transition: all 0.3s;
+      }
+
+      .video-list .video-item:nth-child(1) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Rectangle_240647695.png?v=1709888794');
+      }
+
+      .video-list .video-item:nth-child(2) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Rectangle_240647695_1.png?v=1709888795');
+      }
+
+      .video-list .video-item:nth-child(3) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Rectangle_240647695_2.png?v=1710207107');
+      }
+
+      .video-list .video-item:nth-child(4) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Rectangle_240647695_3.png?v=1709888794');
+      }
+
+      .video-list .video-item:nth-child(5) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Rectangle_240647695_4.png?v=1709888795');
+      }
+
+      .video-list .video-item:nth-child(6) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Rectangle_240647695_5.png?v=1709888796');
+      }
+
+      .video-list .video-item:nth-child(7) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Rectangle_240647695_6.png?v=1709888796');
+      }
+
+      .video-list .video-item:nth-child(8) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Rectangle_240647695_7.png?v=1709888796');
+      }
+
+      .video-list .video-item:nth-child(9) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Rectangle_240647695_8.png?v=1709888796');
+      }
+
+      .video-list .video-item .video-item-mask {
+        position: absolute;
+        z-index: 99;
+        bottom: 0;
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        box-sizing: border-box;
+      }
+
+      .video-list .video-item .video-item-mask .video-item-mask-title {
+        border-bottom: 2px solid #fff;
+        width: 100%;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        color: #fff;
+        font-family: 'Inter';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        box-sizing: content-box;
+      }
+
+      .video-list .video-item .video-item-mask .video-item-mask-title span {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+      }
+
+      .video-list .video-item .video-item-mask .video-item-mask-author {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+        position: relative;
+      }
+
+      .video-list .video-item .video-item-mask .video-item-mask-author img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      .video-list .video-item .video-item-mask .video-item-mask-author svg {
+        position: absolute;
+        right: 0;
+      }
+
+      .video-list .video-item .video-item-mask .video-item-mask-author .video-item-mask-author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .video-list
+        .video-item
+        .video-item-mask
+        .video-item-mask-author
+        .video-item-mask-author-info
+        .video-item-mask-author-name {
+        color: #fff;
+        font-family: 'Inter';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 20px;
+      }
+
+      .video-list
+        .video-item
+        .video-item-mask
+        .video-item-mask-author
+        .video-item-mask-author-info
+        .video-item-mask-author-description {
+        color: #fff;
+        font-family: 'Inter';
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+      }
+
+      .video-container-pico {
+        position: relative;
+      }
+
+      .video-container-pico .video-list-btn .video-list-btn-left,
+      .video-container-pico .video-list-btn .video-list-btn-right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #fff;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 100;
+      }
+
+      .video-container-pico .video-list-btn .video-list-btn-left svg,
+      .video-container-pico .video-list-btn .video-list-btn-right svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .video-container-pico .video-list-btn .video-list-btn-left {
+        left: -15px;
+      }
+
+      .video-container-pico .video-list-btn .video-list-btn-right {
+        right: -15px;
+      }
+
+      @media (max-width: 1024px) {
+        .video-container-pico .video-list-btn {
+          display: none;
+        }
+      }
+    </style>
+    <div class="video-container-pico">
+      <div class="video-list-btn">
+        <svg
+          style="display: none;"
+          class="video-list-btn-left"
+          xmlns="http://www.w3.org/2000/svg"
+          width="50"
+          height="50"
+          viewBox="0 0 50 50"
+          fill="none"
+        >
+          <g>
+            <rect width="50" height="50" rx="25" transform="matrix(-1 0 0 1 50 0)" fill="#D2D2D7"
+              fill-opacity="0.64" />
+            <path
+              d="M29.5813 35.6229C29.1459 36.0583 28.2752 36.0583 27.6947 35.6229L18.2619 26.6255C17.246 25.7548 17.246 24.3035 18.2619 23.4328L27.6947 14.4354C28.2752 13.8549 29.0008 13.8549 29.4361 14.4354C30.0166 14.8707 30.0166 15.7414 29.4361 16.1768L20.1484 25.0292L29.4361 33.8815C30.1617 34.3168 30.1617 35.1876 29.5813 35.6229Z"
+              fill="#1D1D1F" />
+          </g>
+        </svg>
+        <svg
+          class="video-list-btn-right"
+          xmlns="http://www.w3.org/2000/svg"
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          fill="none"
+        >
+          <rect width="64" height="64" rx="32" fill="#D2D2D7" fill-opacity="0.64" />
+          <path
+            d="M26.1356 45.5973C26.6929 46.1545 27.8074 46.1545 28.5504 45.5973L40.6244 34.0805C41.9247 32.966 41.9247 31.1085 40.6244 29.9939L28.5504 18.4772C27.8074 17.7342 26.8786 17.7342 26.3213 18.4772C25.5783 19.0344 25.5783 20.149 26.3213 20.7062L38.2096 32.0372L26.3213 43.3682C25.3926 43.9255 25.3926 45.04 26.1356 45.5973Z"
+            fill="#1D1D1F" />
+        </svg>
+      </div>
+      <div class="video-list">
+        <a class="video-item lazyload" target="_blank" href="https://www.youtube.com/watch?v=J-aSuNYmTlk&t=263s">
+          <div class="video-item-mask">
+            <div class="video-item-mask-title">
+              <span>The reason why I love my DPN</span>
+            </div>
+            <div class="video-item-mask-author">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Ellipse_2282.png?v=1709888785"
+                loading="lazy"
+                class="lazyload"
+                alt=""
+              >
+              <div class="video-item-mask-author-info">
+                <span class="video-item-mask-author-name">Unbox.Therapy</span>
+                <span class="video-item-mask-author-description">22.5 million subscribers</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 15.9996C0 7.16399 7.16423 0 16.0002 0C24.8366 0 32 7.16527 32 16.0013C32 24.8373 24.8362 32 16.0002 32C7.16423 32 0 24.8352 0 15.9996ZM11.6392 9.96399C11.6455 9.74714 11.7072 9.53527 11.8186 9.34866C11.9365 9.15133 12.1056 8.9896 12.308 8.88066C12.5104 8.77171 12.7385 8.71962 12.9681 8.72992C13.1978 8.74021 13.4203 8.8125 13.6121 8.93912L22.7029 14.9386C22.8787 15.0546 23.0229 15.2123 23.1227 15.3977C23.2224 15.5831 23.2747 15.7903 23.2747 16.0009C23.2747 16.0125 23.2745 16.024 23.2742 16.0356C23.2689 16.2343 23.217 16.4292 23.1227 16.6045C23.0229 16.7899 22.8787 16.9477 22.7029 17.0636L22.7004 17.0624L13.6096 23.0618C13.4177 23.1876 13.1955 23.2592 12.9663 23.2691C12.7371 23.279 12.5095 23.2267 12.3076 23.1179C12.1057 23.009 11.9369 22.8477 11.8191 22.6508C11.7014 22.454 11.639 22.2289 11.6387 21.9996V10.0019C11.6387 9.98926 11.6389 9.97661 11.6392 9.96399Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="video-item lazyload" target="_blank" href="https://www.youtube.com/watch?v=Y0tr1eZvGeg">
+          <div class="video-item-mask">
+            <div class="video-item-mask-title">
+              <span>Deeper is excellent advanced technology</span>
+            </div>
+            <div class="video-item-mask-author">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Ellipse_2282_1.png?v=1709888785"
+                loading="lazy"
+                class="lazyload"
+                alt=""
+              >
+              <div class="video-item-mask-author-info">
+                <span class="video-item-mask-author-name">Jon Rettinger</span>
+                <span class="video-item-mask-author-description">1.61 million subscribers</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 15.9996C0 7.16399 7.16423 0 16.0002 0C24.8366 0 32 7.16527 32 16.0013C32 24.8373 24.8362 32 16.0002 32C7.16423 32 0 24.8352 0 15.9996ZM11.6392 9.96399C11.6455 9.74714 11.7072 9.53527 11.8186 9.34866C11.9365 9.15133 12.1056 8.9896 12.308 8.88066C12.5104 8.77171 12.7385 8.71962 12.9681 8.72992C13.1978 8.74021 13.4203 8.8125 13.6121 8.93912L22.7029 14.9386C22.8787 15.0546 23.0229 15.2123 23.1227 15.3977C23.2224 15.5831 23.2747 15.7903 23.2747 16.0009C23.2747 16.0125 23.2745 16.024 23.2742 16.0356C23.2689 16.2343 23.217 16.4292 23.1227 16.6045C23.0229 16.7899 22.8787 16.9477 22.7029 17.0636L22.7004 17.0624L13.6096 23.0618C13.4177 23.1876 13.1955 23.2592 12.9663 23.2691C12.7371 23.279 12.5095 23.2267 12.3076 23.1179C12.1057 23.009 11.9369 22.8477 11.8191 22.6508C11.7014 22.454 11.639 22.2289 11.6387 21.9996V10.0019C11.6387 9.98926 11.6389 9.97661 11.6392 9.96399Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="video-item lazyload" target="_blank" href="https://www.youtube.com/watch?v=SDWMvdLoe6Y">
+          <div class="video-item-mask">
+            <div class="video-item-mask-title">
+              <span>The reason why I love DPN. A truly all-in-one solution</span>
+            </div>
+            <div class="video-item-mask-author">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Ellipse_2282_2.png?v=1709888785"
+                loading="lazy"
+                class="lazyload"
+                alt=""
+              >
+              <div class="video-item-mask-author-info">
+                <span class="video-item-mask-author-name">Jabber Tech</span>
+                <span class="video-item-mask-author-description">416,000 subscribers</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 15.9996C0 7.16399 7.16423 0 16.0002 0C24.8366 0 32 7.16527 32 16.0013C32 24.8373 24.8362 32 16.0002 32C7.16423 32 0 24.8352 0 15.9996ZM11.6392 9.96399C11.6455 9.74714 11.7072 9.53527 11.8186 9.34866C11.9365 9.15133 12.1056 8.9896 12.308 8.88066C12.5104 8.77171 12.7385 8.71962 12.9681 8.72992C13.1978 8.74021 13.4203 8.8125 13.6121 8.93912L22.7029 14.9386C22.8787 15.0546 23.0229 15.2123 23.1227 15.3977C23.2224 15.5831 23.2747 15.7903 23.2747 16.0009C23.2747 16.0125 23.2745 16.024 23.2742 16.0356C23.2689 16.2343 23.217 16.4292 23.1227 16.6045C23.0229 16.7899 22.8787 16.9477 22.7029 17.0636L22.7004 17.0624L13.6096 23.0618C13.4177 23.1876 13.1955 23.2592 12.9663 23.2691C12.7371 23.279 12.5095 23.2267 12.3076 23.1179C12.1057 23.009 11.9369 22.8477 11.8191 22.6508C11.7014 22.454 11.639 22.2289 11.6387 21.9996V10.0019C11.6387 9.98926 11.6389 9.97661 11.6392 9.96399Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="video-item lazyload" target="_blank" href="https://www.youtube.com/watch?v=Ox3EHqQ7p5Q&t=17s">
+          <div class="video-item-mask">
+            <div class="video-item-mask-title">
+              <span>$0/Month VPN?! Deeper Connect Mini Unboxing + Review (Deeper Network Project)</span>
+            </div>
+            <div class="video-item-mask-author">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Ellipse_2282_3.png?v=1709888785"
+                loading="lazy"
+                class="lazyload"
+                alt=""
+              >
+              <div class="video-item-mask-author-info">
+                <span class="video-item-mask-author-name">Jabber Tech</span>
+                <span class="video-item-mask-author-description">264,000 subscribers</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 15.9996C0 7.16399 7.16423 0 16.0002 0C24.8366 0 32 7.16527 32 16.0013C32 24.8373 24.8362 32 16.0002 32C7.16423 32 0 24.8352 0 15.9996ZM11.6392 9.96399C11.6455 9.74714 11.7072 9.53527 11.8186 9.34866C11.9365 9.15133 12.1056 8.9896 12.308 8.88066C12.5104 8.77171 12.7385 8.71962 12.9681 8.72992C13.1978 8.74021 13.4203 8.8125 13.6121 8.93912L22.7029 14.9386C22.8787 15.0546 23.0229 15.2123 23.1227 15.3977C23.2224 15.5831 23.2747 15.7903 23.2747 16.0009C23.2747 16.0125 23.2745 16.024 23.2742 16.0356C23.2689 16.2343 23.217 16.4292 23.1227 16.6045C23.0229 16.7899 22.8787 16.9477 22.7029 17.0636L22.7004 17.0624L13.6096 23.0618C13.4177 23.1876 13.1955 23.2592 12.9663 23.2691C12.7371 23.279 12.5095 23.2267 12.3076 23.1179C12.1057 23.009 11.9369 22.8477 11.8191 22.6508C11.7014 22.454 11.639 22.2289 11.6387 21.9996V10.0019C11.6387 9.98926 11.6389 9.97661 11.6392 9.96399Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="video-item lazyload" target="_blank" href="https://www.youtube.com/watch?v=d2b4yAb9KmQ">
+          <div class="video-item-mask">
+            <div class="video-item-mask-title">
+              <span
+                >How to get a Free Crypto Miner and VPN for Life Deeper Connect PICO | Planetwatch and Awair Element</span
+              >
+            </div>
+            <div class="video-item-mask-author">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Ellipse_2282_4.png?v=1709888785"
+                loading="lazy"
+                class="lazyload"
+                alt=""
+              >
+              <div class="video-item-mask-author-info">
+                <span class="video-item-mask-author-name">Action Crypto</span>
+                <span class="video-item-mask-author-description">212,000 subscribers</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 15.9996C0 7.16399 7.16423 0 16.0002 0C24.8366 0 32 7.16527 32 16.0013C32 24.8373 24.8362 32 16.0002 32C7.16423 32 0 24.8352 0 15.9996ZM11.6392 9.96399C11.6455 9.74714 11.7072 9.53527 11.8186 9.34866C11.9365 9.15133 12.1056 8.9896 12.308 8.88066C12.5104 8.77171 12.7385 8.71962 12.9681 8.72992C13.1978 8.74021 13.4203 8.8125 13.6121 8.93912L22.7029 14.9386C22.8787 15.0546 23.0229 15.2123 23.1227 15.3977C23.2224 15.5831 23.2747 15.7903 23.2747 16.0009C23.2747 16.0125 23.2745 16.024 23.2742 16.0356C23.2689 16.2343 23.217 16.4292 23.1227 16.6045C23.0229 16.7899 22.8787 16.9477 22.7029 17.0636L22.7004 17.0624L13.6096 23.0618C13.4177 23.1876 13.1955 23.2592 12.9663 23.2691C12.7371 23.279 12.5095 23.2267 12.3076 23.1179C12.1057 23.009 11.9369 22.8477 11.8191 22.6508C11.7014 22.454 11.639 22.2289 11.6387 21.9996V10.0019C11.6387 9.98926 11.6389 9.97661 11.6392 9.96399Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="video-item lazyload" target="_blank" href="https://www.youtube.com/watch?v=rieMyHv43zk">
+          <div class="video-item-mask">
+            <div class="video-item-mask-title">
+              <span>How to mine crypto on the world's smallest crypto miner</span>
+            </div>
+            <div class="video-item-mask-author">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Ellipse_2282_5.png?v=1709888785"
+                loading="lazy"
+                class="lazyload"
+                alt=""
+              >
+              <div class="video-item-mask-author-info">
+                <span class="video-item-mask-author-name">Full Value Dan</span>
+                <span class="video-item-mask-author-description">185,000 subscribers</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 15.9996C0 7.16399 7.16423 0 16.0002 0C24.8366 0 32 7.16527 32 16.0013C32 24.8373 24.8362 32 16.0002 32C7.16423 32 0 24.8352 0 15.9996ZM11.6392 9.96399C11.6455 9.74714 11.7072 9.53527 11.8186 9.34866C11.9365 9.15133 12.1056 8.9896 12.308 8.88066C12.5104 8.77171 12.7385 8.71962 12.9681 8.72992C13.1978 8.74021 13.4203 8.8125 13.6121 8.93912L22.7029 14.9386C22.8787 15.0546 23.0229 15.2123 23.1227 15.3977C23.2224 15.5831 23.2747 15.7903 23.2747 16.0009C23.2747 16.0125 23.2745 16.024 23.2742 16.0356C23.2689 16.2343 23.217 16.4292 23.1227 16.6045C23.0229 16.7899 22.8787 16.9477 22.7029 17.0636L22.7004 17.0624L13.6096 23.0618C13.4177 23.1876 13.1955 23.2592 12.9663 23.2691C12.7371 23.279 12.5095 23.2267 12.3076 23.1179C12.1057 23.009 11.9369 22.8477 11.8191 22.6508C11.7014 22.454 11.639 22.2289 11.6387 21.9996V10.0019C11.6387 9.98926 11.6389 9.97661 11.6392 9.96399Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="video-item lazyload" target="_blank" href="https://www.youtube.com/watch?v=Ra-xbqynEKQ&t=401s">
+          <div class="video-item-mask">
+            <div class="video-item-mask-title">
+              <span>去中心化智能網關/海外回國 翻牆神器/終身免翻牆流量/流量挖礦新...</span>
+            </div>
+            <div class="video-item-mask-author">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Ellipse_2282_6.png?v=1709888784"
+                loading="lazy"
+                class="lazyload"
+                alt=""
+              >
+              <div class="video-item-mask-author-info">
+                <span class="video-item-mask-author-name">JS神技能</span>
+                <span class="video-item-mask-author-description">130,000 subscribers</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 15.9996C0 7.16399 7.16423 0 16.0002 0C24.8366 0 32 7.16527 32 16.0013C32 24.8373 24.8362 32 16.0002 32C7.16423 32 0 24.8352 0 15.9996ZM11.6392 9.96399C11.6455 9.74714 11.7072 9.53527 11.8186 9.34866C11.9365 9.15133 12.1056 8.9896 12.308 8.88066C12.5104 8.77171 12.7385 8.71962 12.9681 8.72992C13.1978 8.74021 13.4203 8.8125 13.6121 8.93912L22.7029 14.9386C22.8787 15.0546 23.0229 15.2123 23.1227 15.3977C23.2224 15.5831 23.2747 15.7903 23.2747 16.0009C23.2747 16.0125 23.2745 16.024 23.2742 16.0356C23.2689 16.2343 23.217 16.4292 23.1227 16.6045C23.0229 16.7899 22.8787 16.9477 22.7029 17.0636L22.7004 17.0624L13.6096 23.0618C13.4177 23.1876 13.1955 23.2592 12.9663 23.2691C12.7371 23.279 12.5095 23.2267 12.3076 23.1179C12.1057 23.009 11.9369 22.8477 11.8191 22.6508C11.7014 22.454 11.639 22.2289 11.6387 21.9996V10.0019C11.6387 9.98926 11.6389 9.97661 11.6392 9.96399Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="video-item lazyload" target="_blank" href="https://www.youtube.com/watch?v=jys0zx9NQUQ&t=45s">
+          <div class="video-item-mask">
+            <div class="video-item-mask-title">
+              <span>How much I made with my Deeper Connect Mini in 1 ...</span>
+            </div>
+            <div class="video-item-mask-author">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Ellipse_2282_7.png?v=1709888785"
+                loading="lazy"
+                class="lazyload"
+                alt=""
+              >
+              <div class="video-item-mask-author-info">
+                <span class="video-item-mask-author-name">Jabber Tech</span>
+                <span class="video-item-mask-author-description">115,000 subscribers</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 15.9996C0 7.16399 7.16423 0 16.0002 0C24.8366 0 32 7.16527 32 16.0013C32 24.8373 24.8362 32 16.0002 32C7.16423 32 0 24.8352 0 15.9996ZM11.6392 9.96399C11.6455 9.74714 11.7072 9.53527 11.8186 9.34866C11.9365 9.15133 12.1056 8.9896 12.308 8.88066C12.5104 8.77171 12.7385 8.71962 12.9681 8.72992C13.1978 8.74021 13.4203 8.8125 13.6121 8.93912L22.7029 14.9386C22.8787 15.0546 23.0229 15.2123 23.1227 15.3977C23.2224 15.5831 23.2747 15.7903 23.2747 16.0009C23.2747 16.0125 23.2745 16.024 23.2742 16.0356C23.2689 16.2343 23.217 16.4292 23.1227 16.6045C23.0229 16.7899 22.8787 16.9477 22.7029 17.0636L22.7004 17.0624L13.6096 23.0618C13.4177 23.1876 13.1955 23.2592 12.9663 23.2691C12.7371 23.279 12.5095 23.2267 12.3076 23.1179C12.1057 23.009 11.9369 22.8477 11.8191 22.6508C11.7014 22.454 11.639 22.2289 11.6387 21.9996V10.0019C11.6387 9.98926 11.6389 9.97661 11.6392 9.96399Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a class="video-item lazyload" target="_blank" href="https://www.youtube.com/watch?v=4RoFj4XJV20">
+          <div class="video-item-mask">
+            <div class="video-item-mask-title">
+              <span>Deeper Connect Pico. 6-in-1 Cybersecurity & Decentralized VPN (DPN) Hardware! Review!</span>
+            </div>
+            <div class="video-item-mask-author">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Ellipse_2282_8.png?v=1709888785"
+                loading="lazy"
+                class="lazyload"
+                alt=""
+              >
+              <div class="video-item-mask-author-info">
+                <span class="video-item-mask-author-name">Smart Tech</span>
+                <span class="video-item-mask-author-description">25,400 subscribers</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 15.9996C0 7.16399 7.16423 0 16.0002 0C24.8366 0 32 7.16527 32 16.0013C32 24.8373 24.8362 32 16.0002 32C7.16423 32 0 24.8352 0 15.9996ZM11.6392 9.96399C11.6455 9.74714 11.7072 9.53527 11.8186 9.34866C11.9365 9.15133 12.1056 8.9896 12.308 8.88066C12.5104 8.77171 12.7385 8.71962 12.9681 8.72992C13.1978 8.74021 13.4203 8.8125 13.6121 8.93912L22.7029 14.9386C22.8787 15.0546 23.0229 15.2123 23.1227 15.3977C23.2224 15.5831 23.2747 15.7903 23.2747 16.0009C23.2747 16.0125 23.2745 16.024 23.2742 16.0356C23.2689 16.2343 23.217 16.4292 23.1227 16.6045C23.0229 16.7899 22.8787 16.9477 22.7029 17.0636L22.7004 17.0624L13.6096 23.0618C13.4177 23.1876 13.1955 23.2592 12.9663 23.2691C12.7371 23.279 12.5095 23.2267 12.3076 23.1179C12.1057 23.009 11.9369 22.8477 11.8191 22.6508C11.7014 22.454 11.639 22.2289 11.6387 21.9996V10.0019C11.6387 9.98926 11.6389 9.97661 11.6392 9.96399Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <script>
+      const leftBtn = document.querySelector('.video-list-btn-left');
+      const rightBtn = document.querySelector('.video-list-btn-right');
+      const videoList = document.querySelector('.video-list');
+      const videoItems = document.querySelectorAll('.video-item');
+      const videoListWidth = (videoItems.length - 4) * 305 + 20 * videoItems.length;
+
+      const updateButtonVisibility = () => {
+        leftBtn.style.display = videoList.scrollLeft === 0 ? 'none' : 'block';
+        rightBtn.style.display = Math.ceil(videoList.scrollLeft) >= videoListWidth ? 'none' : 'block';
+      };
+
+      leftBtn.addEventListener('click', () => {
+        videoList.scrollTo({
+          left: videoList.scrollLeft - 305,
+          behavior: 'smooth',
+        });
+        updateButtonVisibility();
+      });
+
+      videoList.addEventListener('scroll', updateButtonVisibility);
+
+      rightBtn.addEventListener('click', () => {
+        videoList.scrollTo({
+          left: videoList.scrollLeft + 305,
+          behavior: 'smooth',
+        });
+        updateButtonVisibility();
+      });
+    </script>
+  {% endif %}
+</div>

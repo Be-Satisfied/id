@@ -19,14 +19,14 @@
         "16543796859fa27889-0": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Image banner</p>",
+            "heading": "<p>Image banner<\/p>",
             "text_size": 10
           }
         },
         "16543796859fa27889-1": {
           "type": "text",
           "settings": {
-            "text": "<p>This area is used to describe your store</p>",
+            "text": "<p>This area is used to describe your store<\/p>",
             "text_size": 6,
             "text_columns": 1
           }
@@ -42,7 +42,11 @@
           }
         }
       },
-      "block_order": ["16543796859fa27889-0", "16543796859fa27889-1", "16543796859fa27889-2"],
+      "block_order": [
+        "16543796859fa27889-0",
+        "16543796859fa27889-1",
+        "16543796859fa27889-2"
+      ],
       "settings": {
         "height": "use_screen_two_thirds",
         "overlay_opacity": 0,
@@ -62,22 +66,27 @@
         "1654379351b145939a-0": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Split collection</p>",
+            "heading": "<p>Split collection<\/p>",
             "text_size": 10
           }
         },
         "1654379351b145939a-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Shop the look with some of our favorite products</p>",
+            "text": "<p>Shop the look with some of our favorite products<\/p>",
             "text_size": 6
           }
         }
       },
-      "block_order": ["1654379351b145939a-0", "1654379351b145939a-1"],
+      "block_order": [
+        "1654379351b145939a-0",
+        "1654379351b145939a-1"
+      ],
       "settings": {
         "collection": "",
-        "product_list": [],
+        "product_list": [
+
+        ],
         "sticky_image_enable": true,
         "swap": false,
         "overlay_opacity": 15,
@@ -102,22 +111,27 @@
         "165437977742baef4d-0": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Split collection</p>",
+            "heading": "<p>Split collection<\/p>",
             "text_size": 10
           }
         },
         "165437977742baef4d-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Shop the look with some of our favorite products</p>",
+            "text": "<p>Shop the look with some of our favorite products<\/p>",
             "text_size": 6
           }
         }
       },
-      "block_order": ["165437977742baef4d-0", "165437977742baef4d-1"],
+      "block_order": [
+        "165437977742baef4d-0",
+        "165437977742baef4d-1"
+      ],
       "settings": {
         "collection": "",
-        "product_list": [],
+        "product_list": [
+
+        ],
         "sticky_image_enable": true,
         "swap": true,
         "overlay_opacity": 15,
@@ -142,7 +156,7 @@
         "564a5c44-6fe4-45e6-8d33-60b48bc0dba4": {
           "type": "kicker",
           "settings": {
-            "kicker": "<p><em><strong>Use bold typography</strong></em></p>",
+            "kicker": "<p><em><strong>Use bold typography<\/strong><\/em><\/p>",
             "enable_caps": true,
             "text_size": 15
           }
@@ -150,13 +164,16 @@
         "90519dfa-e1b6-4162-8f82-bb323620887c": {
           "type": "kicker",
           "settings": {
-            "kicker": "<p>For a captivating message</p>",
+            "kicker": "<p>For a captivating message<\/p>",
             "enable_caps": true,
             "text_size": 13
           }
         }
       },
-      "block_order": ["564a5c44-6fe4-45e6-8d33-60b48bc0dba4", "90519dfa-e1b6-4162-8f82-bb323620887c"],
+      "block_order": [
+        "564a5c44-6fe4-45e6-8d33-60b48bc0dba4",
+        "90519dfa-e1b6-4162-8f82-bb323620887c"
+      ],
       "settings": {
         "height": "use_screen_two_thirds",
         "overlay_opacity": 15,
@@ -192,7 +209,11 @@
           }
         }
       },
-      "block_order": ["16543798715d8d962b-0", "16543798715d8d962b-1", "16543798715d8d962b-2"],
+      "block_order": [
+        "16543798715d8d962b-0",
+        "16543798715d8d962b-1",
+        "16543798715d8d962b-2"
+      ],
       "settings": {
         "scale_image": true,
         "aspect_ratio": 1,
@@ -253,7 +274,7 @@
         "165437997148f9f7ce-0": {
           "type": "kicker",
           "settings": {
-            "kicker": "<p><em><strong>Introducing</strong></em></p>",
+            "kicker": "<p><em><strong>Introducing<\/strong><\/em><\/p>",
             "enable_caps": true,
             "text_size": 4
           }
@@ -261,20 +282,24 @@
         "165437997148f9f7ce-1": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Rich text</p>",
+            "heading": "<p>Rich text<\/p>",
             "text_size": 15
           }
         },
         "165437997148f9f7ce-2": {
           "type": "text",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
             "text_size": 5,
             "text_columns": 1
           }
         }
       },
-      "block_order": ["165437997148f9f7ce-0", "165437997148f9f7ce-1", "165437997148f9f7ce-2"],
+      "block_order": [
+        "165437997148f9f7ce-0",
+        "165437997148f9f7ce-1",
+        "165437997148f9f7ce-2"
+      ],
       "settings": {
         "align_text": "text-center",
         "color_bg": "palette--light bg--neutral",
@@ -391,7 +416,7 @@
       "type": "section-collection",
       "settings": {
         "title": "Featured Products",
-        "description": "<p>Use this area to describe the collection.</p>",
+        "description": "<p>Use this area to describe the collection.<\/p>",
         "collection": "",
         "grid": 4,
         "limit": 8,
@@ -407,7 +432,7 @@
       "type": "section-collection",
       "settings": {
         "title": "Featured Products",
-        "description": "<p>Use this area to describe the collection.</p>",
+        "description": "<p>Use this area to describe the collection.<\/p>",
         "collection": "",
         "grid": 4,
         "limit": 8,

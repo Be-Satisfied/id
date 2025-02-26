@@ -1,0 +1,100 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "page-default",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "show_content": true,
+        "alignment": "text-left",
+        "page_nav": "",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "section_hero_V88zz9": {
+      "type": "section-hero",
+      "blocks": {
+        "heading_bnG3mU": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "<p>Image banner</p>",
+            "text_size": 10
+          }
+        },
+        "text_NzkqyJ": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>This area is used to describe your store</p>",
+            "text_size": 6,
+            "text_columns": 1
+          }
+        },
+        "button_hKc9Xf": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_text": "Learn More",
+            "button_url": "",
+            "button_size": "btn--large",
+            "button_style": "hero__btn btn",
+            "button_color": "btn--white"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bnG3mU",
+        "text_NzkqyJ",
+        "button_hKc9Xf"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Frame.png",
+        "height": "use_image",
+        "overlay_opacity": 0,
+        "overlay_color": "#000000",
+        "flex_align": "align--middle-left",
+        "align_text": "text-left",
+        "color": "text--white",
+        "color_bg": "hero__content--transparent",
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_blog_list_DNPprH": {
+      "type": "section-blog-list",
+      "settings": {
+        "title": "News",
+        "index_blog": "",
+        "limit": 6,
+        "aspect_ratio": 1,
+        "show_meta": true,
+        "show_excerpt": false,
+        "show_tags": false,
+        "show_view_all": false,
+        "color_bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_hero_V88zz9",
+    "section_blog_list_DNPprH"
+  ]
+}

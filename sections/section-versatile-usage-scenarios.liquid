@@ -1,0 +1,213 @@
+<div
+  class="section-new-featured-products {{ section.settings.color_bg }} Versatile-Usage-Scenarios-box-bg"
+  data-section-id="{{ section.id }}"
+  data-section-type="section-new-featured-products"
+  style="    --PT: {{ section.settings.padding_top }}px; --PB: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="Versatile-Usage-Scenarios-box {{ section.settings.width }}">
+    <div class="Versatile-Usage-Scenarios-content">
+      <div class="Versatile-Usage-Scenarios-text-content">
+        <h2 class="Versatile-Usage-Scenarios-title">Versatile Usage Scenarios</h2>
+        <p class="Versatile-Usage-Scenarios-text">
+          Ideal for use in offices, cafes, during travel, at airports, or any location with Wi-Fi access！
+        </p>
+        <div class="Versatile-Usage-Scenarios-list">
+          <ul>
+            <li class="active-li">Deeper Connect Pico Lite</li>
+            <li>Deeper Connect Mini</li>
+            <li>Deeper Connect Air</li>
+          </ul>
+        </div>
+      </div>
+      <div class="Versatile-Usage-Scenarios-image">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0686/5754/5273/files/PicoLite-vus.png?v=1727594270"
+          alt="Versatile Usage Scenarios"
+          id="scenarioImage"
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .Versatile-Usage-Scenarios-box {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 190.1px 0px;
+  }
+  .Versatile-Usage-Scenarios-box-bg {
+    background: #f4f4f4;
+  }
+
+  .Versatile-Usage-Scenarios-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Versatile-Usage-Scenarios-text-content {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 122px;
+  }
+
+  .Versatile-Usage-Scenarios-image {
+    max-height: 100%;
+    overflow: hidden;
+    height: 390px;
+    width: 690px;
+  }
+
+  .Versatile-Usage-Scenarios-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .Versatile-Usage-Scenarios-title {
+    color: #000;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 42px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .Versatile-Usage-Scenarios-text {
+    color: #2f3132;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 26px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+  }
+
+  .Versatile-Usage-Scenarios-list ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .Versatile-Usage-Scenarios-list ul li {
+    color: #888799;
+    font-size: 16px;
+    padding: 20px 0;
+    border-bottom: 2px solid #888799;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    font-weight: 700;
+  }
+  .Versatile-Usage-Scenarios-list ul li:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+
+  .Versatile-Usage-Scenarios-list ul li.active-li {
+    color: #000;
+    border-bottom: 4px solid #000;
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 768px) {
+    .Versatile-Usage-Scenarios-content {
+      flex-direction: column;
+    }
+    .Versatile-Usage-Scenarios-box {
+      padding: 30px 10px;
+    }
+
+    .Versatile-Usage-Scenarios-text-content,
+    .Versatile-Usage-Scenarios-image {
+      max-width: 100%;
+      padding-right: 0;
+    }
+    .Versatile-Usage-Scenarios-title {
+      text-align: center;
+      font-size: 32px;
+    }
+
+    .Versatile-Usage-Scenarios-image {
+      margin-top: 30px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let listLi = document.querySelectorAll('.Versatile-Usage-Scenarios-list ul li');
+    let scenarioImage = document.getElementById('scenarioImage');
+
+    let imageArr = [
+      'https://cdn.shopify.com/s/files/1/0686/5754/5273/files/PicoLite-vus.png?v=1727604759',
+      'https://cdn.shopify.com/s/files/1/0686/5754/5273/files/Mini-vus.png?v=1727604758',
+      'https://cdn.shopify.com/s/files/1/0686/5754/5273/files/Air-vus.png?v=1727618015',
+    ];
+
+    function changeImage(index) {
+      scenarioImage.src = imageArr[index];
+
+      listLi.forEach((li) => li.classList.remove('active-li'));
+      listLi[index].classList.add('active-li');
+    }
+
+    listLi.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        console.log(2, index);
+        changeImage(index);
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Versatile Usage Scenarios",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wrapper",
+      "options": [
+        { "value": "wrapper--full", "label": "Full width padded" },
+        { "value": "wrapper", "label": "Page width" },
+        { "value": "wrapper--narrow", "label": "Page width narrow" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Versatile Usage Scenarios",
+      "category": "Products"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "aside"]
+  }
+}
+{% endschema %}

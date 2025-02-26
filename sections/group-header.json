@@ -1,1 +1,124 @@
-{"type":"header","name":"Header","sections":{"header":{"type":"header","blocks":{"toolbar":{"type":"toolbar","settings":{}}},"block_order":["toolbar"],"settings":{"logo":"{{ shop.brand.logo }}","transparent_home":true,"transparent_logo":"{{ shop.brand.logo }}"}}},"order":["header"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "blocks": {
+        "toolbar": {
+          "type": "toolbar",
+          "settings": {
+            "announcement_text": "<p>🎉 Limited Time Offer! Enjoy FREE SHIPPING on all orders across the Philippines!</p>",
+            "secondary_linklist": "",
+            "show_menu_desktop": true,
+            "show_menu_mobile": true,
+            "show_locale_desktop": true,
+            "show_locale_mobile": true,
+            "show_country_name": false,
+            "show_country_flag": true,
+            "show_currency_desktop": true,
+            "show_currency_mobile": true
+          }
+        },
+        "image_QmaYFz": {
+          "type": "image",
+          "settings": {
+            "position": "1",
+            "image": "shopify://shop_images/air_13fd2be0-373f-40e6-90d6-30bfddcb306f.png",
+            "aspect_ratio": 0.5,
+            "wide_image": true,
+            "title": "Deeper Connect Air",
+            "link_text": "Portable DPN Travel Router",
+            "link": "shopify://products/deeper-connect-air",
+            "color_text": "text--white"
+          }
+        },
+        "image_RCTVcB": {
+          "type": "image",
+          "settings": {
+            "position": "1",
+            "image": "shopify://shop_images/mini_4b259e6d-7970-4e0b-bac8-766b4ab37518.png",
+            "aspect_ratio": 0.5,
+            "wide_image": true,
+            "title": "Deeper Connect Mini",
+            "link_text": "Best Performance Web3 Router",
+            "link": "shopify://products/deeper-connect-mini",
+            "color_text": "text--white"
+          }
+        },
+        "image_6Krx84": {
+          "type": "image",
+          "settings": {
+            "position": "1",
+            "image": "shopify://shop_images/lite.png",
+            "aspect_ratio": 0.5,
+            "wide_image": true,
+            "title": "Deeper Connect Pico Lite",
+            "link_text": "Versatile DPN Router",
+            "link": "shopify://products/deeper-connect-pico-lite",
+            "color_text": "text--white"
+          }
+        },
+        "image_NJeEpi": {
+          "type": "image",
+          "settings": {
+            "position": "1",
+            "image": "shopify://shop_images/wifi.png",
+            "aspect_ratio": 0.5,
+            "wide_image": true,
+            "title": "Deeper Connect Dual Antennas Wi-Fi Adapter",
+            "link_text": "",
+            "link": "shopify://products/deeper-connect-dual-antennas-wi-fi-adapter",
+            "color_text": "text--white"
+          }
+        },
+        "image_z7XXfG": {
+          "type": "image",
+          "settings": {
+            "position": "1",
+            "image": "shopify://shop_images/usb-a_9ff1d3ef-1ef6-430f-b37c-343ddcaf910c.png",
+            "aspect_ratio": 0.5,
+            "wide_image": true,
+            "title": "Deeper Connect Wi-Fi Adapter  (USB-A）",
+            "link_text": "",
+            "link": "shopify://products/deeper-connect-wi-fi-adapter-usb-a",
+            "color_text": "text--white"
+          }
+        }
+      },
+      "block_order": [
+        "toolbar",
+        "image_QmaYFz",
+        "image_RCTVcB",
+        "image_6Krx84",
+        "image_NJeEpi",
+        "image_z7XXfG"
+      ],
+      "settings": {
+        "enable_header_sticky": true,
+        "header_style": "logo_beside",
+        "full_width": false,
+        "logo": "shopify://shop_images/Logo.png",
+        "logo_max_limit": 120,
+        "main_menu_linklist": "2024-home-nav",
+        "enable_search": true,
+        "enable_account": true,
+        "transparent_home": true,
+        "transparent_collection": true,
+        "transparent_logo": "{{ shop.brand.logo }}"
+      }
+    }
+  },
+  "order": [
+    "header"
+  ]
+}

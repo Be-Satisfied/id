@@ -1,0 +1,102 @@
+<section
+  class="section-tabs {{ section.settings.color_bg }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="tabs"
+  style="--PT: {{ section.settings.padding_top }}px; --PB: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="wrapper section-padding look-usb-a" style="max-width: 1248px;width:100%">
+    <div class="product__closer__looker-title">Seamless Coverage Throughout Your Home</div>
+
+    {% comment %} 判断产品标题 {% endcomment %}
+    {% if product.title == 'Deeper Connect Wi-Fi Adapter (USB-A）' %}
+      {% render 'product-usb-a' %}
+    {% elsif product.title == 'Deeper Connect Wi-Fi Adapter (USB-C）' %}
+      {% render 'product-usb-c' %}
+    {% elsif product.title == 'Deeper Connect Dual Antennas Wi-Fi Adapter' %}
+      {% render 'product-wifi-ad' %}
+    {% endif %}
+  </div>
+</section>
+{{ 'closer-look.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #take-a-closer-look {
+    height: 500px;
+    display: flex;
+  }
+  .feature-content__title,
+  .feature-content__desc {
+    color: black;
+  }
+
+  .look-usb-a {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .feature-item {
+      width: auto !important;
+    }
+    .look-usb-a {
+      width: 100%;
+    }
+    #take-a-closer-look {
+      height: auto;
+      width: 100vw;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .feature-mobile-image {
+      width: 100%;
+    }
+    .feature-mobile-image img {
+      width: 100%;
+      object-fit: fill;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .inside-the-box__body {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* #feature-video,.take-a-closer-look-mobile #feature-video2{
+    position: absolute;
+    inset: 0;
+  } */
+</style>
+
+{% schema %}
+{
+  "name": "Seamless Coverage(usb)",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Seamless Coverage(usb)",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

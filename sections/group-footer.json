@@ -1,1 +1,48 @@
-{"type":"footer","name":"Footer","sections":{"icons-footer":{"type":"section-icons","blocks":{"block__icons-footer-0":{"type":"icon_block","settings":{"icon_name":"icon-earth","icon_color":"#4f8bf2","title":"Global Shipping"}},"block__icons-footer-1":{"type":"icon_block","settings":{"icon_name":"icon-basket-return","icon_color":"#51c88e","title":"Flexible Returns"}},"block__icons-footer-2":{"type":"icon_block","settings":{"icon_name":"icon-lock-shield","icon_color":"#ffc896","title":"Secure Checkout"}},"block__icons-footer-3":{"type":"icon_block","settings":{"icon_name":"icon-phone","icon_color":"#ff8484","title":"Dedicated support"}}},"block_order":["block__icons-footer-0","block__icons-footer-1","block__icons-footer-2","block__icons-footer-3"],"settings":{"bg":"palette--light bg--neutral","icon_size":"icon--medium","alignment":"text-center","grid":4,"width":"wrapper","padding_top":64,"padding_bottom":10}},"newsletter-footer":{"type":"section-newsletter","settings":{"padding_top":10,"padding_bottom":20}},"footer":{"type":"footer","settings":{}},"subfooter":{"type":"subfooter","settings":{}}},"order":["icons-footer","newsletter-footer","footer","subfooter"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "footer_logo": "shopify://shop_images/Logo_380beb50-e669-42c8-9cc8-9430e3e99914.png",
+        "logo_max_width": 160,
+        "footer_description": "<p>Deeper Network Philippines</p>",
+        "footer_linklist": "products",
+        "policy_menu": "main-menu",
+        "footer_second_linklist": "policy",
+        "width": "wrapper",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "subfooter": {
+      "type": "subfooter",
+      "settings": {
+        "footer_social_enable": true,
+        "footer_payment_enable": true,
+        "enable_follow_on_shop": true,
+        "show_locale_selector": true,
+        "show_currency_selector": true,
+        "show_country_name": false,
+        "show_country_flag": true,
+        "width": "wrapper",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    }
+  },
+  "order": [
+    "footer",
+    "subfooter"
+  ]
+}

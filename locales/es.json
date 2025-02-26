@@ -36,7 +36,7 @@
     },
     "404": {
       "title": "404 Página no encontrada",
-      "subtext_html": "La página que ha solicitado no existe. Haga clic <a href=\"/collections/all\">aquí</a> para continuar la compra."
+      "subtext_html": "La página que ha solicitado no existe. Haga clic <a href=\"\/collections\/all\">aquí<\/a> para continuar la compra."
     },
     "newsletter_form": {
       "newsletter_email": "hola@email.com",
@@ -56,7 +56,7 @@
       "signup_form_email_placeholder": "Tu dirección de correo electrónico",
       "signup_form_submit": "Enviar",
       "signup_form_success": "¡Te enviaremos un correo electrónico antes de inaugurar!",
-      "admin_link_html": "¿Eres el dueño de la tienda? <a href=\"/admin\">Regístrate aquí</a>",
+      "admin_link_html": "¿Eres el dueño de la tienda? <a href=\"\/admin\">Regístrate aquí<\/a>",
       "password_link": "Entrar usando contraseña",
       "powered_by_shopify_html": "Esta tienda estará impulsada por {{ shopify }}"
     },
@@ -409,8 +409,8 @@
         "view_store_info": "Ver información de la tienda",
         "check_other_stores": "Verificar disponibilidad en otras tiendas",
         "pick_up_available": "Retiro disponible",
-        "pick_up_available_at_html": "Retiro disponible en <strong>{{ location_name }}</strong>",
-        "pick_up_unavailable_at_html": "Retiro no disponible actualmente en <strong>{{ location_name }}</strong>",
+        "pick_up_available_at_html": "Retiro disponible en <strong>{{ location_name }}<\/strong>",
+        "pick_up_unavailable_at_html": "Retiro no disponible actualmente en <strong>{{ location_name }}<\/strong>",
         "unavailable": "No se pudo cargar la disponibilidad de retiro",
         "refresh": "Actualizar"
       },

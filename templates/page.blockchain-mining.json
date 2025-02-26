@@ -1,0 +1,294 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "section_feature_slideshow_jgpcbH": {
+      "type": "section-feature-slideshow",
+      "blocks": {
+        "image_Bk9kUa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pc-banner-6.png",
+            "mobile_image": "shopify://shop_images/phone-banner-6.png",
+            "bg_position": "center-center",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "title": "Blockchain Mining",
+            "mobile_title": "Blockchain Mining",
+            "richtext": "Earn rewards (DPR) by sharing unused internet bandwidth.",
+            "color_bg": "hero__content--transparent",
+            "text_align": "align--bottom-left",
+            "text_color": "text--black",
+            "link_text": "Buy Now",
+            "link": "https://deepernetwork.ph/",
+            "button_size": "btn--large",
+            "button_style": "hero__btn btn",
+            "button_color": "btn--secondary"
+          }
+        }
+      },
+      "block_order": [
+        "image_Bk9kUa"
+      ],
+      "settings": {
+        "autoplay": false,
+        "autoplay_speed": 8,
+        "dots_position": "dots--right",
+        "height": "use_image",
+        "width": "wrapper--none",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "page-default",
+      "settings": {
+        "show_title": true,
+        "show_content": true,
+        "alignment": "text-left",
+        "page_nav": "",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "section_text_6bDY84": {
+      "type": "section-text",
+      "blocks": {
+        "kicker_QDDVKk": {
+          "type": "kicker",
+          "settings": {
+            "kicker": "<p><strong>How to Mine DPR in 4 easy steps</strong></p>",
+            "enable_caps": false,
+            "text_size": 9
+          }
+        }
+      },
+      "block_order": [
+        "kicker_QDDVKk"
+      ],
+      "settings": {
+        "align_text": "text-left",
+        "color_bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "section_timeline_tree_QieVgR": {
+      "type": "section-timeline-tree",
+      "blocks": {
+        "episode_qPgkxw": {
+          "type": "episode",
+          "settings": {
+            "title": "Step 1.Buy a Deeper Connect",
+            "date": "",
+            "story": "<p>• Buy a Deeper Connect Mini or Pico at  <a href=\"https://deepernetwork.ph/\" target=\"_blank\" title=\"https://deepernetwork.ph/\">https://deepernetwork.ph/</a></p>",
+            "link_text": "Continued...",
+            "link": ""
+          }
+        },
+        "episode_jTMkha": {
+          "type": "episode",
+          "settings": {
+            "title": "Step 2. Buy DPR",
+            "date": "",
+            "story": "<p>• Buy DPR coin at Kucoin or Gate.io or check out other markets here:<br/><a href=\"https://coinmarketcap.com/currencies/deeper-network/markets\" target=\"_blank\" title=\"Buy DPR - Deeper Network\">https://coinmarketcap.com/currencies/deeper-network/markets</a></p>",
+            "link_text": "Continued...",
+            "link": ""
+          }
+        },
+        "episode_taYg68": {
+          "type": "episode",
+          "settings": {
+            "title": "Step 3. Stake DPR",
+            "date": "",
+            "story": "<p>• Staking link:  <a href=\"/blogs/tutorials/deeper-network-staking-tutorial-for-binance-smart-chain-bsc-pc-version\" title=\"Deeper Network Staking Tutorial for Binance Smart Chain (BSC)-PC VERSION\">https: //device-bsc.deeper.network</a></p>",
+            "link_text": "Continued...",
+            "link": ""
+          }
+        },
+        "episode_7mCXhX": {
+          "type": "episode",
+          "settings": {
+            "title": "Step 4. Start Mining",
+            "date": "",
+            "story": "<p>• Check your mining rewards under the DPR tab on AtomOS at 34.34.34.34</p>",
+            "link_text": "Continued...",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "episode_qPgkxw",
+        "episode_jTMkha",
+        "episode_taYg68",
+        "episode_7mCXhX"
+      ],
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "section_text_k6B9xj": {
+      "type": "section-text",
+      "blocks": {
+        "kicker_DRrNCA": {
+          "type": "kicker",
+          "settings": {
+            "kicker": "<p><strong>Get more</strong></p>",
+            "enable_caps": false,
+            "text_size": 6
+          }
+        }
+      },
+      "block_order": [
+        "kicker_DRrNCA"
+      ],
+      "settings": {
+        "align_text": "text-left",
+        "color_bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "section_icons_eXGBmx": {
+      "type": "section-icons",
+      "blocks": {
+        "icon_block_JhPbDx": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-chat",
+            "icon_alt": "shopify://shop_images/Frame_1087426bm-ico-1.png",
+            "icon_color": "#4f8bf2",
+            "title": "Mining rewards calculator",
+            "text": "<p><a href=\"https://dpr.deeper.network/calculator\" target=\"_blank\" title=\"Mining rewards calculator - Deeper Network\">https://dpr.deeper.network/calculator</a></p>"
+          }
+        },
+        "icon_block_R3UpJH": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-basket-return",
+            "icon_alt": "shopify://shop_images/Frame_1087427bmico-2.png",
+            "icon_color": "#51c88e",
+            "title": "How to mine without staking",
+            "text": "<p><a href=\"https://www.youtube.com/watch?v=AbG6stgUOT8\" target=\"_blank\" title=\"How to mine without staking - Deeper Network\">https://www.youtube.com/watch?v=AbG6stgUOT8</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_block_JhPbDx",
+        "icon_block_R3UpJH"
+      ],
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "icon_size": "icon--small",
+        "show_icon_bg": true,
+        "alignment": "text-left",
+        "grid": 2,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 30
+      }
+    },
+    "section_icons_VKyeWf": {
+      "type": "section-icons",
+      "blocks": {
+        "icon_block_KwfzmU": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-earth",
+            "icon_alt": "shopify://shop_images/Frame_1087429.png",
+            "icon_color": "#4f8bf2",
+            "title": "Basic mining",
+            "text": "<p><a href=\"https://deepernetwork.ph/blogs/news/deeper-network-basic-mining-rules-and-rewards\" target=\"_blank\" title=\"https://deepernetwork.ph/blogs/news/deeper-network-basic-mining-rules-and-rewards\">https://deepernetwork.ph/blogs/news/deeper-network-basic-mining-rules-and-rewards</a></p>"
+          }
+        },
+        "icon_block_bgeJFj": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-basket-return",
+            "icon_alt": "shopify://shop_images/Frame_1087428.png",
+            "icon_color": "#51c88e",
+            "title": "Basic mining update",
+            "text": "<p><a href=\"https://deepernetwork.ph/blogs/news/deeper-network-basic-mining-2-0-mining-updates-for-genesis-and-basic-mining\" target=\"_blank\" title=\"https://deepernetwork.ph/blogs/news/deeper-network-basic-mining-2-0-mining-updates-for-genesis-and-basic-mining\">https://deepernetwork.ph/blogs/news/deeper-network-basic-mining-2-0-mining-updates-for-genesis-and-basic-mining</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_block_KwfzmU",
+        "icon_block_bgeJFj"
+      ],
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "icon_size": "icon--small",
+        "show_icon_bg": true,
+        "alignment": "text-left",
+        "grid": 2,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 30
+      }
+    },
+    "section_icons_ceD8hR": {
+      "type": "section-icons",
+      "blocks": {
+        "icon_block_9h3mp3": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-earth",
+            "icon_alt": "shopify://shop_images/Frame_1087430.png",
+            "icon_color": "#4f8bf2",
+            "title": "How to stake",
+            "text": "<p><a href=\"https://deepernetwork.ph/blogs/tutorials/deeper-network-staking-tutorial-for-binance-smart-chain-bsc-pc-version\" target=\"_blank\" title=\"https://deepernetwork.ph/blogs/tutorials/deeper-network-staking-tutorial-for-binance-smart-chain-bsc-pc-version\">https://deepernetwork.ph/blogs/tutorials/deeper-network-staking-tutorial-for-binance-smart-chain-bsc-pc-version</a></p>"
+          }
+        },
+        "icon_block_imj7hy": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-basket-return",
+            "icon_alt": "shopify://shop_images/icon-tutorials.png",
+            "icon_color": "#51c88e",
+            "title": "Tutorials and updates",
+            "text": "<p><a href=\"/blogs/news\" target=\"_blank\" title=\"News\">https://deepernetwork.ph/pages/blog</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_block_9h3mp3",
+        "icon_block_imj7hy"
+      ],
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "icon_size": "icon--small",
+        "show_icon_bg": true,
+        "alignment": "text-left",
+        "grid": 2,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 46
+      }
+    }
+  },
+  "order": [
+    "section_feature_slideshow_jgpcbH",
+    "main",
+    "section_text_6bDY84",
+    "section_timeline_tree_QieVgR",
+    "section_text_k6B9xj",
+    "section_icons_eXGBmx",
+    "section_icons_VKyeWf",
+    "section_icons_ceD8hR"
+  ]
+}

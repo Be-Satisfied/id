@@ -1,0 +1,58 @@
+<section
+  class="section-tabs {{ section.settings.color_bg }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="tabs"
+  style="--PT: {{ section.settings.padding_top }}px; --PB: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="wrapper section-padding" style="max-width: 1200px;">
+    <div class="product__closer__looker-title">Take A Closer Look</div>
+
+    {% if product.title == 'Deeper Connect Pico Lite' %}
+      {% render 'lite-closer' %}
+    {% endif %}
+    {% if product.title == 'Deeper Connect Mini' %}
+      {% render 'mini-closer' %}
+    {% endif %}
+    {% if product.title == 'Deeper Connect Air' %}
+      {% render 'air-closer' %}
+    {% endif %}
+    {% if product.title == 'Deeper Connect Air & Mini Set' %}
+      {% render 'air-mini-closer' %}
+    {% endif %}
+  </div>
+</section>
+{{ 'closer-look.css' | asset_url | stylesheet_tag }}
+
+{% schema %}
+{
+  "name": "Take A Closer Look",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Take A Close Look",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

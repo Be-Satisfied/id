@@ -1,0 +1,89 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "page-default",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "show_content": true,
+        "alignment": "text-left",
+        "page_nav": "",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "section_feature_slideshow_jgpcbH": {
+      "type": "section-feature-slideshow",
+      "blocks": {
+        "image_Bk9kUa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pc-banner-3.png",
+            "mobile_image": "shopify://shop_images/phone-banner-3.png",
+            "bg_position": "center-center",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "title": "Protect All Your IoT Devices",
+            "mobile_title": "Protect All Your IoT Devices",
+            "richtext": "Prevent malicious actors from accessing your personal information and IoT devices.",
+            "color_bg": "hero__content--transparent",
+            "text_align": "align--bottom-left",
+            "text_color": "text--black",
+            "link_text": "Buy Now",
+            "link": "https://deepernetwork.ph/",
+            "button_size": "btn--large",
+            "button_style": "hero__btn btn",
+            "button_color": "btn--secondary"
+          }
+        }
+      },
+      "block_order": [
+        "image_Bk9kUa"
+      ],
+      "settings": {
+        "autoplay": false,
+        "autoplay_speed": 8,
+        "dots_position": "dots--right",
+        "height": "use_image",
+        "width": "wrapper--none",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_feature_protect_y86xkz": {
+      "type": "section-feature-protect",
+      "settings": {
+        "bg_position": "center-center",
+        "aspect_ratio": 1,
+        "layout": "left",
+        "title": "Image with text",
+        "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+        "color_text_bg": "palette--light bg--accent",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn",
+        "button_color": "btn--neutral",
+        "color_bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_feature_slideshow_jgpcbH",
+    "section_feature_protect_y86xkz"
+  ]
+}

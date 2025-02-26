@@ -1,1 +1,174 @@
-{"sections":{"default-banner":{"type":"section-hero","blocks":{"banner-heading":{"type":"heading","settings":{"heading":"<p>Story Theme<\/p>","text_size":10}},"banner-text":{"type":"text","settings":{"text":"<p>A powerful theme built for modern commerce.<\/p>","text_size":5,"text_columns":1}},"banner-button":{"type":"button","settings":{"button_text":"View Products","button_url":"shopify:\/\/collections\/all","button_size":"btn--large","button_style":"hero__btn btn","button_color":"btn--white"}},"banner-more":{"type":"button","settings":{"button_text":"Learn More","button_url":"shopify:\/\/pages\/contact-us","button_size":"btn--large","button_style":"text-link","button_color":"btn--white"}}},"block_order":["banner-heading","banner-text","banner-button","banner-more"],"settings":{"height":"use_screen_three_quarters","overlay_opacity":30,"overlay_color":"#181929","flex_align":"align--middle-center","align_text":"text-center","color":"text--white","color_bg":"hero__content--transparent","width":"wrapper--none","padding_top":0,"padding_bottom":0}},"default-collection-grid":{"type":"section-collection-grid","blocks":{"default-collection-grid-0":{"type":"featured_collection","settings":{"collection":"","text":"<p>Bags & Purses<\/p>","link_override":"","content_color":"#333333","content_bg":"#f7f7f7"}},"default-collection-grid-1":{"type":"featured_collection","settings":{"collection":"","text":"<p>Shoes & Loafers<\/p>","link_override":"","content_color":"#333333","content_bg":"#f7f7f7"}},"default-collection-grid-2":{"type":"featured_collection","settings":{"collection":"","text":"<p>Glasses & Sunnies<\/p>","link_override":"","content_color":"#333333","content_bg":"#f7f7f7"}},"default-collection-grid-3":{"type":"featured_collection","settings":{"collection":"","text":"<p>Hats & Caps<\/p>","link_override":"","content_color":"#333333","content_bg":"#f7f7f7"}},"default-collection-grid-4":{"type":"featured_collection","settings":{"collection":"","text":"<p>Watches & Chargers<\/p>","link_override":"","content_color":"#333333","content_bg":"#f7f7f7"}},"default-collection-grid-5":{"type":"featured_collection","settings":{"collection":"","text":"<p>Lamps & Tableware<\/p>","link_override":"","content_color":"#333333","content_bg":"#f7f7f7"}}},"block_order":["default-collection-grid-0","default-collection-grid-1","default-collection-grid-2","default-collection-grid-3","default-collection-grid-4","default-collection-grid-5"],"settings":{"title":"Collection list","description":"<p>Use this area to describe the collection.<\/p>","grid":3,"color_bg":"bg--neutral","enable_slider":true,"aspect_ratio":0.6,"place_text":"flex-column","align_text":"text-center","use_font":"font-heading","width":"wrapper","padding_top":48,"padding_bottom":12}},"default-collection":{"type":"section-collection","settings":{"title":"Featured Products","description":"<p>Use this area to describe the collection.<\/p>","collection":"","grid":4,"limit":8,"enable_slider":true,"color_bg":"palette--light bg--neutral","show_view_all":false,"width":"wrapper","padding_top":12,"padding_bottom":36}},"default-split-collection":{"type":"section-collection-split","blocks":{"default-first-split-block-0":{"type":"heading","settings":{"heading":"<p>Split collection<\/p>","text_size":10}},"default-first-split-block-1":{"type":"text","settings":{"text":"<p>Shop the look with some of our favorite products<\/p>","text_size":6}},"default-first-split-block-2":{"type":"button","settings":{"button_text":"Learn More","button_url":"","button_size":"btn--large","button_style":"hero__btn btn","button_color":"btn--white"}}},"block_order":["default-first-split-block-0","default-first-split-block-1","default-first-split-block-2"],"settings":{"collection":"","product_list":[],"sticky_image_enable":false,"swap":false,"overlay_opacity":30,"overlay_color":"#181929","grid_large":2,"grid_small":1.5,"limit":4,"bg":"palette--light bg--neutral","video_link_bg":"","object_position":"center-center","flex_align":"align--middle-center","align_text":"text-center","color":"text--white","width":"wrapper","padding_top":12,"padding_bottom":12}},"default-second-split-collection":{"type":"section-collection-split","blocks":{"default-second-split-block-0":{"type":"heading","settings":{"heading":"<p>Split collection<\/p>","text_size":10}},"default-second-split-block-1":{"type":"text","settings":{"text":"<p>Shop the look with some of our favorite products<\/p>","text_size":6}},"default-second-split-block-2":{"type":"button","settings":{"button_text":"Learn More","button_url":"","button_size":"btn--large","button_style":"hero__btn btn","button_color":"btn--white"}}},"block_order":["default-second-split-block-0","default-second-split-block-1","default-second-split-block-2"],"settings":{"collection":"","product_list":[],"sticky_image_enable":false,"swap":true,"overlay_opacity":30,"overlay_color":"#181929","grid_large":2,"grid_small":1.5,"limit":4,"bg":"palette--light bg--neutral","video_link_bg":"","object_position":"center-center","flex_align":"align--middle-center","align_text":"text-center","color":"text--white","width":"wrapper","padding_top":12,"padding_bottom":48}},"default-press":{"type":"section-press","blocks":{"press-block-0":{"type":"quote","settings":{"title":"<p>This is the first time I have reviewed a product in a long time and I have to say, it's well deserved.  I'm not sure how I got by before I use this constantly.  Solid five stars from me, I am a huge fan!<\/p>","image_max_limit":140,"image_padding":40}},"press-block-1":{"type":"quote","settings":{"title":"<p>I've been hesitant to review products before, but this one is an exception. It has made a significant impact on my life, and I can't imagine going without it. Easily a five-star product!<\/p>","image_max_limit":140,"image_padding":40}},"press-block-2":{"type":"quote","settings":{"title":"<p>I rarely write reviews, but this product truly blew me away. It's become an essential part of my daily routine and I have absolutely no regrets, five stars for the team all the way!<\/p>","image_max_limit":140,"image_padding":40}}},"block_order":["press-block-0","press-block-1","press-block-2"],"settings":{"bg":"palette--light bg--neutral","inner_bg":"palette--light bg--accent","text_size":8,"font_type":"font-heading","width":"wrapper","padding_top":10,"padding_bottom":24}},"default-mosaic":{"type":"section-mosaic","blocks":{"mosaic_index_block-0":{"type":"featured_collection","settings":{"collection":"","text":"","link_override":"","content_color":"#333333","content_bg":"#f7f7f7"}},"mosaic_index_block-1":{"type":"featured_collection","settings":{"collection":"","text":"","link_override":"","content_color":"#333333","content_bg":"#f7f7f7"}},"mosaic_index_block-2":{"type":"featured_collection","settings":{"collection":"","text":"","link_override":"","content_color":"#333333","content_bg":"#f7f7f7"}}},"block_order":["mosaic_index_block-0","mosaic_index_block-1","mosaic_index_block-2"],"settings":{"title":"","description":"","color_bg":"palette--light bg--neutral","aspect_ratio":0.6,"place_text":"flex-column","align_text":"text-center","use_font":"font-heading","width":"wrapper","padding_top":0,"padding_bottom":36}},"default-blog":{"type":"section-blog","settings":{"title":"News","index_blog":"","limit":6,"grid":3,"aspect_ratio":1,"show_meta":true,"show_excerpt":false,"show_tags":false,"show_view_all":false,"color_bg":"palette--light bg--neutral","width":"wrapper","padding_top":36,"padding_bottom":36}},"default-rte-social":{"type":"section-text","blocks":{"main-index_default-rte-social-kicker-1":{"type":"kicker","settings":{"kicker":"<p><a href=\"https:\/\/www.instagram.com\/groupthought\/\" target=\"_blank\" title=\"Instagram link\">@social_handle<\/a><\/p>","enable_caps":true,"text_size":1}},"main-index_default-rte-social-heading-1":{"type":"heading","settings":{"heading":"<p>Stay in touch<\/p>","text_size":6}}},"block_order":["main-index_default-rte-social-kicker-1","main-index_default-rte-social-heading-1"],"settings":{"align_text":"text-left","color_bg":"palette--light bg--neutral","width":"wrapper","padding_top":36,"padding_bottom":0}},"default-gallery-social":{"type":"section-gallery","blocks":{"main-index_default-gallery-social-image-1":{"type":"image","settings":{}},"main-index_default-gallery-social-image-2":{"type":"image","settings":{}},"main-index_default-gallery-social-image-3":{"type":"image","settings":{}},"main-index_default-gallery-social-image-4":{"type":"image","settings":{}},"main-index_default-gallery-social-image-5":{"type":"image","settings":{}}},"block_order":["main-index_default-gallery-social-image-1","main-index_default-gallery-social-image-2","main-index_default-gallery-social-image-3","main-index_default-gallery-social-image-4","main-index_default-gallery-social-image-5"],"settings":{"scale_image":true,"aspect_ratio":1,"padding":true,"bg":"palette--light bg--neutral","width":"wrapper","padding_top":20,"padding_bottom":20}},"default-accordion-group":{"type":"section-accordion","blocks":{"accordion-block-1":{"type":"text","settings":{"title":"Our policy for returns and refunds","content":"<p>Our customers' satisfaction is our number one priority.<\/p><p>We offer a full refund when the product has not been opened and is unused and a partial refund when the packaging can not be accounted for.<\/p><p>Please note that customers will be responsible for shipping costs.<\/p><p>Any returns must be in the original packaging with proof of purchase.<\/p>"}},"accordion-block-2":{"type":"text","settings":{"title":"Our commitment to payment security","content":"<p>All direct payment gateways adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, MasterCard, American Express, and Discover.<\/p>"}},"accordion-block-3":{"type":"text","settings":{"title":"Product delivery times","content":"<p>Standard delivery usually takes around 7 business days. Please note that with the state of the global pandemic, orders may arrive later than usual.<\/p><p>If your order hasn't arrived after two weeks, please contact us and we will look into the details.<\/p>"}},"accordion-block-4":{"type":"text","settings":{"title":"Our warranty policy","content":"<p>Products under warranty should be handled with care.<\/p><p>If the products arrive with visible defects, please take photos of them and send them our way. We will reach back out to clear up all the details.<\/p>"}}},"block_order":["accordion-block-1","accordion-block-2","accordion-block-3","accordion-block-4"],"settings":{"title":"A few things you might be wondering","align_text":"text-left","text_size":2,"text_color":"text--neutral","bg":"palette--light bg--neutral","height":"use_screen_full","width":"wrapper","padding_top":36,"padding_bottom":36}}},"order":["default-banner","default-collection-grid","default-collection","default-split-collection","default-second-split-collection","default-press","default-mosaic","default-blog","default-rte-social","default-gallery-social","default-accordion-group"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "section_slideshow_G6kW3p": {
+      "type": "section-slideshow",
+      "blocks": {
+        "image_i6qcfc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/banner-pc_d9ab0058-ccfb-40e1-8889-916ebe598807.jpg",
+            "mobile_image": "shopify://shop_images/banner_phone.jpg",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "title": "INTRODUCING THE BEST DPN",
+            "richtext": "<p>Revolutionary and Award-Winning,<br/>The World's First Decentralized VPN Hardware.</p>",
+            "color_bg": "hero__content--transparent",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "LEARN MORE",
+            "link": "shopify://collections",
+            "button_size": "btn--large",
+            "button_style": "hero__btn btn",
+            "button_color": "btn--neutral"
+          }
+        }
+      },
+      "block_order": [
+        "image_i6qcfc"
+      ],
+      "settings": {
+        "autoplay": false,
+        "autoplay_speed": 8,
+        "dots_position": "dots--center",
+        "height": "use_screen_full",
+        "width": "wrapper--none",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_new_featured_products_rgJF8b": {
+      "type": "section-new-featured-products",
+      "settings": {
+        "title": "FEATURED PRODUCTS",
+        "description": "",
+        "width": "wrapper",
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "section_versatile_usage_scenarios_RXP9AG": {
+      "type": "section-versatile-usage-scenarios",
+      "settings": {
+        "width": "wrapper",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "section_you_might_like_iPpPMU": {
+      "type": "section-you-might-like",
+      "blocks": {
+        "product_wqFetN": {
+          "type": "product",
+          "settings": {
+            "product": "deeper-connect-dual-antennas-wi-fi-adapter",
+            "custom_image": "shopify://shop_images/Wi-Fi-Adapter.png",
+            "custom_description": "Applicable to Deeper Connect Pico Lite / Deeper Connect Mini."
+          }
+        },
+        "product_wf8Aet": {
+          "type": "product",
+          "settings": {
+            "product": "deeper-connect-wi-fi-adapter-usb-a",
+            "custom_image": "shopify://shop_images/usb-a.png",
+            "custom_description": "Applicable to Deeper Connect Pico Lite"
+          }
+        }
+      },
+      "block_order": [
+        "product_wqFetN",
+        "product_wf8Aet"
+      ],
+      "settings": {
+        "title": "YOU MIGHT LIKE",
+        "description": "",
+        "image": "shopify://shop_images/You-might-like.png",
+        "width": "wrapper",
+        "padding_top": 100,
+        "padding_bottom": 84
+      }
+    },
+    "2024_plug_and_play_h4cccR": {
+      "type": "2024-plug-and-play",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "width": "wrapper--none"
+      }
+    },
+    "section_accordion_8rmeAU": {
+      "type": "section-accordion",
+      "blocks": {
+        "text_jRWDib": {
+          "type": "text",
+          "settings": {
+            "title": "What is DPN and how does it differ from Decentralized VPN?",
+            "content": "<p>DPN (Decentralized Private Network) represents a decentralized private network technology and is an abbreviation for DeePer Network. It differs from the traditional decentralized VPNs (Decentralized VPN). While there are many Decentralized VPN projects worldwide, DPN stands out with its unique features. It incorporates enterprise-level network security technology into the Decentralized VPN framework, providing security and privacy for both bandwidth users and providers. This approach ensures that the development of the Deeper Network does not pose significant security risks to bandwidth providers like the TOR Network and other Decentralized VPN projects have, and it avoids the potential for the Deeper Network to evolve in the direction of the dark web. The next question will detail how DPN applies world-leading enterprise-level network security technology to protect the safety of bandwidth providers.</p>"
+          }
+        },
+        "text_47qAmd": {
+          "type": "text",
+          "settings": {
+            "title": "Does the DPN technology, based on shared bandwidth, pose cybersecurity risks to bandwidth providers?",
+            "content": "<p>Decentralized VPN technology based on shared bandwidth aims to enhance privacy and freedom in network access through bandwidth sharing. However, it may also pose cybersecurity risks to bandwidth providers. For instance, bandwidth requesters might use the technology to download illegal content, launch cyber-attacks, or access harmful websites, and the legal consequences of these activities could mistakenly be attributed to innocent bandwidth providers.</p><p>From its inception, the Deeper Network has placed a high emphasis on cybersecurity, striving to address this challenge by incorporating enterprise-level network security technology. To protect the cybersecurity of bandwidth providers, we have implemented the following measures:</p><p>1, Blocking Bit Torrent application usage with shared traffic:<br/>Users can disable Bit Torrent traffic sharing, preventing bandwidth requesters from using others' bandwidth for Bit Torrent downloads.<br/></p><p>2, Blocking access to illegal websites using shared traffic:<br/>Bandwidth providers can set website filters to prevent others from accessing illegal websites using their IP.<br/></p><p>3, Preventing intrusion using shared traffic:<br/>Deeper Network employs intrusion detection technology to monitor and thwart hacker intrusions into the network.<br/>Traceable shared logs for transparency and accountability: Any network connection leaves a log on the bandwidth provider's device, stored in encrypted form. When others use the provider's IP for illegal operations, the provider can send the encrypted log to the Deeper Network for decryption to identify the actual malicious user. This not only protects the security of the bandwidth provider but also the privacy of the bandwidth requester.<br/></p><p>4, Preventing shared bandwidth from exceeding monthly quotas: By setting maximum shared bandwidth and monthly limits, providers can prevent their shared traffic from exceeding monthly quotas.</p>"
+          }
+        },
+        "text_Y8DHnd": {
+          "type": "text",
+          "settings": {
+            "title": "What are the notable differences in user experience between DPN and VPN?",
+            "content": "<p>1, Cost difference: DPN offers lifetime free usage after purchase, whereas VPN typically requires a monthly fee.</p><p>2, Ease of use: DPN deployed using Deeper Connect automatically unlocks regional restrictions for all devices, whereas VPN requires software client installation on each device. Many devices do not support VPN software installation, such as Apple TV. DPN's smart routing feature allows traffic from different applications to automatically switch between countries, eliminating the need for manual node switching required by VPNs.</p><p>3, Speed comparison: VPNs provide services through servers, while DPN utilizes the upstream bandwidth of user nodes. Theoretically, VPN speed might be higher than DPN. However, DPN features node aggregation technology, using up to 8 user nodes simultaneously, offering up to 8 times the speed increase. Additionally, DPN's smart routing mode can accelerate streaming media resource access through nearby CDN nodes, reducing the transit delay and buffering common in VPNs.</p><p>4, Differences in geo-location unlocking: As more companies start detecting VPN or proxy IP accesses to streaming media (like Netflix), VPN IPs are easily detected. In contrast, DPN uses home IPs of users, reducing the risk of being blocked.<br/></p><p>5, Security: DPN integrates enterprise-level network security technology, filtering almost all internet ads and trackers, including some that require paid filtering. DPN is also equipped with advanced intrusion detection technology to identify and block cyber-attacks. Without a central server, user access logs are encrypted and dispersed across global nodes, enhancing privacy protection. In contrast, VPNs store user access logs on central servers, and the service provider may access or even view user data, posing risks of log leakage and selling user data.</p>"
+          }
+        },
+        "text_hYRJWK": {
+          "type": "text",
+          "settings": {
+            "title": "How does DPN's ad-filtering experience differ from Pi-hole?",
+            "content": "<p>DPN's ad-filtering experience differs notably from Pi-hole. Pi-hole mainly relies on DNS filtering, controlling access to specific domains, but this method is limited in filtering precision. It cannot filter specific pages or services and is less capable of handling complex, deep-level ads, sometimes leading to the false blocking of normal content. For example, DPN can filter web and mobile YouTube ads and Spotify's built-in ads, while Pi-hole struggles in these areas.</p>"
+          }
+        },
+        "text_jfqwWa": {
+          "type": "text",
+          "settings": {
+            "title": "How does DPN's ad-filtering experience differ from browser ad-filtering plugins?",
+            "content": "<p>DPN's ad-filtering experience differs from browser plugins in the following ways:</p><p>Resistance to countermeasures: Browser plugins are more susceptible to website countermeasures. For instance, sites like YouTube frequently update their recognition codes against browser filtering plugins to prevent ad filtering. DPN's ad filtering, based on underlying traffic filtering, can evade such countermeasures, providing a more stable ad-filtering effect.</p><p>Cross-platform capability: Browser plugins usually only run on PC browsers and cannot be used across platforms. In contrast, DPN's ad-filtering functionality can run on multiple platforms including iOS, Windows, Mac OS, Android, TV OS, Linux, etc. This allows DPN to effectively filter ads in popular applications like YouTube and Spotify.</p><p>Friendly Reminder: To use DPN's ad-filtering feature, it's necessary to install Deeper Network's SSL root certificate on the terminal device, enabling Deeper Connect to modify underlying traffic.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_jRWDib",
+        "text_47qAmd",
+        "text_Y8DHnd",
+        "text_hYRJWK",
+        "text_jfqwWa"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "align_text": "text-center",
+        "text_size": 2,
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "height": "use_screen_full",
+        "width": "wrapper",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "section_slideshow_G6kW3p",
+    "section_new_featured_products_rgJF8b",
+    "section_versatile_usage_scenarios_RXP9AG",
+    "section_you_might_like_iPpPMU",
+    "2024_plug_and_play_h4cccR",
+    "section_accordion_8rmeAU"
+  ]
+}

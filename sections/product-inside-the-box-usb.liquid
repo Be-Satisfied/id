@@ -1,0 +1,103 @@
+<section
+  class="section-tabs {{ section.settings.color_bg }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="tabs"
+  style="--PT: {{ section.settings.padding_top }}px; --PB: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="wrapper section-padding inside-the-box">
+    <div class="inside-the-box__title">Inside The Box</div>
+    {% if product.title == 'Deeper Connect Wi-Fi Adapter (USB-A）' %}
+      {% render 'inside-usb-a' %}
+    {% elsif product.title == 'Deeper Connect Wi-Fi Adapter (USB-C）' %}
+      {% render 'inside-usb-c' %}
+    {% elsif product.title == 'Deeper Connect Dual Antennas Wi-Fi Adapter' %}
+      {% render 'inside-wifi-ad' %}
+    {% endif %}
+  </div>
+</section>
+
+{{ 'inside-the-box.css' | asset_url | stylesheet_tag }}
+<style>
+  .inside-the-box__item img {
+    height: 300px;
+    width: 150px;
+  }
+  .inside-the-box {
+  }
+  .inside-the-box__body {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    position: relative;
+    text-align: center;
+  }
+  .inside-the-box__items {
+    position: relative;
+    z-index: 2; /* 让文字和图片在背景上层 */
+  }
+  .inside-the-box_bg {
+    background-color: #f7f7fb;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    height: 300px;
+  }
+  .inside-the-box__item {
+    flex-shrink: 0;
+  }
+  .inside-the-box__item > div {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .inside-the-box__body {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .inside-the-box__items {
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Inside The Box(usb)",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inside The Box(usb)",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,2538 @@
+{%- liquid
+  assign thumbs_align = section.settings.align
+  assign ratio = product.media[0].preview_image.aspect_ratio
+  if ratio < 1
+    assign thumbs_align = 'center'
+  endif
+-%}
+
+<div
+  class="product-section {{ section.settings.bg }}"
+  data-product-handle="{{ product.handle }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="product"
+  data-enable-video-looping="{{ section.settings.enable_video_looping }}"
+  data-thumbs-align="{{ thumbs_align }}"
+  {% if product.has_only_default_variant %}
+    data-enable-history-state="false"
+  {% else %}
+    data-enable-history-state="true"
+  {% endif %}
+  style="--PT: {{ section.settings.padding_top }}px; --PB: {{ section.settings.padding_bottom }}px;"
+>
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {%- assign image_size = '832x600' -%}
+  <div class="{{ section.settings.width }} section-padding" style="max-width: 1200px;">
+    <div class="product-content">
+      <div class="product--content__body">
+        <div class="product--content__images mobile--hide small--hide medium--show large--show widescreen--show">
+          <div class="product--content__desktop-slider">
+            {% for media in product.media %}
+              {% case media.media_type %}
+                {% when 'video' %}
+                  <div class="product--content__desktop-slider-item">
+                    {{ media | video_tag: class: 'media-video', image_size: image_size, controls: true }}
+                  </div>
+                {% else %}
+                  <img
+                    class="product--content__desktop-slider-item"
+                    data-product-image
+                    class="srcset"
+                    data-image-id="{{ media.id }}"
+                    alt="{{ media.alt | strip_html | escape }}"
+                    aria-label="{{ media.alt | strip_html | escape }}"
+                    srcset="
+                      {%- if media.preview_image.width >= 550 -%}{{ media.preview_image | img_url: '550x' }} 550w,{%- endif -%}
+                      {%- if media.preview_image.width >= 1100 -%}{{ media.preview_image | img_url: '1100x' }} 1100w,{%- endif -%}
+                      {%- if media.preview_image.width >= 1680 -%}{{ media.preview_image | img_url: '1680x' }} 1680w,{%- endif -%}
+                      {%- if media.preview_image.width >= 2048 -%}{{ media.preview_image | img_url: '2048x' }} 2048w,{%- endif -%}
+                      {%- if media.preview_image.width >= 4096 -%}{{ media.preview_image | img_url: '4096x' }} 4096w{%- endif -%}
+                    "
+                    sizes="(min-width: 768px), 50vw, 100vw"
+                    src="{{ media.preview_image | img_url: '1100x' }}"
+                    loading="lazy"
+                    width="100%"
+                    height="auto"
+                    {% if media.alt contains 'variant--' %}
+                      data-variant="media.alt"
+                    {% endif %}
+                  >
+              {% endcase %}
+
+              <!-- 更多图片 -->
+            {% endfor %}
+
+            <button class="product--content__desktop-slider-btn left" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="product--content__desktop-slider-btn right" onclick="changeSlide(1)">&#10095;</button>
+
+            <div class="product--content__desktop-slider-dot-container">
+              {% for media in product.media %}
+                <span class="product--content__desktop-slider-dot" onclick="currentSlide({{forloop.index0}})"></span>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="product-content-policy__wrapper">
+            {% comment %}
+              {% if product.title == 'Deeper Connect Pico Lite' %}
+                <div class="product-content-policy__flex-item">
+                  <img loading="lazy" alt="" src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/B2B_Only.png?v=1716431347" />
+                  <div class="product-content-policy__text">B2B Only</div>
+                </div>
+              {% endif %}
+            {% endcomment %}
+
+            <div class="product-content-policy__flex-item">
+              <img
+                loading="lazy"
+                alt=""
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/14-day-return_icon_50bb4910-a763-4e5a-adde-79476a286b48.png?v=1706458603"
+              >
+              <div class="product-content-policy__text">14-Day Return</div>
+            </div>
+            <div class="product-content-policy__flex-item">
+              <img
+                loading="lazy"
+                alt=""
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/1-year-warranty_icon_fca4c542-5e96-4426-b712-67f305bfc57d.png?v=1706458603"
+              >
+              <div class="product-content-policy__text">1-Year Warranty</div>
+            </div>
+            <div class="product-content-policy__flex-item">
+              <img
+                loading="lazy"
+                alt=""
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/reliable-support-icon.png?v=1706458603"
+              >
+              <div class="product-content-policy__text">Reliable Support</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile--show small--one-whole medium--hide large--hide widescreen--hide">
+          <div class="mobile-images-slider" style="overflow-x:scroll;">
+            <div style="width:calc(87.2vw * {{ product.media.size }} + 10px * {{ product.media.size }})">
+              {% for media in product.media %}
+                {% case media.media_type %}
+                  {% when 'image' %}
+                    <div
+                      class="media_item"
+                      style="width: 87.2vw; float:left; border-radius: 18px; overflow:hidden;margin-right:10px"
+                    >
+                      <div
+                        class="lazy-image"
+                        style="padding-top:{{ 1 | divided_by: media.aspect_ratio | times: 100 }}%;"
+                      >
+                        <img
+                          data-product-image
+                          class="srcset"
+                          data-image-id="{{ media.id }}"
+                          alt="{{ media.alt | strip_html | escape }}"
+                          aria-label="{{ media.alt | strip_html | escape }}"
+                          srcset="
+                            {%- if media.preview_image.width >= 550 -%}{{ media.preview_image | img_url: '550x' }} 550w,{%- endif -%}
+                            {%- if media.preview_image.width >= 1100 -%}{{ media.preview_image | img_url: '1100x' }} 1100w,{%- endif -%}
+                            {%- if media.preview_image.width >= 1680 -%}{{ media.preview_image | img_url: '1680x' }} 1680w,{%- endif -%}
+                            {%- if media.preview_image.width >= 2048 -%}{{ media.preview_image | img_url: '2048x' }} 2048w,{%- endif -%}
+                            {%- if media.preview_image.width >= 4096 -%}{{ media.preview_image | img_url: '4096x' }} 4096w{%- endif -%}
+                          "
+                          sizes="
+                            (min-width: 768px), 50vw,
+                            100vw
+                          "
+                          src="{{ media.preview_image | img_url: '1100x' }}"
+                          loading="lazy"
+                          width="1180"
+                          height="{{ 1180 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+                          {% if media.alt contains 'variant--' %}
+                            data-variant="media.alt"
+                          {% endif %}
+                        >
+                      </div>
+                    </div>
+                  {% when 'video' %}
+                    <div
+                      class="media__contain"
+                      style="width: 87.2vw; height:270px; float:left; border-radius: 18px; overflow:hidden;margin-right:10px;background-color:#000"
+                    >
+                      {{ media | video_tag: class: 'media-video', image_size: '374x270', controls: true }}
+                    </div>
+                {% endcase %}
+              {% endfor %}
+            </div>
+          </div>
+          <div class="policy-tips">
+            {% if product.title == 'Deeper Connect Pico Lite' %}
+              <div class="policy-tips-items">
+                <img
+                  loading="lazy"
+                  alt=""
+                  src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/B2B_Only.png?v=1716431347"
+
+                >B2B Only
+              </div>
+            {% endif %}
+            <div class="policy-tips-items">
+              <img
+                loading="lazy"
+                alt=""
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/14-day-return_icon_50bb4910-a763-4e5a-adde-79476a286b48.png?v=1706458603"
+
+              >14-Day Return
+            </div>
+            <div class="policy-tips-items">
+              <img
+                loading="lazy"
+                alt=""
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/1-year-warranty_icon_fca4c542-5e96-4426-b712-67f305bfc57d.png?v=1706458603"
+
+              >1-Year Warranty
+            </div>
+            <div class="policy-tips-items">
+              <img
+                loading="lazy"
+                alt=""
+                src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/reliable-support-icon.png?v=1706458603"
+
+              >reliable Support
+            </div>
+          </div>
+        </div>
+
+        <div class="product--content__info">
+          <div class="product__form__wrapper">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {%- when '@app' -%}
+                  {% render block %}
+                {% when 'liquid' %}
+                  <div {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+                {% when 'title' %}
+                  {% render 'product-title-price', product: product, block: block, section: section %}
+                {% when 'form' %}
+                  <div class="product__details">
+                    {% render 'product-form', product: product, block: block, section: section %}
+                  </div>
+                {% when 'description' %}
+                  <div class="product-description rte rte--column accordion-neighbor" {{ block.shopify_attributes }}>
+                    {%- assign product_description_content = product.description | strip -%}
+                    {%- assign truncate_string = 'products.general.read_more' | t -%}
+                    {%- assign truncate_html = '<button type="button" class="p underline" data-truncated-button>'
+                      | append: truncate_string
+                      | append: '</button>'
+                    -%}
+
+                    {%- if block.settings.style == 'none' -%}
+                      {% if block.settings.read_more %}
+                        <div
+                          class="product-description__holder product-description__holder--truncate"
+                          data-truncated-holder
+                        >
+                          <div class="product-description__inner">
+                            <div
+                              class="product-description__content"
+                              data-truncated-content="product-description__content--truncate"
+                            >
+                              {{ product_description_content }}
+                            </div>
+                          </div>
+
+                          <div class="product-description__actions">
+                            {{ truncate_html }}
+                          </div>
+                        </div>
+                      {% else %}
+                        {{ product.description }}
+                      {% endif %}
+                    {% else %}
+                      <div class="tabs-wrapper">
+                        {% render 'product-tabs',
+                          section: section,
+                          block: block,
+                          product: product,
+                          product_description_content: product_description_content,
+                          truncate_html: truncate_html
+                        %}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {% when 'sharing' %}
+                  {% render 'share', product: product, label: block.settings.share_label, block: block %}
+                {% when 'pickup' %}
+                  <div
+                    class="product__pickup accordion-neighbor"
+                    data-store-availability-container="{{ current_variant.id }}"
+                    {{ block.shopify_attributes }}
+                  ></div>
+                {% when 'text' %}
+                  <div
+                    class="product__subheading product__subheading--rte small--hide mobile--hide"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% if block.settings.title != '' %}
+                      {{ block.settings.title }}
+                    {% endif %}
+                  </div>
+
+                {% when 'upsell' %}
+                  <div {{ block.shopify_attributes }}>
+                    {%- assign upsell_product = all_products[block.settings.product] -%}
+                    {% render 'new-upsell-product', upsell_product: upsell_product, block: block, section: section %}
+                    {% comment %} {% render 'air-product' %} {% endcomment %}
+                  </div>
+                {% when 'icon' %}
+                  <div class="product__text-with-icon rte" {{ block.shopify_attributes }}>
+                    <div class="icon-holder" style="--stroke: {{ block.settings.icon_color }};">
+                      {%- render 'icons', filename: block.settings.icon_name -%}
+                    </div>
+
+                    <p>{{ block.settings.text | remove: '<p>' | remove: '</p>' }}</p>
+                  </div>
+                {% when 'image' %}
+                  <div class="product__image {{ block.settings.alignment }}" {{ block.shopify_attributes }}>
+                    <div
+                      class="product__image__inner"
+                      style="max-width: {{ block.settings.image_max_limit | append: 'px' }};"
+                    >
+                      {%- if block.settings.image != blank -%}
+                        {%- render 'image-fit', img_object: block.settings.image -%}
+                      {%- else -%}
+                        {%- render 'image-fill', img_object: '' -%}
+                      {%- endif -%}
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+
+            {% assign excluded_titles = 'Deeper Connect Wi-Fi Adapter (USB-A）,Deeper Connect Wi-Fi Adapter (USB-C）,Deeper Connect Dual Antennas Wi-Fi Adapter' %}
+            {% unless excluded_titles contains product.title %}
+              <div class="card-container">
+                <div class="card-header" onclick="showModal('description')">
+                  <div class="card-text">Description</div>
+                  <div class="card-header-icon">
+                    <div class="card-icon">
+                      <img src="{{ "card-icon__right_arrow.png" | asset_url }}">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-header" onclick="showModal('scenarios')">
+                  <div class="card-text">User Scenarios</div>
+                  <div class="card-header-icon">
+                    <div class="card-icon">
+                      <img src="{{ "card-icon__right_arrow.png" | asset_url }}">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-header" onclick="showModal('estimated-delivery')">
+                  <div class="card-text">Estimated Delivery</div>
+                  <div class="card-header-icon">
+                    <div class="card-icon">
+                      <img src="{{ "card-icon__right_arrow.png" | asset_url }}">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-header" onclick="showModal('specification')">
+                  <div class="card-text">Specification</div>
+                  <div class="card-header-icon">
+                    <div class="card-icon">
+                      <img src="{{ "card-icon__right_arrow.png" | asset_url }}">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-header" onclick="showModal('return-policy')">
+                  <div class="card-text">Warranty & Return Policy</div>
+                  <div class="card-header-icon">
+                    <div class="card-icon">
+                      <img src="{{ "card-icon__right_arrow.png" | asset_url }}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模态遮罩 -->
+  <div id="modal-overlay" class="modal-overlay">
+    <!-- 模态内容 -->
+    <div id="description" class="modal-content description" style="display:none">
+      <span class="close-modal" onclick="hideModal()">&times;</span>
+      <h2>Description</h2>
+      <div style="height:1px; background-color:#D2D2D7;width:100%"></div>
+      {% if product.title == 'Deeper Connect Air' %}
+        <div style="padding:24px">
+          <div style="color: #1D1D1F;font-size: 14px; font-weight: 600;line-height: 20px;text-transform: capitalize;margin-bottom:8px;">
+            Portable DPN Privacy - Works Anywhere in the World
+          </div>
+          <div style="color: #1D1D1F;font-size: 12px; font-weight: 400;line-height: 200%;text-transform: capitalize;">
+            Portable dVPN hardware for travelers - $0 subscription for life.<br>
+            Perfect gadget for work and home entertainment.<br>
+            Enterprise-grade cybersecurity.<br>
+            Blocks all ads.<br>
+            One-click parental control.<br>
+            Plug-and-play with zero configuration.<br>
+            Suitable for both home and outdoor use.<br>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Mini' %}
+        <div style="padding:24px">
+          <div style="color: #1D1D1F;font-size: 14px; font-weight: 600;line-height: 20px;text-transform: capitalize;margin-bottom:8px;">
+            Portable DPN Privacy - Works Anywhere in the World
+          </div>
+          <div style="color: #1D1D1F;font-size: 12px; font-weight: 400;line-height: 200%;text-transform: capitalize;">
+            Powerful Home Network Security Solution - All-in-One & Easy to Setup.<br>
+            Decentralized VPN (DPN) - $0 subscription for life.<br>
+            Superior performance - 4-Core processor and 2GB RAM memory.<br>
+            A secure Web3 gateway that protects all your IoT devices.<br>
+            Blocks all ads.<br>
+            One-click parental control.<br>
+            Share bandwidth to earn rewards.
+          </div>
+        </div>
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Pico Lite' %}
+        <div style="padding:24px">
+          <div style="color: #1D1D1F;font-size: 14px; font-weight: 600;line-height: 20px;text-transform: capitalize;margin-bottom:8px;">
+            Portable DPN Privacy - Works Anywhere in the World
+          </div>
+          <div style="color: #1D1D1F;font-size: 12px; font-weight: 400;line-height: 200%;text-transform: capitalize;">
+            Powerful Home Network Security Solution - All-in-One & Easy to Setup.<br>
+            Decentralized VPN (DPN) - $0 subscription for life.<br>
+            Superior performance - 4-Core processor and 1GB RAM memory.<br>
+            A secure Web3 gateway that protects all your IoT devices.<br>
+            Blocks all ads.<br>
+            One-click parental control.<br>
+            Share bandwidth to earn rewards.
+          </div>
+        </div>
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Air & Mini Set' %}
+        <div style="padding:24px">
+          <div style="color: #1D1D1F;font-size: 14px; font-weight: 600;line-height: 20px;text-transform: capitalize;margin-bottom:8px;">
+            Practical Home Network Security Solution - Smartest Choice for Cybersecurity
+          </div>
+          <div style="color: #1D1D1F;font-size: 12px; font-weight: 400;line-height: 200%;text-transform: capitalize;">
+            Decentralized VPN (DPN) - $0 Subscription for life.<br>
+            Enterprise-grade Cybersecurity.<br>
+            A Secure Gateway Protect All Your IoT Devices.<br>
+            Blocking All Ads.<br>
+            One-click Parental Control.<br>
+            Plug-and-Play with Zero Configuration.
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    <div id="estimated-delivery" class="modal-content estimated-delivery" style="display:none">
+      <span class="close-modal" onclick="hideModal()">&times;</span>
+      <h2>Estimated Delivery</h2>
+      <div style="height:1px; background-color:#D2D2D7;width:100%"></div>
+      <div style="width: 100%; height: 100%; padding: 24px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 20px; display: inline-flex;">
+        <div style="align-self: stretch; border-radius: 4px; overflow: hidden; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+          <div style="flex: 1 1 0; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex">
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex;height: 40px">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                From NATIONAL CAPITAL REGION
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex;height: 40px">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word;">
+                METRO MANILA (NCR)
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                SOUTH LUZON
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                NORTH LUZON
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                VISAYAS
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                MINDANAO
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                PUERTO PRINCESA
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                BATANES
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                CORON
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #fff; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                LUZON ISLAND Marinduque, Masbate, Mindoro, Catanduanes
+              </div>
+            </div>
+          </div>
+          <div style="flex: 1 1 0; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex">
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                No. of days.
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                1-2
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                1-3
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                1-3
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                2-6
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                3-7
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                2-4
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                3-6
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                3-5
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px; background: #Fff; justify-content: flex-start; align-items: center; display: inline-flex">
+              <div style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                2-5
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="align-self: stretch; color: #1D1D1F; font-size: 12px; font-family: inter; font-weight: 400; line-height: 18px; word-wrap: break-word">
+          Orders are usually processed and shipped within 48 hours via LBC EXPRESS. <br>
+          Once your order has been dispatched, we’ll send a tracking number to the email address you provided. <br>
+          Please note that delivery dates provided by Deeper Network are estimates and may change due to unforeseen
+          circumstances, including location, carrier delays, weather conditions, holidays, or other unexpected events.
+        </div>
+      </div>
+    </div>
+    <div id="specification" class="modal-content specification" style="display:none;">
+      <span class="close-modal" onclick="hideModal()">&times;</span>
+      <h2>Specification</h2>
+      <div style="height:1px; background-color:#D2D2D7;width:100%"></div>
+      {% if product.title == 'Deeper Connect Air' %}
+        <div style="width: 100%; height: 100%;  overflow: hidden;  justify-content: flex-start; align-items: flex-start; display: inline-flex;padding:24px;">
+          <div style="flex: 1 1 0; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex;border-radius: 4px;border: 0.50px #D2D2D7 solid;">
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                Deeper Connect Air
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                Weight: 26g
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                Dimensions: 7.5 × 4.6 × 0.8 cm
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                Speed: 300 Mbps
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                Memory: 1GB
+              </div>
+            </div>
+            <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                Package Weight: 60g
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Air & Mini Set' %}
+        <div style="width: 100%; height: 100%; padding: 24px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+          <div style="flex: 1 1 0; border-radius: 4px; overflow: hidden; border: 0.50px #D2D2D7 solid; justify-content: flex-start; align-items: flex-start; display: flex;flex-wrap: wrap;">
+            <div style="flex: 1 1 50%;flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex;border-right:.5px solid #D2D2D7;">
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                  Deeper Connect Mini
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Weight: 172 g
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Dimensions: 13 × 6.7 × 2 cm
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Speed: 1 Gbps
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  CPU: ARM64 4 cores
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Memory: 2GB
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Package weight: 456 g
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1 1 50%; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                  Deeper Connect Air
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Weight: 26g
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Dimensions: 7.5 × 4.6 × 0.8 cm
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Speed: 300 Mbps
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Memory: 1GB
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Package Weight: 60g
+                </div>
+              </div>
+            </div>
+            <br>
+            <div style="flex: 1 1 50%; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex;border-right:.5px solid #D2D2D7;">
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                  Deeper Connect Dual Antennas Wi-Fi Adapter
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Weight: 100 g
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Dimensions: 8.5 × 9 × 20 cm
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Theoretical speed: 1200 Mbps
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Coverage spaces: 140 m² and more
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Interface: USB Type-C
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Package weight: 153 g
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Dimensions: 24.6 × 11.7 × 2.84 cm
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1 1 50%; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex;">
+              <div
+                style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: center; align-items: flex-start; display: inline-flex;height:40px"
+              ></div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Pico Lite' %}
+        <div style="width: 100%; height: 100%; padding: 24px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+          <div style="flex: 1 1 0; border-radius: 4px; overflow: hidden; border: 0.50px #D2D2D7 solid; justify-content: flex-start; align-items: flex-start; display: flex">
+            <div style="flex: 1 1 0; border-right: 0.50px #D2D2D7 solid; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                  Deeper Connect Pico Lite
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Weight: 32 g
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Dimensions: 8.8 × 3.5 × 1.4 cm
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Speed: 100 Mbps
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Memory: 1GB
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Package Weight: 125 g
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1 1 0; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                  Wi-Fi Adapter
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Weight: 15.6 g
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Dimensions: 13.2 × 6 × 1.4 cm
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Interface USB2.0 typeA
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Mini' %}
+        <div style="width: 100%; height: 100%; padding: 24px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+          <div style="flex: 1 1 0; border-radius: 4px; overflow: hidden; border: 0.50px #D2D2D7 solid; justify-content: flex-start; align-items: flex-start; display: flex">
+            <div style="flex: 1;flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex;border-right:.5px solid #D2D2D7;">
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                  Deeper Connect Mini
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Weight: 172 g
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Dimensions: 13 × 6.7 × 2 cm
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Speed: 1 Gbps
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  CPU: ARM64 4 cores
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Memory: 2GB
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: flex-start; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Package weight: 456 g
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1 1 0; border-right: 0.50px #D2D2D7 solid; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex">
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: #F9F9F9; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 500; line-height: 20px; word-wrap: break-word">
+                  Deeper Connect Dual Antennas Wi-Fi Adapter
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Weight: 100 g
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Dimensions: 8.5 × 9 × 20 cm
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Theoretical speed: 1200 Mbps
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Coverage spaces: 140 m² and more
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Interface: USB Type-C
+                </div>
+              </div>
+              <div style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
+                <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+                  Package weight: 153 g
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Mini' %}
+        <p style="box-sizing: border-box;margin: 0;padding: 0 20px 20px;">
+          *Notes: All orders shipped with standard USA wall plugs
+        </p>
+      {% endif %}
+    </div>
+    <div id="return-policy" class="modal-content return-policy" style="display:none">
+      <span class="close-modal" onclick="hideModal()">&times;</span>
+      <h2>Warranty & Return Policy</h2>
+      <div style="height:1px; background-color:#D2D2D7;width:100%"></div>
+      <div style="width: 100%; height: 100%; padding: 24px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+        <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+          <div style="align-self: stretch; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+            <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+              1-Year limited warranty.
+            </div>
+          </div>
+          <div style="align-self: stretch; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+            <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+              14-day return or exchange guarantee.
+            </div>
+          </div>
+          <div style="align-self: stretch; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+            <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+              Customs duties are to be paid by the recipient. Duties levied differ across regions.
+            </div>
+          </div>
+          <div style="align-self: stretch; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+            <div style="flex: 1 1 0">
+              <span style="color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word"
+                >This product is available for shipping to most countries, with the exception of with exception of
+                mainland China, lran and Ukraine.<br></span
+              ><a
+                href="/pages/return-cancellation-and-warranty-policy"
+                target="_blank"
+                style="color: #495AF5; font-size: 14px; font-family: inter; font-weight: 400; text-decoration: underline; line-height: 20px; word-wrap: break-word"
+                >Return, Cancellation and Warranty Policy</a
+              >
+            </div>
+          </div>
+          <div style="align-self: stretch; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+            <div style="flex: 1 1 0; color: #1D1D1F; font-size: 14px; font-family: inter; font-weight: 400; line-height: 20px; word-wrap: break-word">
+              Please keep an accurate personal record of the official order information as our customer service team
+              needs to authenticate the order information in order to provide better after-sales service, including tech
+              support, warranty and/ or replacement.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="scenarios" class="modal-content scenarios" style="display:none">
+      <span class="close-modal" onclick="hideModal()">&times;</span>
+      <h2>User Scenarios</h2>
+      <div style="height:1px; background-color:#D2D2D7;width:100%"></div>
+
+      <div style="padding:24px">
+        {% if product.title == 'Deeper Connect Mini' %}
+          <div class="scenarios-images-containers">
+            <div class="scenarios-images" style="width: 781px;">
+              <div class="scenarios-image">
+                <img src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/iphone-14-pro-model-unselect-gallery-1-202209-1.jpg?v=1706593439">
+                <div class="scenarios-tips">
+                  Overcoming Geographical Limits for Access to Services like Netflix and YouTube.
+                </div>
+              </div>
+              <div class="scenarios-image">
+                <img src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/iphone-14-pro-model-unselect-gallery-1-202209_23f49847-55cf-4994-986c-b1eae4969331.jpg?v=1706593439">
+                <div class="scenarios-tips">
+                  Shielding Home Internet Use from Hackers and Protect Your Personal and Financial Data.
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if product.title == 'Deeper Connect Air & Mini Set' %}
+          <div class="scenarios-images-containers">
+            <div class="scenarios-images" style="width: 781px;">
+              <div class="scenarios-image">
+                <img
+                  loading="lazy"
+                  src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/iphone-14-pro-model-unselect-gallery-1-202209-1.jpg?v=1706593439"
+                >
+                <div class="scenarios-tips">
+                  Overcoming Geographical Limits for Access to Services like Netflix and YouTube.
+                </div>
+              </div>
+              <div class="scenarios-image">
+                <img
+                  loading="lazy"
+                  src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/iphone-14-pro-model-unselect-gallery-1-202209_23f49847-55cf-4994-986c-b1eae4969331.jpg?v=1706593439"
+                >
+                <div class="scenarios-tips">
+                  Shielding Home Internet Use from Hackers and Protect Your Personal and Financial Data.
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if product.title == 'Deeper Connect Pico Lite' or product.title == 'Deeper Connect Air' %}
+          <div class="scenarios-images-containers">
+            <div class="scenarios-images" style="width: 1180px;">
+              <div class="scenarios-image">
+                <img src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/pico-user-scenarios-01.jpg?v=1706592511">
+                <div class="scenarios-tips">Providing Secure Access to Sensitive Data While Traveling.</div>
+              </div>
+              <div class="scenarios-image">
+                <img src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/pico-user-scenarios-02.jpg?v=1706592511">
+                <div class="scenarios-tips">
+                  Overcoming Geographical Limits for Access to Services like Netflix and YouTube.
+                </div>
+              </div>
+              <div class="scenarios-image">
+                <img src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/pico-user-scenarios-03.jpg?v=1706592511">
+                <div class="scenarios-tips">Offering Protection While Using Public Wi-Fi in Cafes, Airports, etc.</div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if section.settings.zoom_enable %}
+  {% render 'zoom-pswp' %}
+{% endif %}
+
+<script type="application/json" id="ModelJson-{{ section.id }}">
+  {{ product.media | where: 'media_type', 'model' | json }}
+</script>
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+{% comment %} Google wants to know when to check your price again {% endcomment %}
+{%- assign days_price_is_valid = 1 -%}
+{%- assign seconds_in_a_day = 86400 -%}
+{%- assign seconds_price_valid = days_price_is_valid | times: seconds_in_a_day -%}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ shop.url | append: product.url | json }},
+    {%- if product.featured_media.preview_image -%}
+      {%- assign image_size = product.featured_media.preview_image.width | append: 'x' -%}
+      "image": [
+        {{ product.featured_media.preview_image | img_url: image_size | prepend: "https:" | json }}
+      ],
+    {%- endif -%}
+    "description": {{ product.description | strip_html | json }},
+    "sku": {{ current_variant.sku | json }},
+    "category": {{ product.type | json }},
+    {%- if product.metafields.reviews.rating.value != blank -%}
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ product.metafields.reviews.rating.value }}",
+        "ratingCount": "{{ product.metafields.reviews.rating_count.value }}",
+        "bestRating": "{{ product.metafields.reviews.rating.value.scale_max }}",
+        "worstRating": "{{ product.metafields.reviews.rating.value.scale_min }}"
+      },
+    {%- endif -%}
+    "brand": {
+      "@type": "Organization",
+      "name": {{ product.vendor | default: shop.name | json }}
+    },
+    "offers": [
+      {%- for variant in product.variants -%}
+        {
+          "@type" : "Offer",
+          {%- if variant.sku != blank -%}
+            "sku": {{ variant.sku | json }},
+          {%- endif -%}
+          "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price" : {{ variant.price | divided_by: 100.00 | json }},
+          "priceCurrency" : {{ cart.currency.iso_code | json }},
+          "priceValidUntil": "{{ 'now' | date: '%s' | plus: seconds_price_valid | date: '%Y-%m-%d' }}",
+          "url" : {{ shop.url | append: variant.url | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+
+<script>
+  var slideIndex = 0;
+  showSlides(slideIndex);
+
+  function changeSlide(n) {
+    showSlides((slideIndex += n));
+  }
+
+  function currentSlide(n) {
+    showSlides((slideIndex = n));
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName('product--content__desktop-slider-item');
+    var dots = document.getElementsByClassName('product--content__desktop-slider-dot');
+    if (n >= slides.length) slideIndex = 0;
+    if (n < 0) slideIndex = slides.length - 1;
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(' active', '');
+    }
+
+    slides[slideIndex].style.display = 'block';
+    dots[slideIndex].className += ' active';
+  }
+
+  // 获取元素
+  var modalOverlay = document.getElementById('modal-overlay');
+  var content;
+  // 显示模态的函数
+  function showModal(id) {
+    content = document.getElementById(id);
+    console.log(content, 'adhsgajds');
+    modalOverlay.style.display = 'block';
+    content.style.display = 'block';
+  }
+
+  // 隐藏模态的函数
+  function hideModal() {
+    modalOverlay.style.display = 'none';
+    content.style.display = 'none';
+  }
+
+  // 监听点击
+
+  // 如果点击到遮罩层也关闭模态
+  modalOverlay.onclick = function (event) {
+    if (event.target == modalOverlay) {
+      hideModal();
+    }
+  };
+</script>
+
+<style>
+  .product--content__body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .media-video {
+    height: 100%;
+  }
+
+  .product--content__images {
+    position: sticky;
+    top: 10px;
+    width: 832px;
+    height: 664px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product--content__info {
+    width: 350px;
+    padding-left: unset;
+  }
+
+  .policy-tips {
+    padding: 8px 16px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    gap: 24px;
+    flex-direction: row;
+    margin: 20px 0px;
+    overflow-x: auto;
+  }
+
+  .policy-tips-items {
+    color: #1d1d1f;
+    font-size: 10px;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .policy-tips-items img {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+
+  .product--content__desktop-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 832px;
+    max-height: 600px;
+  }
+
+  .product--content__desktop-slider-item {
+    display: none;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .product--content__desktop-slider-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #1d1d1f;
+  }
+
+  .product--content__desktop-slider-item:first-child {
+    display: block;
+  }
+
+  .product--content__desktop-slider-item.active {
+    display: block;
+  }
+
+  .product--content__desktop-slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    background: rgba(210, 210, 215, 0.64);
+    border-radius: 52px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+  }
+
+  .product--content__desktop-slider-btn.left {
+    left: 20px;
+  }
+
+  .product--content__desktop-slider-btn.right {
+    right: 20px;
+  }
+
+  .product--content__desktop-slider-dot-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    gap: 16px;
+  }
+
+  .product--content__desktop-slider-dot {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .product--content__desktop-slider-dot.active {
+    background-color: #f5f5f7;
+  }
+
+  .product--content__desktop-slider-item:first-child {
+    background-color: #f5f5f7;
+  }
+
+  .product-content-policy__wrapper {
+    padding: 8px 16px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+    display: inline-flex;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .product-content-policy__flex-item {
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-direction: row;
+    display: flex;
+  }
+
+  .product-content-policy__flex-item img {
+    width: 24px;
+    height: auto;
+  }
+
+  .product-content-policy__text {
+    color: #1d1d1f;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 16px;
+    word-wrap: break-word;
+    white-space: nowrap;
+  }
+
+  .card-container {
+    width: 100%;
+    /* height: 100%; */
+    background: #f9f9f9;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 0.5px solid #d2d2d7;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .card-header {
+    cursor: pointer;
+    align-self: stretch;
+    padding: 18px 16px;
+    background: white;
+    box-shadow: 0px -0.5px 0px #d2d2d7 inset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-header-icon {
+    padding: 3.64px 1.45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 7.27px;
+  }
+
+  .card-text,
+  .card-icon {
+    color: #1d1d1f;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    word-wrap: break-word;
+  }
+
+  .card-icon {
+    color: #86868b;
+  }
+
+  /* 遮罩层样式 */
+  .modal-overlay {
+    position: fixed; /* 固定定位 */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    display: none; /* 默认不显示 */
+    z-index: 9999; /* 确保在其他内容之上 */
+  }
+
+  /* 模态内容样式 */
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* 居中并留出一些顶部空间 */
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    border-radius: 10px; /* 圆角边框 */
+    z-index: 3;
+    position: relative;
+  }
+
+  .modal-content h2 {
+    color: #1d1d1f;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    word-wrap: break-word;
+    border-bottom: 0.5px #d2d2d7;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .modal-content.description,
+  .modal-content.estimated-delivery,
+  .modal-content.return-policy,
+  .modal-content.scenarios {
+    width: 50%; /* 根据需要调整宽度 */
+  }
+
+  .modal-content.specification {
+    /* width: 560px; 根据需要调整宽度  */
+    width: 50%; /* 根据需要调整宽度 */
+  }
+
+  /* 关闭按钮样式 */
+  .close-modal {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .scenarios-images-containers {
+    width: 100%;
+    height: 338px;
+    overflow: auto;
+  }
+
+  .scenarios-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .scenarios-image {
+    width: 382px;
+    height: auto;
+  }
+
+  .scenarios-tips {
+    width: 100%;
+    color: #1d1d1f;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    word-wrap: break-word;
+    text-align: left;
+    text-transform: capitalize;
+  }
+
+  @media screen and (max-width: 768px) {
+    .product--content__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+    .product--content__images {
+      position: unset;
+      top: unset;
+      width: unset;
+      padding-top: 100%;
+      overflow: unset;
+    }
+
+    .product--content__info {
+      width: 100%;
+      padding-left: unset;
+    }
+
+    .modal-content {
+      /* 宽度设置为100% */
+      margin: 0; /* 移除外边距以填满屏幕宽度 */
+      border-radius: 0; /* 移除圆角 */
+      position: fixed; /* 固定定位 */
+      bottom: 0; /* 置底 */
+      left: 0; /* 左对齐 */
+      right: 0; /* 右对齐 */
+      box-shadow: none; /* 可以去掉阴影效果，因为不再浮动在内容之上 */
+      z-index: 9999;
+    }
+
+    .modal-content.description,
+    .modal-content.estimated-delivery,
+    .modal-content.specification,
+    .modal-content.return-policy,
+    .modal-content.scenarios {
+      width: 100%; /* 根据需要调整宽度 */
+    }
+    .modal-overlay {
+      display: none;
+    }
+  }
+
+  .product-countdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 10px !important;
+  }
+  .product-countdown-box,
+  #sale__countdown-flash-sale-claimed {
+    padding: 8px 0px;
+    font-size: 12px;
+    color: #f53f3f;
+    font-weight: 500;
+  }
+
+  #sale__countdown-flash-sale-claimed {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .product-countdown-box b {
+    background-color: #f53f3f;
+    color: #fff;
+    padding: 2px;
+    font-weight: 500;
+  }
+
+  .upsell__holder {
+    width: 100%;
+    margin: 2em 0;
+  }
+
+  .product-content div:first-child > .upsell__holder {
+    margin: 0 0 2em;
+  }
+
+  .product-content div:last-child > .upsell__holder {
+    margin: 2em 0 0;
+  }
+
+  .upsell {
+    overflow: hidden;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    text-align: left;
+    padding: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .upsell__image {
+    position: relative;
+    /* width: 72px; */
+    border-left: none;
+    height: auto;
+  }
+
+  .upsell__image > a {
+    display: block;
+    width: inherit;
+    height: 100%;
+    transition: opacity 0.3s;
+  }
+
+  .upsell__image > a:hover {
+    opacity: 0.7;
+  }
+
+  .upsell__image__inner {
+    width: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+
+  .upsell__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 8px;
+    /* var(--inner) calc(var(--inner) + 32px) var(--inner) var(--inner); */
+    /* width: calc(100% - 90px); */
+  }
+
+  .upsell__content > a {
+    min-width: 100%;
+  }
+
+  .upsell__title,
+  .upsell__variant-title,
+  .upsell__price {
+    margin: 0;
+  }
+
+  .upsell__title {
+    color: #1d1d1f;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    word-wrap: break-word;
+  }
+
+  .upsell__title,
+  .upsell__price {
+    display: inline;
+  }
+
+  .upsell__variant-title,
+  .upsell__price .old-price,
+  .upsell__price .unit,
+  .upsell__price br {
+    display: none;
+  }
+
+  .upsell__price {
+    overflow: hidden;
+    color: var(--text);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .upsell__price .old-price {
+    margin-left: 8px;
+    text-decoration: line-through;
+  }
+
+  .upsell__price .unit {
+    color: var(--text);
+  }
+
+  .upsell__btn {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    width: 16px;
+    height: 15px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background-color: var(--bg);
+    font-size: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%);
+  }
+
+  .upsell__btn:disabled {
+    opacity: 1;
+  }
+
+  .upsell__btn.loading .btn-state-ready:before,
+  .upsell__btn.loading .btn-state-ready:after,
+  .upsell__btn.has-success .btn-state-ready:before,
+  .upsell__btn.has-success .btn-state-ready:after {
+    background: transparent;
+  }
+
+  .upsell__btn .svg-loader {
+    fill: none;
+  }
+
+  .upsell__btn .svg-loader circle {
+    stroke: var(--bg);
+  }
+
+  .upsell__btn .svg-loader circle ~ circle {
+    stroke: var(--primary);
+  }
+
+  .upsell__btn .btn-state-ready:before,
+  .upsell__btn .btn-state-ready:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: var(--text);
+    transform: translate(-50%, -50%);
+  }
+
+  .upsell__btn .btn-state-ready:before {
+    width: 6px;
+    height: 2px;
+  }
+
+  .upsell__btn .btn-state-ready:after {
+    width: 2px;
+    height: 6px;
+  }
+
+  .upsell__out-of-stock {
+    display: block;
+    margin: 0;
+  }
+
+  .upsell__out-of-stock span {
+    display: block;
+    color: var(--text-light);
+    font-weight: 700;
+  }
+
+  .upsell__errors {
+    display: none;
+  }
+
+  .upsell__errors.is-visible {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .add-action-errors--upsell {
+    display: none;
+    padding: var(--inner);
+    border: 1px solid var(--primary);
+    border-radius: var(--RADIUS-SM);
+    background-color: var(--primary-fade);
+    margin-top: 10px;
+    color: var(--primary);
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .upsell__modal {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: var(--gutter);
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  .upsell__modal.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .upsell__modal {
+      padding: 0;
+      align-items: flex-end;
+    }
+
+    .upsell__modal .upsell__modal__content {
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .upsell__modal.is-open .upsell__modal__content {
+      transform: translateY(0);
+    }
+  }
+
+  .upsell__modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--muted);
+  }
+
+  .upsell__modal__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 6px;
+    background-color: var(--bg);
+  }
+
+  .upsell__modal__content .product__title__wrapper {
+    padding-right: 30px;
+  }
+
+  .upsell__modal__content .product__title {
+    font-size: calc(var(--font-6) * var(--FONT-ADJUST-HEADING));
+  }
+
+  .upsell__modal__content .product__submit__add {
+    width: 100%;
+  }
+
+  .upsell__modal__content .selector-wrapper {
+    margin-bottom: calc(var(--gutter) / 2);
+  }
+
+  .upsell__modal__content .upsell__form {
+    overflow-y: auto;
+    position: relative;
+    max-height: calc(100vh - var(--gutter) * 2);
+    padding: calc(var(--gutter) / 2);
+  }
+
+  .upsell__modal__content .select-popout__list {
+    overflow-y: auto;
+    max-height: 108px;
+    top: auto;
+    bottom: 100%;
+    margin: 0 0 -1px;
+    border: 1px solid var(--border);
+    border-bottom: none;
+  }
+
+  .upsell__modal__content .product__subs__wrap {
+    margin-top: calc(var(--gutter) / 2);
+  }
+
+  @media only screen and (max-width: 767px) {
+    .upsell__modal__content {
+      max-width: none;
+      padding: var(--gutter);
+      border-radius: 12px 12px 0 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      position: fixed;
+    }
+
+    .upsell__modal__content .product__headline {
+      margin-top: 0;
+    }
+
+    .upsell__modal__content .product__price__wrap {
+      margin-bottom: 0px;
+    }
+
+    .upsell__modal__content .form__selectors {
+      margin-top: 15px;
+    }
+
+    .upsell__modal__content .product__form__outer:not(.product__form--buybutton) .product__submit__add {
+      min-width: 0;
+    }
+  }
+
+  .upsell__modal__close {
+    position: absolute;
+    z-index: 100;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--text-dark);
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.5s ease, color 0.2s ease;
+  }
+
+  .upsell__modal__close::before {
+    content: '✕';
+  }
+
+  .upsell__modal__close:hover,
+  .upsell__modal__close:focus {
+    outline: none;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "2024 New Product Page ",
+  "settings": [
+    {
+      "type": "select",
+      "id": "bg",
+      "label": "Background color",
+      "default": "palette--light bg--neutral",
+      "options": [
+        { "value": "palette--light bg--neutral", "label": "Default" },
+        { "value": "palette--light bg--accent", "label": "Light" },
+        { "value": "palette--dark bg--invert", "label": "Dark" },
+        { "value": "palette--dark bg--invert--accent", "label": "Dark accent" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Media",
+      "info": "Learn more about [media types](https://help.shopify.com/manual/products/product-media)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "label": "Enable video looping",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "zoom_enable",
+      "label": "Enable image zoom",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wrapper",
+      "options": [
+        { "value": "wrapper--full", "label": "Full width padded" },
+        { "value": "wrapper", "label": "Page width" },
+        { "value": "wrapper--narrow", "label": "Page width narrow" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "form",
+      "name": "Form",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "variant_form",
+          "label": "Variant option style",
+          "default": "auto",
+          "options": [
+            { "value": "auto", "label": "Auto" },
+            { "value": "button", "label": "Buttons" },
+            { "value": "dropdown", "label": "Dropdown" }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "show_quantity",
+          "label": "Show quantity selection",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_remaining",
+          "label": "Show inventory countdown",
+          "default": true,
+          "info": "Count down the last 10 items in stock."
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_payment_button",
+          "label": "Show dynamic checkout button",
+          "info": "Lets customers check out directly using a familiar payment method. [Learn More](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Subscriptions",
+          "info": "Learn more about [subscriptions](https://help.shopify.com/en/manual/products/subscriptions)"
+        },
+        {
+          "type": "checkbox",
+          "id": "subscriptions_enable_selectors",
+          "label": "Enable subscription selectors",
+          "info": "Shown on products with subscription options",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Size popup"
+        },
+        {
+          "id": "info_page",
+          "type": "page",
+          "label": "Select page",
+          "info": "This popup will show on every product."
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Product description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "read_more",
+          "label": "Enable read more",
+          "default": true,
+          "info": "Show the first few lines of the product description with an option to read more"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Tab style",
+          "default": "accordions",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "tabs", "label": "Tabs" },
+            { "value": "accordions", "label": "Accordions" }
+          ],
+          "info": "Add tab content below. Lean more about [product tabs](https://groupthought.com/link/story/docs/tabs)"
+        },
+        {
+          "type": "select",
+          "id": "description_icon",
+          "label": "Description icon",
+          "default": "",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "icon-animal", "label": "Animal" },
+            { "value": "icon-animal-paw", "label": "Animal paw" },
+            { "value": "icon-award", "label": "Award" },
+            { "value": "icon-basket-like", "label": "Basket like" },
+            { "value": "icon-basket-return", "label": "Basket return" },
+            { "value": "icon-cart-check", "label": "Cart check" },
+            { "value": "icon-cart-message", "label": "Cart message" },
+            { "value": "icon-chat", "label": "Chat" },
+            { "value": "icon-dollar", "label": "Dollar" },
+            { "value": "icon-earth", "label": "Earth" },
+            { "value": "icon-email", "label": "Email" },
+            { "value": "icon-gluten-free", "label": "Gluten free" },
+            { "value": "icon-iron", "label": "Iron" },
+            { "value": "icon-leaf", "label": "Leaf" },
+            { "value": "icon-legal", "label": "Legal" },
+            { "value": "icon-lock-card", "label": "Lock card" },
+            { "value": "icon-lock-shield", "label": "Lock shield" },
+            { "value": "icon-lock-window", "label": "Lock window" },
+            { "value": "icon-payment", "label": "Payment" },
+            { "value": "icon-phone", "label": "Phone" },
+            { "value": "icon-rating", "label": "Rating" },
+            { "value": "icon-star-rating", "label": "Rating star" },
+            { "value": "icon-recycled", "label": "Recycled" },
+            { "value": "icon-ruler", "label": "Ruler" },
+            { "value": "icon-send", "label": "Send" },
+            { "value": "icon-sewing-machine", "label": "Sewing machine" },
+            { "value": "icon-share", "label": "Share" },
+            { "value": "icon-shipment-world", "label": "Shipment world" },
+            { "value": "icon-shipment", "label": "Shipment" },
+            { "value": "icon-shoes", "label": "Shoes" },
+            { "value": "icon-store", "label": "Store" },
+            { "value": "icon-support-headphones", "label": "Support headphones" },
+            { "value": "icon-thread", "label": "Thread" },
+            { "value": "icon-truck", "label": "Truck" },
+            { "value": "icon-washer", "label": "Washer" },
+            { "value": "icon-water", "label": "Water" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "Tab heading",
+          "default": "Information"
+        },
+        {
+          "type": "select",
+          "id": "icon_name_1",
+          "label": "Icon",
+          "default": "",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "icon-animal", "label": "Animal" },
+            { "value": "icon-animal-paw", "label": "Animal paw" },
+            { "value": "icon-award", "label": "Award" },
+            { "value": "icon-basket-like", "label": "Basket like" },
+            { "value": "icon-basket-return", "label": "Basket return" },
+            { "value": "icon-cart-check", "label": "Cart check" },
+            { "value": "icon-cart-message", "label": "Cart message" },
+            { "value": "icon-chat", "label": "Chat" },
+            { "value": "icon-dollar", "label": "Dollar" },
+            { "value": "icon-earth", "label": "Earth" },
+            { "value": "icon-email", "label": "Email" },
+            { "value": "icon-gluten-free", "label": "Gluten free" },
+            { "value": "icon-iron", "label": "Iron" },
+            { "value": "icon-leaf", "label": "Leaf" },
+            { "value": "icon-legal", "label": "Legal" },
+            { "value": "icon-lock-card", "label": "Lock card" },
+            { "value": "icon-lock-shield", "label": "Lock shield" },
+            { "value": "icon-lock-window", "label": "Lock window" },
+            { "value": "icon-payment", "label": "Payment" },
+            { "value": "icon-phone", "label": "Phone" },
+            { "value": "icon-rating", "label": "Rating" },
+            { "value": "icon-star-rating", "label": "Rating star" },
+            { "value": "icon-recycled", "label": "Recycled" },
+            { "value": "icon-ruler", "label": "Ruler" },
+            { "value": "icon-send", "label": "Send" },
+            { "value": "icon-sewing-machine", "label": "Sewing machine" },
+            { "value": "icon-share", "label": "Share" },
+            { "value": "icon-shipment-world", "label": "Shipment world" },
+            { "value": "icon-shipment", "label": "Shipment" },
+            { "value": "icon-shoes", "label": "Shoes" },
+            { "value": "icon-store", "label": "Store" },
+            { "value": "icon-support-headphones", "label": "Support headphones" },
+            { "value": "icon-thread", "label": "Thread" },
+            { "value": "icon-truck", "label": "Truck" },
+            { "value": "icon-washer", "label": "Washer" },
+            { "value": "icon-water", "label": "Water" }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "raw_content_1",
+          "label": "Tab text",
+          "default": "<p>This content type will accept <strong>rich text</strong> to help with adding styles and links to additional pages or content. Use this to add supplementary information to help your buyers.</p>"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Tab heading",
+          "default": "Details"
+        },
+        {
+          "type": "select",
+          "id": "icon_name_2",
+          "label": "Icon",
+          "default": "",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "icon-animal", "label": "Animal" },
+            { "value": "icon-animal-paw", "label": "Animal paw" },
+            { "value": "icon-award", "label": "Award" },
+            { "value": "icon-basket-like", "label": "Basket like" },
+            { "value": "icon-basket-return", "label": "Basket return" },
+            { "value": "icon-cart-check", "label": "Cart check" },
+            { "value": "icon-cart-message", "label": "Cart message" },
+            { "value": "icon-chat", "label": "Chat" },
+            { "value": "icon-dollar", "label": "Dollar" },
+            { "value": "icon-earth", "label": "Earth" },
+            { "value": "icon-email", "label": "Email" },
+            { "value": "icon-gluten-free", "label": "Gluten free" },
+            { "value": "icon-iron", "label": "Iron" },
+            { "value": "icon-leaf", "label": "Leaf" },
+            { "value": "icon-legal", "label": "Legal" },
+            { "value": "icon-lock-card", "label": "Lock card" },
+            { "value": "icon-lock-shield", "label": "Lock shield" },
+            { "value": "icon-lock-window", "label": "Lock window" },
+            { "value": "icon-payment", "label": "Payment" },
+            { "value": "icon-phone", "label": "Phone" },
+            { "value": "icon-rating", "label": "Rating" },
+            { "value": "icon-star-rating", "label": "Rating star" },
+            { "value": "icon-recycled", "label": "Recycled" },
+            { "value": "icon-ruler", "label": "Ruler" },
+            { "value": "icon-send", "label": "Send" },
+            { "value": "icon-sewing-machine", "label": "Sewing machine" },
+            { "value": "icon-share", "label": "Share" },
+            { "value": "icon-shipment-world", "label": "Shipment world" },
+            { "value": "icon-shipment", "label": "Shipment" },
+            { "value": "icon-shoes", "label": "Shoes" },
+            { "value": "icon-store", "label": "Store" },
+            { "value": "icon-support-headphones", "label": "Support headphones" },
+            { "value": "icon-thread", "label": "Thread" },
+            { "value": "icon-truck", "label": "Truck" },
+            { "value": "icon-washer", "label": "Washer" },
+            { "value": "icon-water", "label": "Water" }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "raw_content_2",
+          "label": "Tab text",
+          "default": "<p>You can use product metafields to assign content to this tab that is unique to an individual product.  Use tabs to highlight unique features, sizing information, or other sales information.</p>"
+        },
+        {
+          "type": "text",
+          "id": "title_3",
+          "label": "Tab heading"
+        },
+        {
+          "type": "select",
+          "id": "icon_name_3",
+          "label": "Icon",
+          "default": "",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "icon-animal", "label": "Animal" },
+            { "value": "icon-animal-paw", "label": "Animal paw" },
+            { "value": "icon-award", "label": "Award" },
+            { "value": "icon-basket-like", "label": "Basket like" },
+            { "value": "icon-basket-return", "label": "Basket return" },
+            { "value": "icon-cart-check", "label": "Cart check" },
+            { "value": "icon-cart-message", "label": "Cart message" },
+            { "value": "icon-chat", "label": "Chat" },
+            { "value": "icon-dollar", "label": "Dollar" },
+            { "value": "icon-earth", "label": "Earth" },
+            { "value": "icon-email", "label": "Email" },
+            { "value": "icon-gluten-free", "label": "Gluten free" },
+            { "value": "icon-iron", "label": "Iron" },
+            { "value": "icon-leaf", "label": "Leaf" },
+            { "value": "icon-legal", "label": "Legal" },
+            { "value": "icon-lock-card", "label": "Lock card" },
+            { "value": "icon-lock-shield", "label": "Lock shield" },
+            { "value": "icon-lock-window", "label": "Lock window" },
+            { "value": "icon-payment", "label": "Payment" },
+            { "value": "icon-phone", "label": "Phone" },
+            { "value": "icon-rating", "label": "Rating" },
+            { "value": "icon-star-rating", "label": "Rating star" },
+            { "value": "icon-recycled", "label": "Recycled" },
+            { "value": "icon-ruler", "label": "Ruler" },
+            { "value": "icon-send", "label": "Send" },
+            { "value": "icon-sewing-machine", "label": "Sewing machine" },
+            { "value": "icon-share", "label": "Share" },
+            { "value": "icon-shipment-world", "label": "Shipment world" },
+            { "value": "icon-shipment", "label": "Shipment" },
+            { "value": "icon-shoes", "label": "Shoes" },
+            { "value": "icon-store", "label": "Store" },
+            { "value": "icon-support-headphones", "label": "Support headphones" },
+            { "value": "icon-thread", "label": "Thread" },
+            { "value": "icon-truck", "label": "Truck" },
+            { "value": "icon-washer", "label": "Washer" },
+            { "value": "icon-water", "label": "Water" }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "raw_content_3",
+          "label": "Tab text"
+        },
+        {
+          "type": "text",
+          "id": "title_4",
+          "label": "Tab heading"
+        },
+        {
+          "type": "select",
+          "id": "icon_name_4",
+          "label": "Icon",
+          "default": "",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "icon-animal", "label": "Animal" },
+            { "value": "icon-animal-paw", "label": "Animal paw" },
+            { "value": "icon-award", "label": "Award" },
+            { "value": "icon-basket-like", "label": "Basket like" },
+            { "value": "icon-basket-return", "label": "Basket return" },
+            { "value": "icon-cart-check", "label": "Cart check" },
+            { "value": "icon-cart-message", "label": "Cart message" },
+            { "value": "icon-chat", "label": "Chat" },
+            { "value": "icon-dollar", "label": "Dollar" },
+            { "value": "icon-earth", "label": "Earth" },
+            { "value": "icon-email", "label": "Email" },
+            { "value": "icon-gluten-free", "label": "Gluten free" },
+            { "value": "icon-iron", "label": "Iron" },
+            { "value": "icon-leaf", "label": "Leaf" },
+            { "value": "icon-legal", "label": "Legal" },
+            { "value": "icon-lock-card", "label": "Lock card" },
+            { "value": "icon-lock-shield", "label": "Lock shield" },
+            { "value": "icon-lock-window", "label": "Lock window" },
+            { "value": "icon-payment", "label": "Payment" },
+            { "value": "icon-phone", "label": "Phone" },
+            { "value": "icon-rating", "label": "Rating" },
+            { "value": "icon-star-rating", "label": "Rating star" },
+            { "value": "icon-recycled", "label": "Recycled" },
+            { "value": "icon-ruler", "label": "Ruler" },
+            { "value": "icon-send", "label": "Send" },
+            { "value": "icon-sewing-machine", "label": "Sewing machine" },
+            { "value": "icon-share", "label": "Share" },
+            { "value": "icon-shipment-world", "label": "Shipment world" },
+            { "value": "icon-shipment", "label": "Shipment" },
+            { "value": "icon-shoes", "label": "Shoes" },
+            { "value": "icon-store", "label": "Store" },
+            { "value": "icon-support-headphones", "label": "Support headphones" },
+            { "value": "icon-thread", "label": "Thread" },
+            { "value": "icon-truck", "label": "Truck" },
+            { "value": "icon-washer", "label": "Washer" },
+            { "value": "icon-water", "label": "Water" }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "raw_content_4",
+          "label": "Tab text"
+        },
+        {
+          "type": "text",
+          "id": "title_5",
+          "label": "Tab heading"
+        },
+        {
+          "type": "select",
+          "id": "icon_name_5",
+          "label": "Icon",
+          "default": "",
+          "options": [
+            { "value": "", "label": "No icon" },
+            { "value": "icon-animal", "label": "Animal" },
+            { "value": "icon-animal-paw", "label": "Animal paw" },
+            { "value": "icon-award", "label": "Award" },
+            { "value": "icon-basket-like", "label": "Basket like" },
+            { "value": "icon-basket-return", "label": "Basket return" },
+            { "value": "icon-cart-check", "label": "Cart check" },
+            { "value": "icon-cart-message", "label": "Cart message" },
+            { "value": "icon-chat", "label": "Chat" },
+            { "value": "icon-dollar", "label": "Dollar" },
+            { "value": "icon-earth", "label": "Earth" },
+            { "value": "icon-email", "label": "Email" },
+            { "value": "icon-gluten-free", "label": "Gluten free" },
+            { "value": "icon-iron", "label": "Iron" },
+            { "value": "icon-leaf", "label": "Leaf" },
+            { "value": "icon-legal", "label": "Legal" },
+            { "value": "icon-lock-card", "label": "Lock card" },
+            { "value": "icon-lock-shield", "label": "Lock shield" },
+            { "value": "icon-lock-window", "label": "Lock window" },
+            { "value": "icon-payment", "label": "Payment" },
+            { "value": "icon-phone", "label": "Phone" },
+            { "value": "icon-rating", "label": "Rating" },
+            { "value": "icon-star-rating", "label": "Rating star" },
+            { "value": "icon-recycled", "label": "Recycled" },
+            { "value": "icon-ruler", "label": "Ruler" },
+            { "value": "icon-send", "label": "Send" },
+            { "value": "icon-sewing-machine", "label": "Sewing machine" },
+            { "value": "icon-share", "label": "Share" },
+            { "value": "icon-shipment-world", "label": "Shipment world" },
+            { "value": "icon-shipment", "label": "Shipment" },
+            { "value": "icon-shoes", "label": "Shoes" },
+            { "value": "icon-store", "label": "Store" },
+            { "value": "icon-support-headphones", "label": "Support headphones" },
+            { "value": "icon-thread", "label": "Thread" },
+            { "value": "icon-truck", "label": "Truck" },
+            { "value": "icon-washer", "label": "Washer" },
+            { "value": "icon-water", "label": "Water" }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "raw_content_5",
+          "label": "Tab text"
+        }
+      ]
+    },
+    {
+      "type": "upsell",
+      "name": "Upsell",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "paragraph",
+          "content": "Upsell is best as a one-click add to cart, so upsell products should have no variants.  Upsell products with variants will open a quick-view window. [Learn more](https://groupthought.com/link/story/docs/upsell/variant)"
+        },
+        {
+          "type": "header",
+          "content": "Upsell in cart"
+        },
+        {
+          "type": "paragraph",
+          "content": "Use a dynamic source with the metafield name 'theme.upsell' to allow product upsells to follow users into the cart. Use any other name to limit this feature to the product page. [Learn more](https://groupthought.com/link/story/docs/upsell/cart)"
+        }
+      ]
+    },
+    {
+      "type": "sharing",
+      "name": "Sharing",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "Text",
+          "default": "Share"
+        },
+        {
+          "type": "paragraph",
+          "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+        },
+        {
+          "type": "paragraph",
+          "content": "A store title and description are included with the preview image. [Learn more](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+        }
+      ]
+    },
+    {
+      "type": "pickup",
+      "name": "Local pickup",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Show customers where they can pick up the product. [Learn more](https://help.shopify.com/en/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-pickup#show-pickup-availability-to-your-customers)"
+        }
+      ]
+    },
+    {
+      "type": "flashsale",
+      "name": "Flash Sale",
+      "settings": [
+        {
+          "type": "text",
+          "id": "end_date",
+          "label": "End Date"
+        },
+        {
+          "type": "text",
+          "id": "end_time",
+          "label": "End Time"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title and price",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "product_show_vendor",
+          "label": "Show vendor",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Star rating",
+          "info": "Requires a product review app like [Shopify Product Reviews](https://apps.shopify.com/product-reviews) to create [standard metafields](https://shopify.dev/apps/metafields/definitions/standard-definitions) for star ratings."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_rating",
+          "label": "Enable star rating",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_rating_count",
+          "label": "Show rating count",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "liquid",
+      "name": "Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom Liquid",
+          "info": "Add app snippets or other Liquid code to create advanced customizations."
+        }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_name",
+          "label": "Icon",
+          "default": "icon-award",
+          "options": [
+            { "value": "icon-animal", "label": "Animal" },
+            { "value": "icon-animal-paw", "label": "Animal paw" },
+            { "value": "icon-award", "label": "Award" },
+            { "value": "icon-basket-like", "label": "Basket like" },
+            { "value": "icon-basket-return", "label": "Basket return" },
+            { "value": "icon-cart-check", "label": "Cart check" },
+            { "value": "icon-cart-message", "label": "Cart message" },
+            { "value": "icon-chat", "label": "Chat" },
+            { "value": "icon-dollar", "label": "Dollar" },
+            { "value": "icon-earth", "label": "Earth" },
+            { "value": "icon-email", "label": "Email" },
+            { "value": "icon-gluten-free", "label": "Gluten free" },
+            { "value": "icon-iron", "label": "Iron" },
+            { "value": "icon-leaf", "label": "Leaf" },
+            { "value": "icon-legal", "label": "Legal" },
+            { "value": "icon-lock-card", "label": "Lock card" },
+            { "value": "icon-lock-shield", "label": "Lock shield" },
+            { "value": "icon-lock-window", "label": "Lock window" },
+            { "value": "icon-payment", "label": "Payment" },
+            { "value": "icon-phone", "label": "Phone" },
+            { "value": "icon-rating", "label": "Rating" },
+            { "value": "icon-star-rating", "label": "Rating star" },
+            { "value": "icon-recycled", "label": "Recycled" },
+            { "value": "icon-ruler", "label": "Ruler" },
+            { "value": "icon-send", "label": "Send" },
+            { "value": "icon-sewing-machine", "label": "Sewing machine" },
+            { "value": "icon-share", "label": "Share" },
+            { "value": "icon-shipment-world", "label": "Shipment world" },
+            { "value": "icon-shipment", "label": "Shipment" },
+            { "value": "icon-shoes", "label": "Shoes" },
+            { "value": "icon-store", "label": "Store" },
+            { "value": "icon-support-headphones", "label": "Support headphones" },
+            { "value": "icon-thread", "label": "Thread" },
+            { "value": "icon-truck", "label": "Truck" },
+            { "value": "icon-washer", "label": "Washer" },
+            { "value": "icon-water", "label": "Water" }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon color",
+          "default": "#4F8BF2"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Icon text</p>"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_max_limit",
+          "min": 5,
+          "max": 500,
+          "step": 5,
+          "unit": "px",
+          "label": "Width",
+          "default": 120
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            { "value": "product__image--left", "label": "Left" },
+            { "value": "product__image--center", "label": "Center" },
+            { "value": "product__image--right", "label": "Right" }
+          ],
+          "default": "product__image--left"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "2024 New Product Page ",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}

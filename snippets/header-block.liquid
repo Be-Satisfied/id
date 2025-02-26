@@ -6,7 +6,7 @@
   Accepts a block, returns the content to render for that block.
 
   Required params:
-  * block: the block that should be rednered.
+  * block: the block that should be rendered.
 
   {% render 'header-block', block: block %}
 {% endcomment %}
@@ -20,27 +20,89 @@
       endif
     -%}
     <div class="{{ width_class }}" data-animates="1" {{ block.shopify_attributes }}>
-      <div class="header__dropdown__image" data-stagger-first>
-        {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" class="link-over-image">{%- endif -%}
-        {%- if block.settings.title != blank or block.settings.link_text != blank -%}
-          <div class="hero__content__wrapper align--bottom-left">
-            <div class="hero__content backdrop--radial">
-              {% if block.settings.title != blank %}
-                <h2 class="hero__title {{ block.settings.color_text }}">
-                  {{ block.settings.title | escape }}
-                </h2>
-              {% endif %}
-              {% if block.settings.link_text != blank %}
-                <div class="hero__description {{ block.settings.color_text }}">
-                  {{ block.settings.link_text | escape }}
-                </div>
-              {% endif %}
-            </div>
-          </div>
+      <div
+        class="header__dropdown__item"
+        data-stagger-first
+      >
+        {%- if block.settings.link != blank -%}
+          <a
+            href="{{ block.settings.link }}"
+            class="header__dropdown__link"
+            style="text-decoration: none; color: inherit;"
+          >
         {%- endif -%}
+        <div class="header__dropdown__image" style="width: 200px; height: 200px; margin: 0 auto;">
+          {%- render 'image-fill', img_object: block.settings.image, width: 200, height: 200 -%}
+        </div>
+        <div class="header__dropdown__content" style="text-align: center; margin-top: 10px;">
+          {% if block.settings.title != blank %}
+            <h2
+              class="header__dropdown__title"
+              style="font-size: 16px; margin: 0; line-height: 1.2;"
+            >
+              {{ block.settings.title | escape }}
+            </h2>
+          {% endif %}
+          {% if block.settings.link_text != blank %}
+            <div
+              class="header__dropdown__description {{ block.settings.color_text }}"
+              style="font-size: 14px; margin-top: 5px;"
+            >
+              {{ block.settings.link_text | escape }}
+            </div>
+          {% endif %}
+        </div>
         {%- if block.settings.link != blank -%}</a>{%- endif -%}
-
-        {%- render 'image-fill', img_object: block.settings.image, aspect_ratio: block.settings.aspect_ratio -%}
       </div>
     </div>
 {% endcase %}
+
+<style>
+  .header__dropdown__item{
+    background-color: #f4f4f4; width: 282px; height: 282px; padding: 10px; box-sizing: border-box; display: inline-block; margin: 10px;
+  }
+  .{{ width_class }} {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .header__dropdown__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  @media (min-width: 1201px) {
+    .header__dropdown__wrapper .{{ width_class }} {
+      width: 25%;
+    }
+  }
+
+  @media (max-width: 1200px) and (min-width: 901px) {
+    .header__dropdown__wrapper .{{ width_class }} {
+      width: 33.33%;
+    }
+  }
+
+  /* 媒体查询最大宽度1200 */
+  @media (max-width: 1200px) {
+    .header__dropdown__item{
+      width: 100%;
+      height: auto;
+      padding: 24px;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 900px) and (min-width: 601px) {
+    .header__dropdown__wrapper .{{ width_class }} {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .header__dropdown__wrapper .{{ width_class }} {
+      width: 100%;
+    }
+  }
+</style>

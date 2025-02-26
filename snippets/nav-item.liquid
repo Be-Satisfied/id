@@ -76,7 +76,11 @@
     aria-controls="dropdown-{{ key }}"
   {% endif %}
 >
-  <a href="{{ link.url }}" data-top-link class="navlink navlink--toplevel{% if highlight_links contains link_title_handle %} highlight--link{% endif %}">
+  <a
+    href="{{ link.url }}"
+    data-top-link
+    class="navlink navlink--toplevel{% if highlight_links contains link_title_handle %} highlight--link{% endif %}"
+  >
     <span class="navtext">{{ link.title | strip_html | escape }}</span>
   </a>
   {% if expands %}
@@ -129,12 +133,14 @@
                 {% endif %}
               </div>
             {% endunless %}
-            {% for block in section.blocks %}
-              {% comment %} Render block content {% endcomment %}
-              {%- if block.settings.position == index -%}
-                {% render 'header-block', block: block %}
-              {%- endif -%}
-            {% endfor %}
+            <div class="header__block">
+              {% for block in section.blocks %}
+                {% comment %} Render block content {% endcomment %}
+                {%- if block.settings.position == index -%}
+                  {% render 'header-block', block: block %}
+                {%- endif -%}
+              {% endfor %}
+            </div>
           {%- else -%}
             {% comment %} Simple dropdown {% endcomment %}
             {% for link in link.links %}
@@ -153,3 +159,31 @@
     </div>
   {% endif %}
 </div>
+<style>
+  .header__dropdown__inner {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: space-between; /* 左右分布 */
+  }
+
+  .header__grandparent__links {
+    flex: 1; /* 占据可用空间 */
+    display: flex;
+    flex-wrap: wrap; /* 允许换行 */
+  }
+
+  .header__block {
+    /* 分成三份网格布局 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px; /* 网格间距 */
+    margin-right: 20px; /* 每个网格右边距 */
+  }
+
+  .header__block:nth-child(3n) {
+    margin-right: 0; /* 每三项后不添加右边距 */
+  }
+
+  .header__block:nth-child(n + 4) {
+    flex-basis: 100%; /* 超过三个后换行 */
+  }
+</style>

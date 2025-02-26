@@ -73,7 +73,10 @@
       <div class="accordion__column">
         <div class="accordion__images">
           {%- if section_image != blank -%}
-            <div class="accordion__image{% if expand_default_image %} is-expanded{% endif %} {{ section.settings.height }}" data-accordion-image>
+            <div
+              class="accordion__image{% if expand_default_image %} is-expanded{% endif %} {{ section.settings.height }}"
+              data-accordion-image
+            >
               {%- render 'image-fill', img_object: section_image -%}
             </div>
           {%- endif -%}
@@ -87,7 +90,7 @@
 
     <div class="text__standard">
       {% if section.settings.title != blank %}
-        <h2 class="accordion__heading {{ section.settings.align_text }} {{ font_size_class }}">
+        <h2 class="accordion__heading {{ section.settings.align_text }}">
           {{ section.settings.title }}
         </h2>
       {% endif %}
@@ -124,8 +127,8 @@
       "label": "Heading alignment",
       "default": "text-left",
       "options": [
-        {"value": "text-left", "label": "Left"},
-        {"value": "text-center", "label": "Centered"}
+        { "value": "text-left", "label": "Left" },
+        { "value": "text-center", "label": "Centered" }
       ]
     },
     {
@@ -147,14 +150,14 @@
       "label": "Text color",
       "default": "text--neutral",
       "options": [
-        {"value": "text--neutral", "label": "Normal text"},
-        {"value": "text--white", "label": "White"},
-        {"value": "text--primary", "label": "Primary accent"},
-        {"value": "text--secondary", "label": "Secondary accent"},
-        {"value": "text--black", "label": "Black"},
-        {"value": "text--invert--primary", "label": "Primary dark accent"},
-        {"value": "text--invert--secondary", "label": "Secondary dark accent"},
-        {"value": "text--invert", "label": "Inverted text color"}
+        { "value": "text--neutral", "label": "Normal text" },
+        { "value": "text--white", "label": "White" },
+        { "value": "text--primary", "label": "Primary accent" },
+        { "value": "text--secondary", "label": "Secondary accent" },
+        { "value": "text--black", "label": "Black" },
+        { "value": "text--invert--primary", "label": "Primary dark accent" },
+        { "value": "text--invert--secondary", "label": "Secondary dark accent" },
+        { "value": "text--invert", "label": "Inverted text color" }
       ]
     },
     {
@@ -163,10 +166,10 @@
       "label": "Background color",
       "default": "palette--light bg--neutral",
       "options": [
-        {"value": "palette--light bg--neutral", "label": "Default"},
-        {"value": "palette--light bg--accent", "label": "Light"},
-        {"value": "palette--dark bg--invert", "label": "Dark"},
-        {"value": "palette--dark bg--invert--accent", "label": "Dark accent"}
+        { "value": "palette--light bg--neutral", "label": "Default" },
+        { "value": "palette--light bg--accent", "label": "Light" },
+        { "value": "palette--dark bg--invert", "label": "Dark" },
+        { "value": "palette--dark bg--invert--accent", "label": "Dark accent" }
       ]
     },
     {
@@ -184,15 +187,15 @@
       "label": "Height",
       "default": "use_screen_full",
       "options": [
-        {"value": "use_screen_full", "label": "Full screen height"},
-        {"value": "use_screen_three_quarters", "label": "Three quarters of screen height"},
-        {"value": "use_screen_two_thirds", "label": "Two thirds of screen height"},
-        {"value": "use_screen_one_half", "label": "One half of screen height"},
-        {"value": "use_screen_one_third", "label": "One third of screen height"},
-        {"value": "use_screen_one_fifth", "label": "One fifth of screen height"},
-        {"value": "use_pixels_800", "label": "800px"},
-        {"value": "use_pixels_650", "label": "650px"},
-        {"value": "use_pixels_500", "label": "500px"}
+        { "value": "use_screen_full", "label": "Full screen height" },
+        { "value": "use_screen_three_quarters", "label": "Three quarters of screen height" },
+        { "value": "use_screen_two_thirds", "label": "Two thirds of screen height" },
+        { "value": "use_screen_one_half", "label": "One half of screen height" },
+        { "value": "use_screen_one_third", "label": "One third of screen height" },
+        { "value": "use_screen_one_fifth", "label": "One fifth of screen height" },
+        { "value": "use_pixels_800", "label": "800px" },
+        { "value": "use_pixels_650", "label": "650px" },
+        { "value": "use_pixels_500", "label": "500px" }
       ]
     },
     {
@@ -205,10 +208,10 @@
       "label": "Width",
       "default": "wrapper",
       "options": [
-        {"value": "wrapper--full", "label": "Full width padded"},
-        {"value": "wrapper", "label": "Page width"},
-        {"value": "wrapper--narrow", "label": "Page width narrow"},
-        {"value": "wrapper--tiny", "label": "Page width extra narrow"}
+        { "value": "wrapper--full", "label": "Full width padded" },
+        { "value": "wrapper", "label": "Page width" },
+        { "value": "wrapper--narrow", "label": "Page width narrow" },
+        { "value": "wrapper--tiny", "label": "Page width extra narrow" }
       ]
     },
     {

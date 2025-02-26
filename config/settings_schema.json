@@ -2,10 +2,10 @@
   {
     "name": "theme_info",
     "theme_name": "Story",
-    "theme_version": "4.2.2",
+    "theme_version": "4.2.0",
     "theme_author": "Groupthought",
-    "theme_support_url": "https://groupthought.com/link/story/contact",
-    "theme_documentation_url": "https://groupthought.com/link/story/docs"
+    "theme_support_url": "https:\/\/groupthought.com\/link\/story\/contact",
+    "theme_documentation_url": "https:\/\/groupthought.com\/link\/story\/docs"
   },
   {
     "name": "Typography",
@@ -80,8 +80,14 @@
         "label": "Font",
         "default": "body",
         "options": [
-          {"label": "Body", "value": "body"},
-          {"label": "Heading", "value": "heading"}
+          {
+            "label": "Body",
+            "value": "body"
+          },
+          {
+            "label": "Heading",
+            "value": "heading"
+          }
         ]
       },
       {
@@ -244,10 +250,22 @@
         "label": "Default colors",
         "default": "",
         "options": [
-          {"value": "", "label": "Light"},
-          {"value": "default--accent", "label": "Light accent"},
-          {"value": "default--dark", "label": "Dark"},
-          {"value": "default--dark default--accent--inverse", "label": "Dark accent"}
+          {
+            "value": "",
+            "label": "Light"
+          },
+          {
+            "value": "default--accent",
+            "label": "Light accent"
+          },
+          {
+            "value": "default--dark",
+            "label": "Dark"
+          },
+          {
+            "value": "default--dark default--accent--inverse",
+            "label": "Dark accent"
+          }
         ]
       },
       {
@@ -373,8 +391,14 @@
         "label": "Image corners",
         "default": "rounded",
         "options": [
-          {"label": "Square", "value": "square"},
-          {"label": "Rounded", "value": "rounded"}
+          {
+            "label": "Square",
+            "value": "square"
+          },
+          {
+            "label": "Rounded",
+            "value": "rounded"
+          }
         ]
       },
       {
@@ -383,9 +407,18 @@
         "label": "Button corners",
         "default": "rounded",
         "options": [
-          {"label": "Square", "value": "square"},
-          {"label": "Rounded", "value": "rounded"},
-          {"label": "Pill", "value": "pill"}
+          {
+            "label": "Square",
+            "value": "square"
+          },
+          {
+            "label": "Rounded",
+            "value": "rounded"
+          },
+          {
+            "label": "Pill",
+            "value": "pill"
+          }
         ]
       },
       {
@@ -393,8 +426,14 @@
         "id": "decoration_style",
         "label": "Title decoration",
         "options": [
-          {"value": "decoration-modern", "label": "Modern"},
-          {"value": "decoration-none", "label": "None"}
+          {
+            "value": "decoration-modern",
+            "label": "Modern"
+          },
+          {
+            "value": "decoration-none",
+            "label": "None"
+          }
         ],
         "default": "decoration-none"
       },
@@ -429,61 +468,61 @@
         "type": "text",
         "id": "social_instagram_link",
         "label": "Instagram link",
-        "info": "https://instagram.com/shopify"
+        "info": "https:\/\/instagram.com\/shopify"
       },
       {
         "type": "text",
         "id": "social_tiktok_link",
         "label": "TikTok link",
-        "info": "https://tiktok.com/@shopify"
+        "info": "https:\/\/tiktok.com\/@shopify"
       },
       {
         "type": "text",
         "id": "social_snapchat_link",
         "label": "Snapchat link",
-        "info": "https://snapchat.com/add/shopify"
+        "info": "https:\/\/snapchat.com\/add\/shopify"
       },
       {
         "type": "text",
         "id": "social_twitter_link",
         "label": "Twitter link",
-        "info": "https://twitter.com/shopify"
+        "info": "https:\/\/twitter.com\/shopify"
       },
       {
         "type": "text",
         "id": "social_facebook_link",
         "label": "Facebook link",
-        "info": "https://facebook.com/shopify"
+        "info": "https:\/\/facebook.com\/shopify"
       },
       {
         "type": "text",
         "id": "social_pinterest_link",
         "label": "Pinterest link",
-        "info": "https://pinterest.com/shopify"
+        "info": "https:\/\/pinterest.com\/shopify"
       },
       {
         "type": "text",
         "id": "social_linkedin_link",
         "label": "Linkedin link",
-        "info": "https://www.linkedin.com/company/shopify"
+        "info": "https:\/\/www.linkedin.com\/company\/shopify"
       },
       {
         "type": "text",
         "id": "social_tumblr_link",
         "label": "Tumblr link",
-        "info": "http://shopify.tumblr.com"
+        "info": "http:\/\/shopify.tumblr.com"
       },
       {
         "type": "text",
         "id": "social_youtube_link",
         "label": "Youtube link",
-        "info": "https://www.youtube.com/shopify"
+        "info": "https:\/\/www.youtube.com\/shopify"
       },
       {
         "type": "text",
         "id": "social_vimeo_link",
         "label": "Vimeo link",
-        "info": "https://vimeo.com/shopify"
+        "info": "https:\/\/vimeo.com\/shopify"
       },
       {
         "type": "header",
@@ -499,7 +538,7 @@
         "type": "text",
         "id": "custom_social_link_1",
         "label": "Link",
-        "info": "https://example.com/shopify"
+        "info": "https:\/\/example.com\/shopify"
       },
       {
         "type": "header",
@@ -515,7 +554,7 @@
         "type": "text",
         "id": "custom_social_link_2",
         "label": "Link",
-        "info": "https://example.com/shopify"
+        "info": "https:\/\/example.com\/shopify"
       },
       {
         "type": "header",
@@ -531,7 +570,7 @@
         "type": "text",
         "id": "custom_social_link_3",
         "label": "Link",
-        "info": "https://example.com/shopify"
+        "info": "https:\/\/example.com\/shopify"
       }
     ]
   },
@@ -544,10 +583,22 @@
         "label": "Cart type",
         "default": "drawer",
         "options": [
-          {"value": "drawer", "label": "Drawer"},
-          {"value": "pop", "label": "Popup"},
-          {"value": "page", "label": "Page"},
-          {"value": "compatible", "label": "App compatible page"}
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "pop",
+            "label": "Popup"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          },
+          {
+            "value": "compatible",
+            "label": "App compatible page"
+          }
         ]
       },
       {
@@ -602,7 +653,7 @@
         "id": "free_shipping_limit",
         "label": "Minimum spend for free shipping",
         "default": "100",
-        "info": "Use round numbers. Exclude currency, symbols, and letters. [More info](https://help.shopify.com/en/manual/shipping/setting-up-and-managing-your-shipping/free-shipping-rates#free-shipping-over-a-certain-value)"
+        "info": "Use round numbers. Exclude currency, symbols, and letters. [More info](https:\/\/help.shopify.com\/en\/manual\/shipping\/setting-up-and-managing-your-shipping\/free-shipping-rates#free-shipping-over-a-certain-value)"
       },
       {
         "type": "header",
@@ -618,7 +669,7 @@
         "type": "richtext",
         "id": "cart_custom_message_text",
         "label": "Message text",
-        "default": "<p>Use code <strong>TENOFF</strong> at checkout for 10% off</p>"
+        "default": "<p>Use code <strong>TENOFF<\/strong> at checkout for 10% off<\/p>"
       },
       {
         "type": "header",
@@ -630,10 +681,22 @@
         "label": "Background color",
         "default": "palette--light bg--neutral",
         "options": [
-          {"value": "palette--light bg--neutral", "label": "Default"},
-          {"value": "palette--light bg--accent", "label": "Light"},
-          {"value": "palette--dark bg--invert", "label": "Dark"},
-          {"value": "palette--dark bg--invert--accent", "label": "Dark accent"}
+          {
+            "value": "palette--light bg--neutral",
+            "label": "Default"
+          },
+          {
+            "value": "palette--light bg--accent",
+            "label": "Light"
+          },
+          {
+            "value": "palette--dark bg--invert",
+            "label": "Dark"
+          },
+          {
+            "value": "palette--dark bg--invert--accent",
+            "label": "Dark accent"
+          }
         ]
       },
       {
@@ -680,9 +743,18 @@
         "id": "collection_text_alignment",
         "label": "Text alignment",
         "options": [
-          {"value": "text-left", "label": "Left"},
-          {"value": "text-center", "label": "Center"},
-          {"value": "text-right", "label": "Right"}
+          {
+            "value": "text-left",
+            "label": "Left"
+          },
+          {
+            "value": "text-center",
+            "label": "Center"
+          },
+          {
+            "value": "text-right",
+            "label": "Right"
+          }
         ],
         "default": "text-left"
       },
@@ -691,9 +763,18 @@
         "id": "show_vendow",
         "label": "Vendor",
         "options": [
-          {"value": "hide-vendor", "label": "Hide vendor"},
-          {"value": "show-vendor-link", "label": "Show vendor with link"},
-          {"value": "show-vendor", "label": "Show vendor without link"}
+          {
+            "value": "hide-vendor",
+            "label": "Hide vendor"
+          },
+          {
+            "value": "show-vendor-link",
+            "label": "Show vendor with link"
+          },
+          {
+            "value": "show-vendor",
+            "label": "Show vendor without link"
+          }
         ],
         "default": "hide-vendor"
       },
@@ -731,7 +812,7 @@
         "type": "checkbox",
         "label": "Enable swatches",
         "id": "swatches_enable",
-        "info": "Learn about [color swatches](https://groupthought.com/link/story/docs/swatches)",
+        "info": "Learn about [color swatches](https:\/\/groupthought.com\/link\/story\/docs\/swatches)",
         "default": true
       },
       {
@@ -756,8 +837,14 @@
         "label": "Sale discount style",
         "default": "dollar",
         "options": [
-          {"value": "dollar", "label": "Show currency off"},
-          {"value": "percentage", "label": "Show percent off"}
+          {
+            "value": "dollar",
+            "label": "Show currency off"
+          },
+          {
+            "value": "percentage",
+            "label": "Show percent off"
+          }
         ]
       },
       {
@@ -768,7 +855,7 @@
       },
       {
         "type": "checkbox",
-        "label": "Enable [custom badges](https://groupthought.com/link/story/docs/badges)",
+        "label": "Enable [custom badges](https:\/\/groupthought.com\/link\/story\/docs\/badges)",
         "id": "badge_custom",
         "default": true
       },
@@ -787,7 +874,7 @@
       {
         "type": "header",
         "content": "Star rating",
-        "info": "Requires a product review app to create [standard metafields](https://shopify.dev/apps/metafields/definitions/standard-definitions) for star ratings."
+        "info": "Requires a product review app to create [standard metafields](https:\/\/shopify.dev\/apps\/metafields\/definitions\/standard-definitions) for star ratings."
       },
       {
         "type": "checkbox",

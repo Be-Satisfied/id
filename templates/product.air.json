@@ -1,0 +1,134 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "product",
+      "disabled": true,
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "product_sticky_enable": true,
+        "image_layout": "thumbnails",
+        "enable_video_looping": true,
+        "zoom_enable": true,
+        "width": "wrapper",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "related": {
+      "type": "related",
+      "disabled": true,
+      "settings": {
+        "related_products_enable": true,
+        "limit": 3,
+        "product_recommendations_heading": "Related products",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "2024_product_CaHUYz": {
+      "type": "2024-product",
+      "blocks": {
+        "title_fcERyV": {
+          "type": "title",
+          "settings": {
+            "product_show_vendor": false,
+            "show_rating": true,
+            "show_rating_count": false
+          }
+        },
+        "form_iFehL4": {
+          "type": "form",
+          "settings": {
+            "variant_form": "auto",
+            "show_quantity": true,
+            "show_remaining": true,
+            "enable_payment_button": true,
+            "subscriptions_enable_selectors": true,
+            "info_page": ""
+          }
+        },
+        "upsell_pYxbg8": {
+          "type": "upsell",
+          "settings": {
+            "product": "deeper-connect-pico-lite"
+          }
+        },
+        "liquid_HUTjBG": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div style=\"margin:32px 0px;width: 100%; height: 1px; background: #D2D2D7\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "title_fcERyV",
+        "form_iFehL4",
+        "upsell_pYxbg8",
+        "liquid_HUTjBG"
+      ],
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "enable_video_looping": true,
+        "zoom_enable": true,
+        "width": "wrapper",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "product_closer_look_EMJn8r": {
+      "type": "product-closer-look",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "inside_the_box_BQAtBb": {
+      "type": "Inside-the-box",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "product_outstanding_features_FGaXFe": {
+      "type": "product-outstanding-features",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "product_compare_CNjMGi": {
+      "type": "Product-compare",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "product_faq_beK9r9": {
+      "type": "product-faq",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related",
+    "2024_product_CaHUYz",
+    "product_closer_look_EMJn8r",
+    "inside_the_box_BQAtBb",
+    "product_outstanding_features_FGaXFe",
+    "product_compare_CNjMGi",
+    "product_faq_beK9r9"
+  ]
+}

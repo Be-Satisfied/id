@@ -1,0 +1,295 @@
+<div
+  class="section-you-might-like {{ section.settings.color_bg }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="section-you-might-like"
+  style="--PT: {{ section.settings.padding_top }}px; --PB: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="{{ section.settings.width }} section-padding">
+    <div class="section-you-might-like__foreground">
+      <div class="section-you-might-like__inner">
+        <div class="section-you-might-like__head">
+          {% if section.settings.title != blank %}
+            <h2 class="you-might-like__title h3 text-center">
+              {{ section.settings.title | escape }}
+            </h2>
+          {% endif %}
+          {% if section.settings.description != blank %}
+            <div class="you-might-like__subtitle subtitle--decorated">
+              {{ section.settings.description }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="you-might-like__content">
+        <div class="you-might-like__image">
+          {% if section.settings.image != blank %}
+            <img
+              src="{{ section.settings.image | img_url: '600x' }}"
+              alt="{{ section.settings.image.alt | escape }}"
+              width="{{ section.settings.image.width }}"
+              height="{{ section.settings.image.height }}"
+              loading="lazy"
+            >
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+        <div class="you-might-like__products">
+          {% for block in section.blocks limit: 2 %}
+            {% assign product = block.settings.product %}
+            {% if product != blank %}
+              <a href="{{ product.url }}" class="you-might-like__item">
+                <div class="you-might-like__item-image">
+                  {% if block.settings.custom_image != blank %}
+                    <img
+                      src="{{ block.settings.custom_image | img_url: '300x' }}"
+                      alt="{{ block.settings.custom_image.alt | escape }}"
+                      width="{{ block.settings.custom_image.width }}"
+                      height="{{ block.settings.custom_image.height }}"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+                <div class="you-might-like__item-info">
+                  <div class="you-might-like__item-title">{{ product.title }}</div>
+                  <div class="you-might-like__item-description">
+                    {{ block.settings.custom_description }}
+                  </div>
+                  {% comment %} 如果有折扣价才显示 {% endcomment %}
+                  {% comment %} <div class="you-might-like__item-subtitle">{{ product.metafields.custom.subtitle }}</div> {% endcomment %}
+                  <div class="you-might-like__item-price">{{ product.price | money }}</div>
+                </div>
+              </a>
+            {% else %}
+              <div class="you-might-like__item placeholder">
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                <div class="you-might-like__item-info">
+                  <div class="you-might-like__item-title">Product title</div>
+                  <div class="you-might-like__item-description">Custom product description</div>
+                  <div class="you-might-like__item-subtitle">Product subtitle</div>
+                  <div class="you-might-like__item-price">$0.00</div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .you-might-like__title {
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+  }
+  .you-might-like__content {
+    display: flex;
+    gap: 20px;
+    height: 390px;
+  }
+  .you-might-like__image {
+    /* flex: 2; */
+    max-height: 100%;
+    overflow: hidden;
+    height: 390px;
+    width: 690px;
+  }
+  .you-might-like__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .you-might-like__products {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .you-might-like__item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
+    max-width: 230px;
+  }
+  .you-might-like__item-image {
+    width: 100%;
+    /* height: 230px; */
+    padding-top: 0%;
+  }
+  .you-might-like__item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .you-might-like__item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .you-might-like__item-title {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px; /* 130% */
+    text-transform: uppercase;
+    color: #000;
+  }
+  .you-might-like__item-description {
+    color: #2f3132;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px; /* 137.5% */
+  }
+  .you-might-like__item-subtitle {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  .you-might-like__item-price {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+  }
+  @media (max-width: 991px) {
+    .you-might-like__content {
+      flex-direction: column;
+      height: auto;
+      padding: 0 10px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .you-might-like__title {
+      font-size: 32px;
+    }
+    .you-might-like__image {
+      width: 100%;
+    }
+    .you-might-like__products {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      padding-bottom: 20px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    .you-might-like__products::-webkit-scrollbar {
+      /* WebKit */
+      width: 0;
+      height: 0;
+    }
+    .you-might-like__item {
+      flex: 0 0 auto;
+      width: 80%;
+      max-width: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "YOU Might Like",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "YOU Might Like"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Text",
+      "default": "<p>Discover more products you might like.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left column image"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wrapper",
+      "options": [
+        { "value": "wrapper--full", "label": "Full width padded" },
+        { "value": "wrapper", "label": "Page width" },
+        { "value": "wrapper--narrow", "label": "Page width narrow" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom product image"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_description",
+          "label": "Custom product description",
+          "default": "Enter a custom description for this product."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "YOU Might Like",
+      "category": "Products",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "aside"]
+  }
+}
+{% endschema %}

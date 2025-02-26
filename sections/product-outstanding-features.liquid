@@ -1,0 +1,417 @@
+<section
+  class="section-tabs {{ section.settings.color_bg }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="tabs"
+  style="--PT: {{ section.settings.padding_top }}px; --PB: {{ section.settings.padding_bottom }}px; background-color:#ffffff"
+>
+  <div class="wrapper section-padding" style="max-width: 1200px;">
+    <div class="outstanding-feature__title">Outstanding Features</div>
+    <div class="outstanding-feature__body">
+      {% if product.title != 'Deeper Connect Pico Lite' %}
+        <div class="outstanding-feature__content">
+          <div id="quick-setup-content" class="outstanding-feature__content-item active">
+            <div class="outstanding-feature__content-containter">
+              <div class="mobile--hide">
+                <div
+                  style="margin-top:202px; margin-left: 160px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 20px; display: inline-flex"
+                >
+                  <div
+                    style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex"
+                  >
+                    <div
+                      style="color: white; font-size: 20px; font-weight: 700; text-transform: capitalize; line-height: 26px; word-wrap: break-word"
+                    >
+                      {{ product.title | replace: ' (New)', '' }}
+                    </div>
+                    <div
+                      style="padding-right: 4.97px; justify-content: flex-start; align-items: flex-start; display: inline-flex"
+                    >
+                      <div
+                        style="color: white; font-size: 43px; font-weight: 700; line-height: 52.01px; word-wrap: break-word"
+                      >
+                        Let’s See How <br>
+                        You Can Use It Too!
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="padding-left: 18px; padding-right: 18px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 980px; justify-content: flex-start; align-items: flex-start; display: inline-flex"
+                  >
+                    <div
+                      style="cursor:pointer;text-align: center; color: black; font-size: 16px; font-weight: 700; line-height: 20px; word-wrap: break-word"
+                    >
+                      Watch The Video
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <video
+                id="quick-setup-content__Video"
+                width="100%"
+                height="100%"
+                controls
+                style="display: none; background-color:#000"
+              >
+                {% if product.title == 'Deeper Connect Pico Lite' %}
+                  <source
+                    src="https://cdn.shopify.com/videos/c/vp/602ec38a0a6541d09e8f4fb1af6f03a2/602ec38a0a6541d09e8f4fb1af6f03a2.HD-1080p-2.5Mbps-23793892.mp4"
+                    type="video/mp4"
+                  >
+                {% endif %}
+                {% if product.title == 'Deeper Connect Air' or product.title == 'Deeper Connect Air & Mini Set' %}
+                  <source
+                    src="https://cdn.shopify.com/videos/c/o/v/00a5240d3a2b429fa54f6d18af44cd3f.mp4"
+                    type="video/mp4"
+                  >
+                {% endif %}
+                {% if product.title == 'Deeper Connect Mini' %}
+                  <source
+                    src="https://cdn.shopify.com/videos/c/o/v/851b9fe105dd4c36b6eab6b38131430b.mp4"
+                    type="video/mp4"
+                  >
+                {% endif %}
+              </video>
+            </div>
+          </div>
+
+          {% comment %} <div id="zero-subscription-fees-content" class="outstanding-feature__content-item lazyload"></div> {% endcomment %}
+          <div id="connection-mode-content" class="outstanding-feature__content-item">
+            <div class="connection-mode-content__title mobile--hide">Plug-And-Play. Zero Configuration</div>
+            <div class="connection-mode-content__body">
+              {% if product.title == 'Deeper Connect Mini' %}
+                <img
+                  loading="lazy"
+                  width="100%"
+                  src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/setup-mode-01.gif?v=1724718220"
+                  sizes="(min-width: 768px), 90vw, 100vw"
+                  class="lazyload"
+                  alt=""
+                >
+                <img
+                  loading="lazy"
+                  width="100%"
+                  src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/setup-mode-02.gif?v=1724718336"
+                  sizes="(min-width: 768px), 90vw, 100vw"
+                  class="lazyload"
+                  alt=""
+                >
+                <img
+                  loading="lazy"
+                  width="100%"
+                  src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/setup-mode-03.gif?v=1724718358"
+                  sizes="(min-width: 768px), 90vw, 100vw"
+                  class="lazyload"
+                  alt=""
+                >
+              {% endif %}
+            </div>
+          </div>
+          <div id="smart-routing-content" class="outstanding-feature__content-item">
+            <div class="smart-routing-content__body mobile--hide">
+              {% if product.title == 'Deeper Connect Mini Set' or product.title == 'Deeper Connect Mini Set * 2' %}
+                <img
+                  width="450"
+                  height="442"
+                  src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/smart-routing-mini.png?v=1706536996"
+                  class="lazyload"
+                  loading="lazy"
+                  alt=""
+                >
+              {% endif %}
+
+              {% if product.title == 'DPR Mini SE & Deeper Connect Pico' %}
+                <img
+                  width="450"
+                  height="442"
+                  src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/smart-routing-mini-se.png?v=1706536996"
+                  class="lazyload"
+                  loading="lazy"
+                  alt=""
+                >
+              {% endif %}
+
+              <div class="smart-routing-content__body__intro">
+                <div class="smart-routing-content__body__item">
+                  <img
+                    width="160"
+                    height="auto"
+                    src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/feature-smart-routing-icon-01.png?v=1706116119"
+                    class="lazyload"
+                    loading="lazy"
+                    alt=""
+                  >
+                  <div class="smart-routing-content__body__item_content">
+                    <div class="smart-routing-content__body__item_content__title">Decentralization</div>
+                    <div class="smart-routing-content__body__item_content__desc">
+                      DPN uses decentralized technology for a serverless network architecture. Your browsing logs are
+                      fragmented, encrypted, and stored globally, ensuring no one can access your full logs for profit.
+                    </div>
+                  </div>
+                </div>
+                <div class="smart-routing-content__body__item">
+                  <img
+                    width="160"
+                    height="auto"
+                    src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/feature-smart-routing-icon-02.png?v=1706116119"
+                    class="lazyload"
+                    loading="lazy"
+                    alt=""
+                  >
+                  <div class="smart-routing-content__body__item_content">
+                    <div class="smart-routing-content__body__item_content__title">Smart-Routing</div>
+                    <div class="smart-routing-content__body__item_content__desc">
+                      Automatically Configure Network Routing Based on Data Stream Characteristics and Tunnel
+                      Transmission Decision.
+                    </div>
+                  </div>
+                </div>
+                <div class="smart-routing-content__body__item">
+                  <img
+                    width="160"
+                    height="auto"
+                    src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/feature-smart-routing-icon-03.png?v=1706116119"
+                    class="lazyload"
+                    loading="lazy"
+                    alt=""
+                  >
+                  <div class="smart-routing-content__body__item_content">
+                    <div class="smart-routing-content__body__item_content__title">Multi-Routing</div>
+                    <div class="smart-routing-content__body__item_content__desc">
+                      Intelligently switch tunnels according to needs; different routes can be used according to
+                      different servers simultaneously.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="cybersecurity-content" class="outstanding-feature__content-item">
+            <div class="cybersecurity-content__container">
+              <div class="cybersecurity-content__title mobile--hide">Enterprise-grade Cybersecurity</div>
+              <div class="cybersecurity-content__body">
+                <div class="cybersecurity-content__item">
+                  <img
+                    height="auto"
+                    src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/cybersecurity-icon1.png?v=1706117440"
+                    class="lazyload"
+                    loading="lazy"
+                    alt=""
+                  >
+                  <b>Atom OS</b>
+                  <div>The world's first lock-free network operating system built with speed and security in mind.</div>
+                </div>
+                <div class="cybersecurity-content__item">
+                  <img
+                    height="auto"
+                    src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/cybersecurity-icon2.png?v=1706117440"
+                    class="lazyload"
+                    loading="lazy"
+                    alt=""
+                  >
+                  <b>7-layer firewall</b>
+                  <div>
+                    Shield from viruses and Trojans, prevent malicious tracking，detect intrusions and restore safety
+                    online.
+                  </div>
+                </div>
+                <div class="cybersecurity-content__item">
+                  <img
+                    height="auto"
+                    src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/cybersecurity-icon3.png?v=1706117440"
+                    class="lazyload"
+                    loading="lazy"
+                    alt=""
+                  >
+                  <b>Low cost</b>
+                  <div>
+                    Products of similar specifications，such as a Palo Alto Network device may cost more than $10,000
+                    USD.
+                  </div>
+                </div>
+                <div class="cybersecurity-content__item">
+                  <img
+                    height="auto"
+                    src="https://cdn.shopify.com/s/files/1/0256/1038/7504/files/cybersecurity-icon4.png?v=1706117440"
+                    class="lazyload"
+                    loading="lazy"
+                    alt=""
+                  >
+                  <b>Visualization </b>
+                  <div>A sleek interface allows visualization of all online ac tivities happening on the network.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% comment %} <div id="ads-blocking-content" class="outstanding-feature__content-item"></div> {% endcomment %}
+        </div>
+      {% endif %}
+
+      {% render 'product-section' %}
+    </div>
+    {% render 'product-video-list' %}
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var options = document.querySelectorAll('.outstanding-feature__select-item');
+    var contentItems = document.querySelectorAll('.outstanding-feature__content-item');
+    var descItems = document.querySelectorAll('.outstanding-feature__desc-item');
+
+    options.forEach(function (option) {
+      option.addEventListener('click', function () {
+        var id = option.id;
+        var contentId = id + '-content';
+        var descId = id + '-desc';
+
+        contentItems.forEach(function (item) {
+          item.classList.remove('active');
+        });
+        descItems.forEach(function (item) {
+          item.classList.remove('active');
+        });
+        document.getElementById(contentId).classList.add('active');
+        document.getElementById(descId).classList.add('active');
+        options.forEach(function (opt) {
+          opt.classList.remove('selected');
+        });
+        option.classList.add('selected');
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let video = document.querySelector('#quick-setup-content__Video');
+    let quick_setup_content = document.querySelector('#quick-setup-content');
+
+    quick_setup_content &&
+      quick_setup_content.addEventListener('click', function () {
+        video.style.display = 'block';
+      });
+  });
+
+  function videoPlay() {
+    let e = document.querySelector('#quick-setup-content-air-video');
+    e.style.display = 'block'; // 显示视频
+    if (video.paused) {
+      video.play(); // 播放视频
+    } else {
+      video.pause(); // 暂停视频
+    }
+  }
+</script>
+{{ 'product-outstanding-features.css' | asset_url | stylesheet_tag }}
+<style>
+  #quick-setup-content {
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    {% if  product.title=="Deeper Connect Pico Lite" %}
+      background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/pico_2.jpg?v=1706114683');
+    {% endif %}
+
+      {% if product.title=='Deeper Connect Air' or product.title=='Deeper Connect Air & Mini Set' %}
+
+    background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/air_8e21ef04-5451-4508-893c-6ac30bc8954d.png?v=1709191891');
+
+      {% endif %}
+
+      {% if  product.title=='Deeper Connect Mini' %}
+    background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/os-mini-cover.jpg?v=1706204152');
+      {% endif %}
+  }
+
+  .outstanding-feature__content-containter {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .outstanding-feature__content-containter video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 600px;
+  }
+
+  .deeper-air-img {
+    background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Frame_6358212.png?v=1708600584');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (max-width: 1024px) {
+    #quick-setup-content {
+        {% if product.title=="Deeper Connect Pico Lite" %}
+
+      background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Frame_1000004197.jpg?v=1706206160');
+
+        {% endif %}
+
+
+
+        {% if product.title=='Deeper Connect Air' or product.title=='Deeper Connect Air & Mini Set' %}
+
+      background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/air-phone.png?v=1709192091');
+
+        {% endif %}
+
+
+
+        {% if  product.title=='Deeper Connect Mini' %}
+
+      background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/os-mini-cover-phone.png?v=1706204242');
+
+        {% endif %}
+
+      background-size: contain;
+      background-position: center;
+    }
+
+
+    .deeper-air-img {
+      background-image: url('https://cdn.shopify.com/s/files/1/0256/1038/7504/files/Frame_6358212_1.png?v=1708599949');
+    }
+
+    .outstanding-feature__content {
+      width: 100%;
+      height: unset;
+      padding-top: 150%;
+    }
+
+    #smart-routing-content {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+  }
+</style>
+{% schema %}
+{
+  "name": "Product Features",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "presets": [{ "name": "Product Features", "category": "Product" }]
+}
+{% endschema %}

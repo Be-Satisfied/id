@@ -1,35 +1,38 @@
 <!doctype html>
-<html class="no-js supports-no-cookies{% if settings.layout_container_enable %} container-layout{% endif %}" lang="{{ request.locale.iso_code }}">
+<html
+  class="no-js supports-no-cookies{% if settings.layout_container_enable %} container-layout{% endif %}"
+  lang="{{ request.locale.iso_code }}"
+>
   {%- assign title_override = false -%}
   {%- assign default_description = false -%}
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="{{ settings.accent_cool }}">
-  {%- if canonical_url != blank -%}
-    <link rel="canonical" href="{{ canonical_url }}">
-  {%- endif -%}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="{{ settings.accent_cool }}">
+    {%- if canonical_url != blank -%}
+      <link rel="canonical" href="{{ canonical_url }}">
+    {%- endif -%}
 
-  <!-- ======================= Story Theme V4.2.2 ========================= -->
+    <!-- ======================= Story Theme V4.2.0 ========================= -->
 
-  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
-  <link rel="preconnect" href="https://monorail-edge.shopifysvc.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://monorail-edge.shopifysvc.com" crossorigin>
 
-  <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'vendor.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'vendor.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
 
-  {% if settings.favicon != blank %}
-    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
-  {%- else -%}
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-  {% endif %}
+    {% if settings.favicon != blank %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {%- else -%}
+      <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    {% endif %}
 
-  <!-- Title and description ================================================ -->
-  {% capture seo_title %}
+    <!-- Title and description ================================================ -->
+    {% capture seo_title %}
     {%- assign title_content = page_title -%}
     {% if title_override %}
       {%- assign title_content = title_override -%}
@@ -48,27 +51,27 @@
       &ndash; {{ shop.name }}
     {%- endunless -%}
   {% endcapture %}
-  <title>
-    {{ seo_title }}
-  </title>
+    <title>
+      {{ seo_title }}
+    </title>
 
-  {%- if page_description -%}
-    <meta name="description" content="{{ page_description | escape }}">
-  {% elsif default_description %}
-    <meta name="description" content="{{ default_description | escape }}">
-  {%- endif -%}
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% elsif default_description %}
+      <meta name="description" content="{{ default_description | escape }}">
+    {%- endif -%}
 
-  {% render 'social-meta-tags' %}
+    {% render 'social-meta-tags' %}
 
-  <!-- CSS ================================================================== -->
+    <!-- CSS ================================================================== -->
 
-  {{ 'font-settings.css' | asset_url | stylesheet_tag }}
+    {{ 'font-settings.css' | asset_url | stylesheet_tag }}
 
-  {% render 'css-variables' %}
+    {% render 'css-variables' %}
 
-  {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
 
-  <script>
+    <script>
 
 
 
@@ -130,7 +133,7 @@
       info: {
         name: 'story'
       },
-      version: '4.2.2',
+      version: '4.2.0',
       animations:  {{ settings.animations_enable | json }},
       moneyFormat: {{ shop.money_format | json }},
       currencyCode: {{ cart.currency.iso_code | json }},
@@ -142,41 +145,50 @@
         holderTarget.style.backgroundImage = 'none';
       }
     });
-  </script>
+    </script>
 
-  {%- if request.page_type contains 'customers/' -%}
-    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
-  {%- endif -%}
+    {%- if request.page_type contains 'customers/' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+    {%- endif -%}
 
-  <!-- Theme Javascript ============================================================== -->
-  <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
-  <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+    <!-- Theme Javascript ============================================================== -->
+    <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
+    <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+    {% if template contains 'product' or template contains 'index' %}
+      <script src="{{ 'jquery.js' | asset_url }}" defer="async"></script>
+      <script src="{{ 'public.js' | asset_url }}" defer="async"></script>
+    {% endif %}
 
-  <script type="text/javascript">
-    if (window.MSInputMethodContext && document.documentMode) {
-      var scripts = document.getElementsByTagName('script')[0];
-      var polyfill = document.createElement('script');
-      polyfill.defer = true;
-      polyfill.src = "{{ 'ie11.js' | asset_url }}";
+    <script type="text/javascript">
+      if (window.MSInputMethodContext && document.documentMode) {
+        var scripts = document.getElementsByTagName('script')[0];
+        var polyfill = document.createElement('script');
+        polyfill.defer = true;
+        polyfill.src = "{{ 'ie11.js' | asset_url }}";
 
-      scripts.parentNode.insertBefore(polyfill, scripts);
-    }
-  </script>
+        scripts.parentNode.insertBefore(polyfill, scripts);
+      }
+    </script>
 
-  {% if template == 'gift_card' %}
-    <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer="defer"></script>
-    <script src="{{ 'giftcard.js' | asset_url }}" defer="defer"></script>
-  {% endif %}
+    {% if template == 'gift_card' %}
+      <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer="defer"></script>
+      <script src="{{ 'giftcard.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
 
-  <!-- Shopify app scripts =========================================================== -->
+    <!-- Shopify app scripts =========================================================== -->
 
-  {{ content_for_header }}
-</head>
+    {{ content_for_header }}
+  </head>
 
-
-  <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} {{ settings.decoration_style }} {{ settings.default_background }}" data-animations="{{ settings.animations_enable }}">
-    <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+  <body
+    id="{{ page_title | handle }}"
+    class="template-{{ template.name | handle }} {{ settings.decoration_style }} {{ settings.default_background }}"
+    data-animations="{{ settings.animations_enable }}"
+  >
+    <a class="in-page-link visually-hidden skip-link" href="#MainContent">
+      {{- 'general.accessibility.skip_to_content' | t -}}
+    </a>
 
     {% sections 'group-header' %}
     {% sections 'group-overlay' %}

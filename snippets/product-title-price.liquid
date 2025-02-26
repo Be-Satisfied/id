@@ -1,0 +1,193 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+<div class="product__headline {{ classes }}" {{ block.shopify_attributes }}>
+  {% if block.settings.product_show_vendor %}
+    <div class="product__subheading">
+      <p>
+        <a href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
+      </p>
+    </div>
+  {% endif %}
+
+  <div class="product__title__wrapper">
+    {% comment %}
+      {%- if block.settings.show_rating and product.metafields.reviews.rating.value != blank -%}
+      <div class="rating__wrapper__title">
+        {% render 'product-rating', product: product, show_rating_count: block.settings.show_rating_count %}
+      </div>
+      {%- endif -%}
+    {% endcomment %}
+
+    {% if template contains 'product' %}
+      <h1 style="font-size:32px" class="product__title">{{ product.title | strip_html }}</h1>
+    {% else %}
+      <h1 style="font-size:32px" class="product__title">
+        <a href="{{ product.url }}">{{ product.title | strip_html }}</a>
+      </h1>
+    {% endif %}
+  </div>
+
+  {% comment %}
+    <div style="margin-bottom: 10px;">
+      {% if product.title == 'Deeper Connect Pico Set (New)' or product.title == 'Deeper Connect Pico Set × 2' or
+      product.title == 'Deeper Connect Pico & Mini Set' %}
+      {% render 'pico-rating' %}
+      {% endif %}
+
+      {% if product.title == 'DPR Mini SE' or product.title == 'Reseller Trail Package (Pico x 4, Mini x 3, SE x 3)' %}
+      {% render 'se-rating' %}
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Air & Mini Set' %}
+      {% render 'air-rating' %}
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Pico Lite' %}
+      {% render 'lite-rating' %}
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Mini Set * 2' %}
+      {% render 'mini-rating-two' %}
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Mini(New)' %}
+      {% render 'mini-rating-score' %}
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Wi-Fi Adapter (USB-A）' %}
+        {% render 'usb-a-rating-score' %}
+      {% elsif product.title == 'Deeper Connect Wi-Fi Adapter (USB-C）' %}
+        {% render 'usb-c-rating-score' %}
+      {% endif %}
+
+      {% if product.title == 'Deeper Connect Air' or product.title == 'Deeper Connect Air * 2' or product.title == 'DPR
+      Mini SE & Deeper Connect Air' or product.title == 'DPR Mini SE & Deeper Connect Air' %}
+      {% render 'air-rating' %}
+      {% endif %}
+    </div>
+  {% endcomment %}
+
+  {%- if product.metafields.theme.cutline != blank
+    and product.metafields.theme.cutline.type == 'single_line_text_field'
+  -%}
+    <p class="product__cutline">{{ product.metafields.theme.cutline.value }}</p>
+  {%- endif -%}
+
+  <div class="product__price__wrap">
+    <div class="product__price__main" data-price-wrapper>
+      <span class="product__price">
+        <span
+          data-product-price
+          {% if current_variant.compare_at_price > current_variant.price %}
+            class="product__price--sale"
+          {% endif %}
+        >
+          {%- if settings.currency_code_enable -%}
+            {{ current_variant.price | money_with_currency }}
+          {%- else -%}
+            {{ current_variant.price | money }}
+          {%- endif -%}
+        </span>
+      </span>
+
+      <span data-price-off class="product__price--off hide">
+        <span data-price-off-type>{{ 'products.product.sale' | t }}</span>
+        <em>•</em>
+        {{ 'products.product.save' | t }}
+        <span data-price-off-amount></span>
+      </span>
+
+      {% liquid
+        assign units = product.variants | map: 'unit_price' | compact
+        if units[0]
+          assign has_units = true
+        else
+          assign has_units = false
+        endif
+      %}
+      {% if has_units %}
+        {% capture show_units %}
+          {%- unless current_variant.unit_price -%}style="display: none;"{%- endunless -%}
+        {% endcapture %}
+        {% capture unit_price_separator %}
+          <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+        {% endcapture %}
+        {% capture unit_price_base_unit %}
+          <span>
+            {% if current_variant.unit_price_measurement %}
+              {% if current_variant.unit_price_measurement.reference_value != 1 %}
+                {{ current_variant.unit_price_measurement.reference_value }}
+              {%- endif -%}
+              {{ current_variant.unit_price_measurement.reference_unit }}
+            {% endif %}
+          </span>
+        {% endcapture %}
+        <div class="product__price--unit">
+          <span data-product-unit {{ show_units }}>
+            <span class="visually-hidden visually-hidden--inline">{{ 'products.product.unit_price_label' | t }}</span>
+            <span data-product-unit-price id="unit-price-{{ block.id }}">
+              {%- if settings.currency_code_enable -%}
+                {{ current_variant.unit_price | money_with_currency }}
+              {%- else -%}
+                {{ current_variant.unit_price | money }}
+              {%- endif -%}
+            </span>
+            {{ unit_price_separator }}
+            <span data-product-base id="unit-price-base-{{ block.id }}">{{ unit_price_base_unit }}</span>
+          </span>
+          <span data-price-each class="hide">
+            {{ 'products.product.each' | t }}
+            <span data-price-each-amount></span>
+          </span>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+    {% liquid
+      assign units = product.variants | map: 'unit_price' | compact
+      if units[0]
+        assign has_units = true
+      else
+        assign has_units = false
+      endif
+    %}
+    {% if has_units %}
+      {% capture show_units %}
+    {%- unless current_variant.unit_price -%}style="display: none;"{%- endunless -%}
+    {% endcapture %}
+      {% capture unit_price_separator %}
+    <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t
+      }}&nbsp;</span>
+    {% endcapture %}
+      {% capture unit_price_base_unit %}
+    <span>
+      {% if current_variant.unit_price_measurement %}
+      {% if current_variant.unit_price_measurement.reference_value != 1 %}
+      {{ current_variant.unit_price_measurement.reference_value }}
+      {%- endif -%}
+      {{ current_variant.unit_price_measurement.reference_unit }}
+      {% endif %}
+    </span>
+    {% endcapture %}
+      <div class="product__price--unit">
+        <span data-product-unit {{ show_units }}>
+          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.unit_price_label' | t }}</span>
+          <span data-product-unit-price id="unit-price-{{ block.id }}">
+            {%- if settings.currency_code_enable -%}
+              {{ current_variant.unit_price | money_with_currency }}
+            {%- else -%}
+              {{ current_variant.unit_price | money }}
+            {%- endif -%}
+          </span>
+          {{ unit_price_separator }}
+          <span data-product-base id="unit-price-base-{{ block.id }}">{{ unit_price_base_unit }}</span>
+        </span>
+        <span data-price-each class="hide">
+          {{ 'products.product.each' | t }}
+          <span data-price-each-amount></span>
+        </span>
+      </div>
+    {% endif %}
+  </div>
+</div>
