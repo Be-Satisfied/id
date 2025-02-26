@@ -74,8 +74,8 @@
           "type": "featured_collection",
           "settings": {
             "collection": "",
-            "text": "<p>Bags & Purses</p>",
-            "link_override": "",
+            "text": "<p>Deeper Connect Air</p>",
+            "link_override": "shopify://products/deeper-connect-air",
             "content_color": "#333333",
             "content_bg": "#f7f7f7"
           }
