@@ -174,10 +174,10 @@
     "section_collection_bBg3x6": {
       "type": "section-collection",
       "settings": {
-        "title": "Featured Products",
+        "title": "Bundle deals",
         "description": "",
         "collection": "bundle-deals",
-        "grid": 4,
+        "grid": 3,
         "limit": 8,
         "enable_slider": true,
         "color_bg": "palette--light bg--neutral",
