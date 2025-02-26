@@ -67,94 +67,6 @@
         "padding_bottom": 0
       }
     },
-    "default-collection-grid": {
-      "type": "section-collection-grid",
-      "blocks": {
-        "default-collection-grid-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "text": "<p>Deeper Connect Air</p>",
-            "collection_image": "shopify://shop_images/air-banner2_56a1d7ed-bf9f-4d9d-a322-5a3dd21f9d31.png",
-            "link_override": "shopify://products/deeper-connect-air",
-            "content_color": "#333333",
-            "content_bg": "#f7f7f7"
-          }
-        },
-        "default-collection-grid-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "text": "<p>Shoes & Loafers</p>",
-            "link_override": "",
-            "content_color": "#333333",
-            "content_bg": "#f7f7f7"
-          }
-        },
-        "default-collection-grid-2": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "text": "<p>Glasses & Sunnies</p>",
-            "link_override": "",
-            "content_color": "#333333",
-            "content_bg": "#f7f7f7"
-          }
-        },
-        "default-collection-grid-3": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "text": "<p>Hats & Caps</p>",
-            "link_override": "",
-            "content_color": "#333333",
-            "content_bg": "#f7f7f7"
-          }
-        },
-        "default-collection-grid-4": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "text": "<p>Watches & Chargers</p>",
-            "link_override": "",
-            "content_color": "#333333",
-            "content_bg": "#f7f7f7"
-          }
-        },
-        "default-collection-grid-5": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "text": "<p>Lamps & Tableware</p>",
-            "link_override": "",
-            "content_color": "#333333",
-            "content_bg": "#f7f7f7"
-          }
-        }
-      },
-      "block_order": [
-        "default-collection-grid-0",
-        "default-collection-grid-1",
-        "default-collection-grid-2",
-        "default-collection-grid-3",
-        "default-collection-grid-4",
-        "default-collection-grid-5"
-      ],
-      "settings": {
-        "title": "Collection list",
-        "description": "<p>Use this area to describe the collection.</p>",
-        "grid": 3,
-        "color_bg": "bg--neutral",
-        "enable_slider": true,
-        "aspect_ratio": 0.6,
-        "place_text": "flex-column",
-        "align_text": "text-center",
-        "use_font": "font-heading",
-        "width": "wrapper",
-        "padding_top": 48,
-        "padding_bottom": 12
-      }
-    },
     "default-collection": {
       "type": "section-collection",
       "settings": {
@@ -543,7 +455,6 @@
   },
   "order": [
     "default-banner",
-    "default-collection-grid",
     "default-collection",
     "section_collection_bBg3x6",
     "default-split-collection",
