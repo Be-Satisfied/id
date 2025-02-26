@@ -52,11 +52,12 @@
     "product_grid_aspect_ratio": 1.2,
     "color_badge_text": "#060f9e",
     "product_grid_show_rating": true,
-    "currency_code_enable": false,
+    "currency_code_enable": true,
     "tag_sellout": true,
     "tag_sale": true,
     "tag_new": true,
-    "tag_new_limit": 14
+    "tag_new_limit": 14,
+    "content_for_index": []
   },
   "presets": {
     "Bright": {

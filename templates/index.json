@@ -159,15 +159,15 @@
       "type": "section-collection",
       "settings": {
         "title": "Featured Products",
-        "description": "<p>Use this area to describe the collection.</p>",
-        "collection": "",
-        "grid": 4,
-        "limit": 8,
+        "description": "",
+        "collection": "products",
+        "grid": 2,
+        "limit": 4,
         "enable_slider": true,
         "color_bg": "palette--light bg--neutral",
         "show_view_all": false,
         "width": "wrapper",
-        "padding_top": 12,
+        "padding_top": 36,
         "padding_bottom": 36
       }
     },
