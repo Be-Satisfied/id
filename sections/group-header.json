@@ -1,0 +1,1 @@
+{"type":"header","name":"Header","sections":{"header":{"type":"header","blocks":{"toolbar":{"type":"toolbar","settings":{}}},"block_order":["toolbar"],"settings":{"logo":"{{ shop.brand.logo }}","transparent_home":true,"transparent_logo":"{{ shop.brand.logo }}"}}},"order":["header"]}
